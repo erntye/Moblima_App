@@ -29,6 +29,4 @@ public abstract class Account {
 	public String getName() {
 		return name;
 	}
-
-	public abstract void printModule();
 }

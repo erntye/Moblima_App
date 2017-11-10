@@ -2,11 +2,7 @@ package moblima;
 
 public class StaffAcc {
 	
-	public StaffAcc() {
-	}
-	
-	public void printModule() {
-	}
+//open for extension like staff benefits function etc
 	
 }
 
