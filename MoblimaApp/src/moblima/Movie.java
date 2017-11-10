@@ -5,7 +5,11 @@ import java.util.ArrayList;
 public class Movie {
 	
 	public enum Showing_Status {
-		COMINGSOON, NOWSHOWING,ENDED
+		ComingSoon, NowShowing,Ended
+	}
+	
+	public enum CENSORSHIP_RATING {
+		G,PG, PG13,NC16,M18,R21
 	}
 	
 	private String title;
@@ -17,11 +21,12 @@ public class Movie {
 	private ArrayList<Reviews> reviews;
 	private int reviewCount = 0; //usually set to 0;
 	private float sales;
+	private CENSORSHIP_RATING censorshipRating;
 
 	
 	public Movie(String title, Showing_Status showingStatus, String synopsis,
 			String director, String[] cast, float aveRating, ArrayList<Reviews> reviews,
-			int reviewCount, float sales){
+			int reviewCount, float sales, CENSORSHIP_RATING censorshipRating){
 		this.title = title; 
 		this.showingStatus =  showingStatus;
 		this.synopsis = synopsis;
@@ -31,7 +36,7 @@ public class Movie {
 		this.reviews = reviews;
 		this.reviewCount = reviewCount; 
 		this.sales = sales;
-			
+		this.censorshipRating = censorshipRating;	
 	}
 	
 	
