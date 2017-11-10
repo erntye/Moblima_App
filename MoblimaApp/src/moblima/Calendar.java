@@ -6,24 +6,23 @@ public class Calendar {					//Date class has to be created* using gregarion cale
 		
 	private ArrayList<Date> pubHolList;
 		
-	public ArrayList<Date> getPubHolList()
-	{
+	public ArrayList<Date> getPubHolList() {
 			return pubHolList;
-		}
+	}
 		
 	public void addPubHol(Date date) {
-		
-		}
+		this.pubHolList.add(date);
+	}
 		
 	public boolean isPubHol() {
 			
 		if (date == pubHolList)
-			{
+	{
 				isPubHol == true;
-			}
-			else 
+	}
+		else 
 				isPubHol == false;
-		}
+	}
 
 }
 
