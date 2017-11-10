@@ -5,7 +5,7 @@ import java.util.Date;
 public class ShowIMAX extends Show {
 	private static float basePrice;
 	
-	public ShowIMAX(Movie movie, Date showTime, GeneralLayout bookedLayout) {
+	public ShowIMAX(Movie movie, Date showTime, char[][] bookedLayout) {
 		super(movie, showTime, bookedLayout);
 	}
 

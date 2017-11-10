@@ -3,14 +3,14 @@ package moblima;
 import java.util.Date;
 
 //change UML to include Date class and baseprice as static
-public abstract class Show {
+public class Show {
 	private Movie movie;
 	private Date showTime;
-	private GeneralLayout bookedLayout;
+	private char[][] bookedLayout;
 	private static float basePrice;
 //basePrice is not set in constructor, it is set in main before instantialization of show objects
 	
-	public Show(Movie movie,Date showTime, GeneralLayout bookedLayout){
+	public Show(Movie movie,Date showTime, char[][] bookedLayout){
 		this.movie = movie;
 		this.showTime = showTime;
 		this.bookedLayout = bookedLayout;
@@ -24,6 +24,19 @@ public abstract class Show {
 	
 	public static void setBasePrice(float newBasePrice){
 		Show.basePrice = newBasePrice;
+	}
+	public void bookSeats(char row, int column) {
+		int tempRow = Character.getNumericValue(row) - 10;
+		bookedLayout[tempRow][column] = 'X';
+		
+	}
+
+	public boolean isOccupied(char row, int column) {
+		int tempRow = Character.getNumericValue(row) - 10;
+		if (bookedLayout[tempRow][column] == 'X')
+			return true;
+		else 
+			return false;
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.Date;
 public class ShowDigital extends Show {
 	private static float basePrice;
 	
-	public ShowDigital(Movie movie, Date showTime, GeneralLayout bookedLayout) {
+	public ShowDigital(Movie movie, Date showTime, char[][] bookedLayout) {
 		super(movie, showTime, bookedLayout);
 	}
 
