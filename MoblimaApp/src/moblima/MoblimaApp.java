@@ -4,7 +4,9 @@ public class MoblimaApp {
 
 	public static void main(String[] args){
 		//test
-		System.out.println("Ho");
+		char c = 'C';
+		System.out.println(Character.getNumericValue(c));
+		
 	}
 	//try sealtong
 	//test master quek
