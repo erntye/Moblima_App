@@ -1,5 +1,5 @@
 package moblima;
-
+//defunct class
 public class GeneralLayout {
 	protected char[][] seats;
 	private boolean isOccupied = false;

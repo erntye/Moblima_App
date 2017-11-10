@@ -1,5 +1,5 @@
 package moblima;
-
+//defunct class
 public class GoldLayout extends GeneralLayout {
 	
 	public GoldLayout(){

@@ -25,6 +25,8 @@ public class Show {
 	public static void setBasePrice(float newBasePrice){
 		Show.basePrice = newBasePrice;
 	}
+	
+//remove the need for layout class and place the functions in show	
 	public void bookSeats(char row, int column) {
 		int tempRow = Character.getNumericValue(row) - 10;
 		bookedLayout[tempRow][column] = 'X';
