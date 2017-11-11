@@ -6,6 +6,16 @@ public class LoginMgr {
 	ArrayList<Account> staffArray;
 	ArrayList<Account> custArray;
 	
+	//implement Singleton structure
+	private static LoginMgr instance;
+	public static LoginMgr getInstance() {
+		if(instance == null) {
+			instance = new LoginMgr();
+		}
+		return instance;
+	}
+	
+	//validates user's log in
 	//return 0: the account.verifyLogin functions have failed
 	//return 1: login success
 	//return 2: wrong password
