@@ -3,6 +3,8 @@ import java.util.Scanner;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class ConsoleBoundary {
 	static Scanner sc;
@@ -108,20 +110,19 @@ public class ConsoleBoundary {
 		return basePrice;
 	}
 	
-	public static Date askPubHol() {
+	public static Calendar askPubHol() {
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
 		System.out.println("ADD PUBLIC HOLIDAY");
 		System.out.println("========================================");
-		System.out.println("Enter New Public Holiday Date (DD-MMM-YYYY):");
-		String dateInput = sc.next();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
-		Date date = null;
-		try{
-			date = dateFormat.parse(dateInput);
-		} catch (ParseException e) {
-		    e.printStackTrace();
-		}
+		System.out.println("Enter New Public Holiday Date");
+		System.out.print("Enter Day:");
+		int day = sc.nextInt();
+		System.out.print("Enter Month:");
+		int month = sc.nextInt();
+		System.out.print("Enter Year:");
+		int year = sc.nextInt();
+		Calendar date = new GregorianCalendar(year,month,day);
 		sc.close();
 		return date;
 	}
