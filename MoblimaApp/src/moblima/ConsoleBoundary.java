@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.ArrayList;
 
 public class ConsoleBoundary {
 	static Scanner sc;
@@ -162,7 +163,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)List Movies\n(2)List Shows by Cineplex\n(9) Logout");
+		System.out.println("What would you like to do:\n(1) List Movies\n(2) List Shows by Cineplex\n(3) Add a Review\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
@@ -211,13 +212,104 @@ public class ConsoleBoundary {
 	
 	public static Movie printMovieList() {
 		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("MOVIE LIST");
+		System.out.println("========================================");
 		int choice = 0;
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
 			System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt();
+		sc.close();
 		return MovieList.movieList.get(choice-1);
+	}
+	
+	public static boolean printMovieInfo(Movie movie) {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println(movie.getTitle().toUpperCase() );
+		System.out.println("========================================");
+		System.out.println("Movie Title: " + movie.getTitle());
+//		System.out.println("Showing Status: " + movie.getShowingStatus());
+		System.out.println("Synopsis: " + movie.getSynopsis());
+		System.out.println("Director: " + movie.getDirector());
+		System.out.println("Cast: " + movie.getCast()[0] + movie.getCast()[1]);;
+		System.out.println("Average Rating: " + movie.getAverageRating());
+		System.out.println("Past Reviews: ");
+		for(int i = 0; i<movie.getReviews().size();i++) {
+			System.out.println("Reviewer: " + movie.getReviews().get(i).getReviewer());
+			System.out.println("Rating: " + movie.getReviews().get(i).getRating());
+			System.out.println("Review: " + movie.getReviews().get(i).getContent());
+		}
+		System.out.println("(1) Proceed to book tickets\n(0) Cancel");
+		int choice = sc.nextInt();
+		if(choice==1) {
+			sc.close();
+			return true;
+		} else if (choice == 0) {
+			MovieBookingMgr.reset = true;
+		} 
+		sc.close();
+		return false;
+		
+	}
+	
+	public static Cineplex printChooseCineplex() {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("CHOOSE CINEPLEX");
+		System.out.println("========================================");
+		for(int i = 0 ; i < CineplexList.cineplexList.size();i++) {
+			System.out.println("("+ i+1 + ") " + CineplexList.cineplexList.get(i).getName());
+		}
+		System.out.println("(0) Cancel");
+		int choice = sc.nextInt();
+		if(choice == 0) {
+			MovieBookingMgr.reset = true;
+			sc.close();
+			return null;
+		} else {
+			sc.close();
+			return CineplexList.cineplexList.get(choice-1);
+		}
+		
+	}
+	
+	public static Cinema printChooseCinema(Cineplex cineplex) {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("CHOOSE CINEMA");
+		System.out.println("========================================");
+		for(int i = 0 ; i < CineplexList.cineplexList.size();i++) {
+			System.out.println("("+ i+1 + ") " +  cineplex.getCinemas().get(i).getName());
+		}
+		System.out.println("(0) Cancel");
+		int choice = sc.nextInt();
+		if(choice == 0) {
+			MovieBookingMgr.reset = true;
+			sc.close();
+			return null;
+		} else {
+			sc.close();
+			return cineplex.getCinemas().get(choice-1);
+		}
+	}
+	
+	public static String printChooseShowType() {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("CHOOSE SHOW TYPE");
+		System.out.println("========================================");
+		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX");
+		int choice = sc.nextInt();
+		String choiceS = null;
+		switch(choice){
+			case 1: choiceS = "Digital"; break;
+			case 2: choiceS = "3D"; break;
+			case 3: choiceS = "IMAX"; break;
+		}
+		return choiceS;
 	}
 	
 	public static void printLogout() {

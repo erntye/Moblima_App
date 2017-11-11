@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Movie {
 	
 	public enum Showing_Status {
-		ComingSoon, NowShowing,Ended
+		ComingSoon, NowShowing,Ended;
 	}
 	
 	public enum Censorship_Rating {
@@ -67,6 +67,30 @@ public class Movie {
 	
 	public String getTitle(){
 		return title;
+	}
+	
+//	public String getShowingStatus(){
+//		return showingStatus;
+//	}
+
+	public String getSynopsis(){
+		return synopsis;
+	}
+	
+	public String getDirector(){
+		return director;
+	}
+	
+	public String[] getCast(){
+		return cast;
+	}
+	
+	public float getAverageRating(){
+		return aveRating;
+	}
+	
+	public ArrayList<Reviews> getReviews(){
+		return reviews;
 	}
 	
 }

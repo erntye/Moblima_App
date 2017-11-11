@@ -16,6 +16,13 @@ public class Cineplex {
 	public String getCode() {
 		return code;
 	}
+	
+	public String getName() {
+		return name;
+	}
  
+	public ArrayList<Cinema> getCinemas() {
+		return cinemas;
+	}
 
 }

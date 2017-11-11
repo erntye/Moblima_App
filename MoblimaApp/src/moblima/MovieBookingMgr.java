@@ -8,7 +8,8 @@ public class MovieBookingMgr {
 	Cineplex cineplex;
 	Cinema cinema;
 	Show show;
-	String movie, showType;
+	Movie movie;
+	String showType;
 	String[] seatNumber = new String[2];
 	boolean proceed, confirm;
 	
@@ -25,9 +26,9 @@ public class MovieBookingMgr {
 	public void bookByMovie(){
 		do {
 			movie = ConsoleBoundary.printMovieList(); if(reset) break;
-			proceed = ConsoleBoundary.printMovieInfo(); if(reset) break;
+			proceed = ConsoleBoundary.printMovieInfo(movie); if(reset) break;
 			if(proceed) cineplex = ConsoleBoundary.printChooseCineplex(); if(reset) break;
-			cinema = ConsoleBoundary.printChooseCinema(); if(reset) break;
+			cinema = ConsoleBoundary.printChooseCinema(cineplex); if(reset) break;
 			showType = ConsoleBoundary.printChooseShowType(); if(reset) break;
 			show = ConsoleBoundary.printShowsByMovie(movie, cineplex, cinema, showType); if(reset) break;
 			seatNumber = ConsoleBoundary.printLayout(show); if(reset) break;
@@ -35,19 +36,19 @@ public class MovieBookingMgr {
 			if(confirm) {
 				CustAcc c = (CustAcc) LoginMgr.getInstance().loggedInAccount;
 				ConsoleBoundary.printTransaction(c); if(reset) break;
-				c.addTransaction(Transaction());
+				c.addTransaction(new Transaction(cineplex, Calendar.getInstance(), movie));
 			}
 		} while (!reset);
 		
 	}
 	
-	public void bookByCineplex(){
-		do {
-			Cineplex cineplex = ConsoleBoundary.printCineplexList();
-			Show show = ConsoleBoundary.printShowsByCineplex(cineplex);
-			String[] seatNumber = ConsoleBoundary.printLayout(show);
-			int confirm = ConsoleBoundary.printBookingConfirmation(show, seatNumber); if(reset) break;
-			ConsoleBoundary.printTransaction(confirm); if(reset) break;
-		} while (!reset);
-	}
+//	public void bookByCineplex(){
+//		do {
+//			Cineplex cineplex = ConsoleBoundary.printCineplexList();
+//			Show show = ConsoleBoundary.printShowsByCineplex(cineplex);
+//			String[] seatNumber = ConsoleBoundary.printLayout(show);
+//			int confirm = ConsoleBoundary.printBookingConfirmation(show, seatNumber); if(reset) break;
+//			ConsoleBoundary.printTransaction(confirm); if(reset) break;
+//		} while (!reset);
+//	}
 }

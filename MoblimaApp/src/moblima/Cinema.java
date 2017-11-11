@@ -22,8 +22,12 @@ public class Cinema {
 	public static void setPremium(float newPremium){
 		Cinema.premium = newPremium;
 	}
-	public void createShow(Movie movie, MovieCalendar showTime){
+	public void createShow(String movie, MovieCalendar showTime){
 		shows.add(new Show(movie,showTime,seatLayout));
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 }
