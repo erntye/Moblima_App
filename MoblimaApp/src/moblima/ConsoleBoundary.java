@@ -68,6 +68,7 @@ public class ConsoleBoundary {
 		return accountDetails;
 	}
 	
+	
 	//called by MovieMgr
 	public static Movie printAddMovie() {
 		Scanner sc = new Scanner(System.in);
@@ -134,6 +135,12 @@ public class ConsoleBoundary {
 		return choice;
 	}
 	
+	public static Movie printRemoveMovie() {
+		System.out.println("========================================");
+		System.out.println("REMOVE MOVIE");
+		System.out.println("========================================");
+		return printMovieList();
+	}
 	
 	
 	//unsorted

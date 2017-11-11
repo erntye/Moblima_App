@@ -9,4 +9,8 @@ public class MovieList {
 	public static void addMovie(Movie movieToAdd){
 		movieList.add(movieToAdd);
 	}
+	
+	public static void removeMove(Movie movieToRemove) {
+		
+	}
 }
