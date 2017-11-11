@@ -21,6 +21,20 @@ public class ConsoleBoundary {
 		return loginDetails;
 	}
 	
+	public static String[] printAddStaffAccount() {
+		String[] accountDetails = new String[3];
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter username: ");
+		accountDetails[0] = sc.nextLine();
+		System.out.print("Enter password: ");
+		accountDetails[1] = sc.nextLine();
+		System.out.print("Enter your name: ");
+		accountDetails[2] = sc.nextLine();
+		sc.close();
+		return accountDetails;
+	}
+	
+	
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
 		int choice = 0;
