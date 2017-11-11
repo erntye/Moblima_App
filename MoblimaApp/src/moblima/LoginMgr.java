@@ -36,7 +36,25 @@ public class LoginMgr {
 	}
 	
 	public void addCustAccount() {
+		String[] accountDetails = ConsoleBoundary.printAddCustAccount();
+		double mobileNumber = Double.parseDouble(accountDetails[3]);
+		int age = Integer.parseInt(accountDetails[5]);
 		
+		CustAcc.AgeCat ageCategory = CustAcc.AgeCat.ADULT; //defaults to ADULT
+		if(age<11) {
+			ageCategory = CustAcc.AgeCat.CHILD;
+		}else if(age< 21) {
+			ageCategory = CustAcc.AgeCat.STUDENT;
+		}else if(age< 65) {
+			ageCategory = CustAcc.AgeCat.ADULT;
+		}else {
+			ageCategory = CustAcc.AgeCat.SENIOR_CITIZEN;
+		}
+		
+		CustAcc newAcc = new CustAcc(accountDetails[0],accountDetails[1],accountDetails[2],mobileNumber,accountDetails[4],ageCategory);
+		if(custArray.add(newAcc))
+			System.out.println("customer account added successfully!"); //for testing
+
 	}
 	
 	public void addStaffAccount() {
