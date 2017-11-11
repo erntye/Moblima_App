@@ -3,14 +3,15 @@ import java.util.ArrayList;
 
 enum AgeCat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
 
-public class CustAcc {
+public class CustAcc extends Account{
 		
 	public ArrayList<Transaction> transactionList;
 	private double mobileNumber;
 	private String email;
 	public AgeCat ageCat; //change UML diagram
 		
-	public CustAcc(double mobileNumber, String email, AgeCat ageCat) {
+	public CustAcc(String username, String password, String name, double mobileNumber, String email, AgeCat ageCat) {
+			super(username, password, name);
 			this.mobileNumber = mobileNumber;
 			this.email = email;
 			this.ageCat = ageCat;
