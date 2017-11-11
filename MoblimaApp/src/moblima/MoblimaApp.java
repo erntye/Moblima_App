@@ -19,12 +19,12 @@ public class MoblimaApp {
 		
 		ConsoleBoundary.printLoginPage();
 		if(loginDetails[0]==1 && LoginMgr.validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-			int choice = ConsoleBoundary.printStaffPage();
-			StaffCtr.staffOperations(choice);
+			StaffCtr.staffOperations();
 		} else if (loginDetails[0]==2 && LoginMgr.validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-			int choice = ConsoleBoundary.printCustPage();
-			CustCtr.custOperations(choice);
+			CustCtr.custOperations();
 		}
+		
+		ConsoleBoundary.printLogout();
 	}
 	//try sealtong
 	//test master quek

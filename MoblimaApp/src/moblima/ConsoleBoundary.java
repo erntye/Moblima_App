@@ -27,7 +27,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("STAFF PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)Modify Movies\n(2)Modify Shows\n(3)Modify System Settings");
+		System.out.println("What would you like to do:\n(1)Modify Movies\n(2)Modify Shows\n(3)Modify System Settings\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
@@ -39,9 +39,15 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)See Movies\n(2)Book Tickets\n");
+		System.out.println("What would you like to do:\n(1)See Movies\n(2)Book Tickets\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
+	}
+	
+	public static void printLogout() {
+		System.out.println("========================================");
+		System.out.println("GOOD BYE! SEE YOU SOON!");
+		System.out.println("========================================");
 	}
 }
