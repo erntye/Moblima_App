@@ -26,7 +26,13 @@ public class MoblimaApp {
 		
 		ConsoleBoundary.printLogout();
 	}
-	//try sealtong
-	//test master quek
-	//test g
+	
+	public void intialiseEverything() {
+		
+		
+		//initialize login manager
+		
+		
+	}
+
 }
