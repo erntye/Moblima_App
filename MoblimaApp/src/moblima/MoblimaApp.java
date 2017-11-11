@@ -17,9 +17,14 @@ public class MoblimaApp {
 		System.out.println(date.equals(date2));
 		System.out.println(cal.equals(cal2));
 		
-		ConsoleBoundary.loginDisplay();
-		LoginMgr.validate(loginDetails[0], loginDetails[1], loginDetails[2]);
-		
+		ConsoleBoundary.printLoginPage();
+		if(loginDetails[0]==1 && LoginMgr.validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
+			int choice = ConsoleBoundary.printStaffPage();
+			StaffCtr.staffOperations(choice);
+		} else if (loginDetails[0]==2 && LoginMgr.validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
+			int choice = ConsoleBoundary.printCustPage();
+			CustCtr.custOperations(choice);
+		}
 	}
 	//try sealtong
 	//test master quek
