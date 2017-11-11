@@ -17,9 +17,7 @@ public class LoginMgr {
 		case 1:
 			for (Account account : staffArray) {
 				result = account.verifyLogin(username, password);
-				if(result == 1) {
-					return result;
-				} else if(result == 2) {
+				if(result == 1 || result == 2) {
 					return result;
 				}
 			}
@@ -27,9 +25,7 @@ public class LoginMgr {
 		case 2:
 			for (Account account : custArray) {
 				result = account.verifyLogin(username, password);
-				if(result == 1) {
-					return result;
-				} else if(result == 2) {
+				if(result == 1 || result == 2) {
 					return result;
 				}
 			}
