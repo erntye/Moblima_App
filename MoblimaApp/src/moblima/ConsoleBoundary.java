@@ -1,5 +1,8 @@
 package moblima;
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
 
 public class ConsoleBoundary {
 	static Scanner sc;
@@ -75,10 +78,52 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)See Movies\n(2)Book Tickets\n(9) Logout");
+		System.out.println("What would you like to do:\n(1)List Movies\n(2)List Shows by Cineplex\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
+	}
+	
+	public static int printSystemSettingMenu() {
+		sc = new Scanner(System.in);
+		int choice = 0;
+		System.out.println("========================================");
+		System.out.println("SYSTEM SETTINGS");
+		System.out.println("========================================");
+		System.out.println("What would you like to do:\n(1)Change Ticket Base Price\n(2)Add Public Holiday\n(9) Logout");
+		choice = sc.nextInt();
+		sc.close();
+		return choice;
+	}
+	
+	public static float askBasePrice() {
+		sc = new Scanner(System.in);
+		float basePrice = 0;
+		System.out.println("========================================");
+		System.out.println("CHANGE TICKET BASE PRICE");
+		System.out.println("========================================");
+		System.out.println("Enter New Ticket Base Price: ");
+		basePrice = sc.nextFloat();
+		sc.close();
+		return basePrice;
+	}
+	
+	public static Date askPubHol() {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("ADD PUBLIC HOLIDAY");
+		System.out.println("========================================");
+		System.out.println("Enter New Public Holiday Date (DD-MMM-YYYY):");
+		String dateInput = sc.next();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+		Date date = null;
+		try{
+			date = dateFormat.parse(dateInput);
+		} catch (ParseException e) {
+		    e.printStackTrace();
+		}
+		sc.close();
+		return date;
 	}
 	
 	public static void printLogout() {
