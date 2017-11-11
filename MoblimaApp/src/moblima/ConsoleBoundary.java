@@ -27,7 +27,7 @@ public class ConsoleBoundary {
 	}
 	
 	
-	// called by loginMgr
+	// called by LoginMgr
 	public static String[] printAddStaffAccount() {
 		String[] accountDetails = new String[3];
 		Scanner sc = new Scanner(System.in);
@@ -68,8 +68,57 @@ public class ConsoleBoundary {
 		return accountDetails;
 	}
 	
+	//called by MovieMgr
+	public static Movie printAddMove() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("========================================");
+		System.out.println("ADD MOVIE");
+		System.out.println("========================================");
+		System.out.println("Enter Title: ");
+		String title = sc.nextLine();
+		System.out.println("Enter Showing Status: ");
+		System.out.println("1. Coming Soon \t 2. Now Showing \t 3. Ended");
+		int temp = sc.nextInt();
+		Movie.Showing_Status status;
+		switch(temp) {
+		case 1: status = Movie.Showing_Status.ComingSoon; break;
+		case 2: status = Movie.Showing_Status.NowShowing; break;
+		case 3: status = Movie.Showing_Status.Ended; break;
+		default: status = Movie.Showing_Status.ComingSoon;
+		}
+		sc.nextLine();
+		System.out.println("Enter Synopsis: ");
+		String synopsis = sc.nextLine();
+		System.out.println("Enter Director: ");
+		String director = sc.nextLine();
+		System.out.println("Enter Number of cast: ");
+		int castNumber = sc.nextInt();
+		sc.nextLine();
+		String[] cast = new String[castNumber];
+		for(int i = 0; i < castNumber; i ++) {
+			System.out.println("Enter Cast Number " + (i+1));
+			cast[i] = sc.nextLine();
+		}
+		System.out.println("Enter Censorship Rating: ");//G,PG, PG13,NC16,M18,R21
+		System.out.println("1. G \t 2. PG \t 3. PG13 \t 4. NC16 \t 5. M18 \t 6. R21");
+		temp = sc.nextInt();
+		Movie.Censorship_Rating censorR;
+		switch(temp) {
+		case 1: censorR = Movie.Censorship_Rating.G; break;
+		case 2: censorR = Movie.Censorship_Rating.PG; break;
+		case 3: censorR = Movie.Censorship_Rating.PG13; break;
+		case 4: censorR = Movie.Censorship_Rating.NC16; break;
+		case 5: censorR = Movie.Censorship_Rating.M18; break;
+		case 6: censorR = Movie.Censorship_Rating.R21; break;
+		default: censorR = Movie.Censorship_Rating.PG;
+		}
+		Movie movieToAdd = new Movie(title, status, synopsis, director, cast, censorR);
+		return movieToAdd;
+	}
 	
 	
+	//unsorted
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
 		int choice = 0;
