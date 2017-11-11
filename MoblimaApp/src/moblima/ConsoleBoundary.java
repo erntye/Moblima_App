@@ -127,6 +127,17 @@ public class ConsoleBoundary {
 		return date;
 	}
 	
+	public static Movie printMovieList() {
+		sc = new Scanner(System.in);
+		int choice = 0;
+		for(int i = 0; i < MovieList.movieList.size(); i++) {
+			System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+		}
+		System.out.println("Choose a movie: ");
+		choice = sc.nextInt();
+		return MovieList.movieList.get(choice-1);
+	}
+	
 	public static void printLogout() {
 		System.out.println("========================================");
 		System.out.println("GOOD BYE! SEE YOU SOON!");

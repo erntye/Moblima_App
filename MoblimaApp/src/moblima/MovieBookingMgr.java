@@ -1,6 +1,9 @@
 package moblima;
+import java.util.Scanner;
 
 public class MovieBookingMgr {
+	Scanner sc;
+	
 	
 	//implement Singleton structure
 	private static MovieBookingMgr instance;
@@ -11,11 +14,11 @@ public class MovieBookingMgr {
 		return instance;
 	}
 	
-	public void listByMovie(){
-		
+	public Movie chooseMovie(){
+		return ConsoleBoundary.printMovieList();	
 	}
 	
-	public void listByCineplex(){
+	public void chooseCineplex(){
 		
 	}
 }
