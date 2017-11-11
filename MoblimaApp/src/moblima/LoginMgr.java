@@ -9,7 +9,8 @@ public class LoginMgr {
 	//return 0: the account.verifyLogin functions have failed
 	//return 1: login success
 	//return 2: wrong password
-	//return 3: user name not found in staff array
+	//return 3: user name not found in array
+	//return 4: account type invalid
 	public int validate(int accType, String username, String password) {
 		int result = 0;
 		switch(accType) {
@@ -22,7 +23,7 @@ public class LoginMgr {
 					return result;
 				}
 			}
-			return result;
+			return 3;
 		case 2:
 			for (Account account : custArray) {
 				result = account.verifyLogin(username, password);
@@ -32,6 +33,9 @@ public class LoginMgr {
 					return result;
 				}
 			}
+			return 3;
+		default:
+			return 4;
 		}
 	}
 }
