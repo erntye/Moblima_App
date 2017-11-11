@@ -16,8 +16,8 @@ public class StaffCtr {
 		do {
 			choice = ConsoleBoundary.printStaffPage();
 			switch(choice) {
-			case 1: MovieMgr.movieOps(); break;
-			case 2: ShowMgr.showOps(); break;
+			case 1: MovieMgr.getInstance().movieOps(); break;
+			case 2: ShowMgr.getInstance().showOps(); break;
 			case 3: SystemSettingMgr.getInstance().sysSetOps(); break;
 			}
 		} while (choice != 9);

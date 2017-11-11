@@ -16,8 +16,8 @@ public class CustCtr {
 		do {
 			choice = ConsoleBoundary.printStaffPage();
 			switch(choice) {
-			case 1: MovieBookingMgr.getInstance().chooseMovie(); break;
-			case 2: MovieBookingMgr.getInstance().chooseCineplex(); break;
+			case 1: MovieBookingMgr.getInstance().bookByMovie(); break;
+			case 2: MovieBookingMgr.getInstance().bookByCineplex(); break;
 			}
 		} while (choice != 9);
 	}

@@ -1,8 +1,16 @@
 package moblima;
 import java.util.Scanner;
+import java.util.Calendar;
 
 public class MovieBookingMgr {
 	Scanner sc;
+	static boolean reset = false;
+	Cineplex cineplex;
+	Cinema cinema;
+	Show show;
+	String movie, showType;
+	String[] seatNumber = new String[2];
+	boolean proceed, confirm;
 	
 	
 	//implement Singleton structure
@@ -14,11 +22,32 @@ public class MovieBookingMgr {
 		return instance;
 	}
 	
-	public Movie chooseMovie(){
-		return ConsoleBoundary.printMovieList();	
+	public void bookByMovie(){
+		do {
+			movie = ConsoleBoundary.printMovieList(); if(reset) break;
+			proceed = ConsoleBoundary.printMovieInfo(); if(reset) break;
+			if(proceed) cineplex = ConsoleBoundary.printChooseCineplex(); if(reset) break;
+			cinema = ConsoleBoundary.printChooseCinema(); if(reset) break;
+			showType = ConsoleBoundary.printChooseShowType(); if(reset) break;
+			show = ConsoleBoundary.printShowsByMovie(movie, cineplex, cinema, showType); if(reset) break;
+			seatNumber = ConsoleBoundary.printLayout(show); if(reset) break;
+			confirm = ConsoleBoundary.printBookingConfirmation(); if(reset) break;
+			if(confirm) {
+				CustAcc c = (CustAcc) LoginMgr.getInstance().loggedInAccount;
+				ConsoleBoundary.printTransaction(c); if(reset) break;
+				c.addTransaction(Transaction());
+			}
+		} while (!reset);
+		
 	}
 	
-	public void chooseCineplex(){
-		
+	public void bookByCineplex(){
+		do {
+			Cineplex cineplex = ConsoleBoundary.printCineplexList();
+			Show show = ConsoleBoundary.printShowsByCineplex(cineplex);
+			String[] seatNumber = ConsoleBoundary.printLayout(show);
+			int confirm = ConsoleBoundary.printBookingConfirmation(show, seatNumber); if(reset) break;
+			ConsoleBoundary.printTransaction(confirm); if(reset) break;
+		} while (!reset);
 	}
 }

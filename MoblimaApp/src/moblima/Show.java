@@ -3,7 +3,7 @@ package moblima;
 
 //change UML to include Date class and baseprice as static
 public class Show {
-	private Movie movie;
+	private String movie;
 	private MovieCalendar showTime;
 	private char[][] bookedLayout;
 	private static float basePrice;
