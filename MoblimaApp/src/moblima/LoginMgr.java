@@ -10,7 +10,7 @@ public class LoginMgr {
 	//return 1: login success
 	//return 2: wrong password
 	//return 3: user name not found in array
-	//return 4: account type invalid
+	//return 4: account type invalid 
 	public int validate(int accType, String username, String password) {
 		int result = 0;
 		switch(accType) {
