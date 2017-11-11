@@ -1,11 +1,9 @@
 package moblima;
 
-import java.util.Date;
-
 public class Show3D extends Show {
 	private static float basePrice;
 	
-	public Show3D(Movie movie, Calendar showTime, char[][] bookedLayout) {
+	public Show3D(Movie movie, MovieCalendar showTime, char[][] bookedLayout) {
 		super(movie, showTime, bookedLayout);
 	}
 

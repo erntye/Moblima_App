@@ -1,11 +1,10 @@
 package moblima;
 
-import java.util.Date;
 
 public class ShowDigital extends Show {
 	private static float basePrice;
 	
-	public ShowDigital(Movie movie, Calendar showTime, char[][] bookedLayout) {
+	public ShowDigital(Movie movie, MovieCalendar showTime, char[][] bookedLayout) {
 		super(movie, showTime, bookedLayout);
 	}
 

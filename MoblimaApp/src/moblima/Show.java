@@ -4,12 +4,12 @@ package moblima;
 //change UML to include Date class and baseprice as static
 public class Show {
 	private Movie movie;
-	private Calendar showTime;
+	private MovieCalendar showTime;
 	private char[][] bookedLayout;
 	private static float basePrice;
 //basePrice is not set in constructor, it is set in main before instantialization of show objects
 	
-	public Show(Movie movie,Calendar showTime, char[][] bookedLayout){
+	public Show(Movie movie,MovieCalendar showTime, char[][] bookedLayout){
 		this.movie = movie;
 		this.showTime = showTime;
 		this.bookedLayout = bookedLayout;
@@ -17,7 +17,7 @@ public class Show {
 
 	
 //change UML for this methods
-	public void setTime(Calendar movieTiming){
+	public void setTime(MovieCalendar movieTiming){
 		this.showTime = movieTiming;
 	}
 	

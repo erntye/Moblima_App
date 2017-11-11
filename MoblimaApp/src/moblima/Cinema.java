@@ -1,7 +1,6 @@
 package moblima;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Cinema {
 	private ArrayList<Show> shows;
@@ -23,7 +22,7 @@ public class Cinema {
 	public static void setPremium(float newPremium){
 		Cinema.premium = newPremium;
 	}
-	public void createShow(Movie movie, Calendar showTime){
+	public void createShow(Movie movie, MovieCalendar showTime){
 		shows.add(new Show(movie,showTime,seatLayout));
 	}
 
