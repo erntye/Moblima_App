@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class DataBoundary {
-	
+	//test
 	public ArrayList<Account> getStaffList() {
 		ArrayList<Account> staffArray = new ArrayList<Account>();
 		try {
@@ -16,11 +16,18 @@ public class DataBoundary {
 		}
 		catch (EOFException e) {
 			//just to test
-			System.out.println("All Staff Accounts added.");
+			e.printStackTrace();
+			System.out.println("All Staff Accounts Added.");
 		}
-		catch (FileNotFoundException e) {}
-		catch (IOException e) {}
-		catch (ClassNotFoundException e) {}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		return staffArray;
 	}
 	
@@ -35,11 +42,44 @@ public class DataBoundary {
 		}
 		catch (EOFException e) {
 			//just to test
-			System.out.println("All Customer Accounts added.");
+			e.printStackTrace();
+			System.out.println("All Customer Accounts Added.");
 		}
-		catch (FileNotFoundException e) {}
-		catch (IOException e) {}
-		catch (ClassNotFoundException e) {}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		return custArray;
+	}
+	
+	public ArrayList<Movie> getMovieList() {
+		ArrayList<Movie> movieArray = new ArrayList<Movie>();
+		try {
+			FileInputStream fis = new FileInputStream("movie.tmp");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			while (true) {
+				movieArray.add((Movie) ois.readObject());
+			}
+		}
+		catch (EOFException e) {
+			//just to test
+			e.printStackTrace();
+			System.out.println("All Movies Added.");
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return movieArray;
 	}
 }
