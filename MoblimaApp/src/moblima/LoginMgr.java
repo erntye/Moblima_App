@@ -21,9 +21,10 @@ public class LoginMgr {
 	//return 2: wrong password
 	//return 3: user name not found in array
 	//return 4: account type invalid 
-	public int validate(int accType, String username, String password) {
+	public int validate(String accType, String username, String password) {
 		int result = 0;
-		switch(accType) {
+		int accountType = Integer.parseInt(accType);
+		switch(accountType) {
 		case 1:
 			for (Account account : staffArray) {
 				result = account.verifyLogin(username, password);
