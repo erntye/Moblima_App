@@ -26,6 +26,8 @@ public class ConsoleBoundary {
 		return temploginDetails;
 	}
 	
+	
+	// called by loginMgr
 	public static String[] printAddStaffAccount() {
 		String[] accountDetails = new String[3];
 		Scanner sc = new Scanner(System.in);
@@ -65,6 +67,8 @@ public class ConsoleBoundary {
 		sc.close();
 		return accountDetails;
 	}
+	
+	
 	
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
