@@ -1,6 +1,7 @@
 package moblima;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.ArrayList;
 
 public class MoblimaApp {
 	
@@ -31,9 +32,10 @@ public class MoblimaApp {
 	public void intialiseEverything() {
 		
 		
-		//initialize login manager
-		//test
-		
+		//initialise login manager
+		ArrayList<Account> staffArray = DataBoundary.getStaffList();
+		ArrayList<Account> custArray = DataBoundary.getCustList();
+		LoginMgr.getInstance().initialiseAccounts(staffArray, custArray);
 	}
 
 }

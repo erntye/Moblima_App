@@ -75,7 +75,7 @@ public class LoginMgr {
 			System.out.println("staff account added successfully!"); //for testing
 	}
 	
-	public void initialiseAccounts() {
+	public void initialiseAccounts(ArrayList<Account> staffArray, ArrayList<Account> custArray) {
 		
 	}
 }
