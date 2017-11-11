@@ -34,4 +34,19 @@ public class LoginMgr {
 			return 4;
 		}
 	}
+	
+	public void addCustAccount() {
+		
+	}
+	
+	public void addStaffAccount() {
+		String[] accountDetails = ConsoleBoundary.printAddStaffAccount();
+		StaffAcc newAcc = new StaffAcc(accountDetails[0],accountDetails[1],accountDetails[2]);
+		if(staffArray.add(newAcc))
+			System.out.println("staff account added successfully!"); //for testing
+	}
+	
+	public void initialiseAccounts() {
+		
+	}
 }
