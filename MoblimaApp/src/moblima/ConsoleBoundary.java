@@ -9,19 +9,19 @@ public class ConsoleBoundary {
 	
 	public static String[] printLoginPage() {	
 		sc = new Scanner(System.in);
-		String[] loginDetails = new String[3];
+		String[] temploginDetails = new String[3];
 		System.out.println("========================================");
 		System.out.println("WELCOME TO  MOBLIMA");
 		System.out.println("========================================");
 		System.out.println("Account Type:\n(1) Staff\n(2) Customer");
-		loginDetails[0] = sc.nextLine();
+		temploginDetails[0] = sc.nextLine();
 		System.out.println("Username: ");
-		loginDetails[1] = sc.nextLine();
+		temploginDetails[1] = sc.nextLine();
 		System.out.println("Password: ");
-		loginDetails[2] = sc.nextLine();
+		temploginDetails[2] = sc.nextLine();
 		System.out.println("Verifying...");
 		sc.close();
-		return loginDetails;
+		return temploginDetails;
 	}
 	
 	public static String[] printAddStaffAccount() {
