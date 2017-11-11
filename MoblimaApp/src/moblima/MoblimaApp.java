@@ -32,7 +32,7 @@ public class MoblimaApp {
 		
 		
 		//initialize login manager
-		
+		//test
 		
 	}
 
