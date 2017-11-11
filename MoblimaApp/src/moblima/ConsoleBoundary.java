@@ -36,6 +36,26 @@ public class ConsoleBoundary {
 		return accountDetails;
 	}
 	
+	public static String[] printAddCustAccount() {
+		String[] accountDetails = new String[6];
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter username: ");
+		accountDetails[0] = sc.nextLine();
+		System.out.print("Enter password: ");
+		accountDetails[1] = sc.nextLine();
+		System.out.print("Enter your name: ");
+		accountDetails[2] = sc.nextLine();
+		System.out.print("Enter mobile number: ");
+		accountDetails[3] = sc.nextLine();
+		System.out.print("Enter email address: ");
+		accountDetails[4] = sc.nextLine();
+		System.out.print("Enter your age: ");
+		accountDetails[5] = sc.nextLine();
+		sc.close();
+		return accountDetails;
+	}
+	
 	
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
