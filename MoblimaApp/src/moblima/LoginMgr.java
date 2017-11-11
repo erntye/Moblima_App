@@ -76,6 +76,7 @@ public class LoginMgr {
 	}
 	
 	public void initialiseAccounts(ArrayList<Account> staffArray, ArrayList<Account> custArray) {
-		
+		this.staffArray = staffArray;
+		this.custArray = custArray;
 	}
 }
