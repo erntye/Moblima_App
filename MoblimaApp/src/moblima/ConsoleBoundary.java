@@ -69,7 +69,7 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr
-	public static Movie printAddMove() {
+	public static Movie printAddMovie() {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("========================================");
@@ -116,6 +116,14 @@ public class ConsoleBoundary {
 		Movie movieToAdd = new Movie(title, status, synopsis, director, cast, censorR);
 		return movieToAdd;
 	}
+	
+	public static int printMovieOps() {
+		System.out.println("========================================");
+		System.out.println("MANAGE MOVIES");
+		System.out.println("========================================");
+		System.out.println("1. Add Movie");
+	}
+	
 	
 	
 	//unsorted
