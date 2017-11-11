@@ -33,7 +33,8 @@ public class CustAcc extends Account{
 			return transactionList;
 		}	
 	public void addTransaction(Transaction transactionToAdd){
-		transactionList.add(transactionToAdd);	
+		transactionList.add(transactionToAdd);
+		//tell garion to save to database
 		}
 		
 }
