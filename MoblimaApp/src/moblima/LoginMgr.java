@@ -40,7 +40,7 @@ public class LoginMgr {
 		double mobileNumber = Double.parseDouble(accountDetails[3]);
 		int age = Integer.parseInt(accountDetails[5]);
 		
-		CustAcc.AgeCat ageCategory = CustAcc.AgeCat.ADULT; //defaults to adult
+		CustAcc.AgeCat ageCategory = CustAcc.AgeCat.ADULT; //defaults to ADULT
 		if(age<11) {
 			ageCategory = CustAcc.AgeCat.CHILD;
 		}else if(age< 21) {
