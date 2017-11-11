@@ -30,6 +30,9 @@ public class ConsoleBoundary {
 		String[] accountDetails = new String[3];
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.println("========================================");
+		System.out.println("ADD STAFF ACCOUNT");
+		System.out.println("========================================");
 		System.out.print("Enter username: ");
 		accountDetails[0] = sc.nextLine();
 		System.out.print("Enter password: ");
@@ -44,7 +47,9 @@ public class ConsoleBoundary {
 	public static String[] printAddCustAccount() {
 		String[] accountDetails = new String[6];
 		Scanner sc = new Scanner(System.in);
-		
+		System.out.println("========================================");
+		System.out.println("ADD CUSTOMER ACCOUNT");
+		System.out.println("========================================");
 		System.out.print("Enter username: ");
 		accountDetails[0] = sc.nextLine();
 		System.out.print("Enter password: ");
@@ -60,7 +65,6 @@ public class ConsoleBoundary {
 		sc.close();
 		return accountDetails;
 	}
-	
 	
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
@@ -110,7 +114,6 @@ public class ConsoleBoundary {
 		return basePrice;
 	}
 	
-	//for adding a public holiday
 	public static Calendar askPubHol() {
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
