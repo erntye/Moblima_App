@@ -4,7 +4,7 @@ package moblima;
 public class ShowIMAX extends Show {
 	private static float basePrice;
 	
-	public ShowIMAX(Movie movie, MovieCalendar showTime, char[][] bookedLayout) {
+	public ShowIMAX(String movie, MovieCalendar showTime, char[][] bookedLayout) {
 		super(movie, showTime, bookedLayout);
 	}
 

@@ -9,7 +9,7 @@ public class Show {
 	private static float basePrice;
 //basePrice is not set in constructor, it is set in main before instantialization of show objects
 	
-	public Show(Movie movie,MovieCalendar showTime, char[][] bookedLayout){
+	public Show(String movie,MovieCalendar showTime, char[][] bookedLayout){
 		this.movie = movie;
 		this.showTime = showTime;
 		this.bookedLayout = bookedLayout;
