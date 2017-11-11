@@ -69,7 +69,7 @@ public class ConsoleBoundary {
 	}
 	
 	
-	//called by MovieMgr
+	//called by MovieMgr 
 	public static Movie printAddMovie() {
 		Scanner sc = new Scanner(System.in);
 		
