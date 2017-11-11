@@ -75,7 +75,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)See Movies\n(2)Book Tickets\n(9) Logout");
+		System.out.println("What would you like to do:\n(1)List Movies\n(2)List Shows by Cineplex\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
