@@ -1,7 +1,7 @@
 package moblima;
 import java.util.ArrayList;
 
-enum AgeCat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
+public enum AgeCat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
 
 public class CustAcc extends Account{
 		
