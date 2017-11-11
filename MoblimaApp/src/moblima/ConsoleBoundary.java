@@ -110,6 +110,7 @@ public class ConsoleBoundary {
 		return basePrice;
 	}
 	
+	//for adding a public holiday
 	public static Calendar askPubHol() {
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
