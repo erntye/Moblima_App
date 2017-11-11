@@ -12,6 +12,10 @@ public class Cineplex {
 		this.cinemas = new ArrayList<Cinema>();
 
 	}
+	
+	public String getCode() {
+		return code;
+	}
  
 
 }

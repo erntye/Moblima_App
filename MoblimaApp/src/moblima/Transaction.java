@@ -1,13 +1,20 @@
 package moblima;
+import java.util.Calendar;
 
 public class Transaction {
 	private String tid;
-	public String date;
-	public String movieTitle;
+	private String date;
+	private String movieTitle;
 	
-	public Transaction (String tid, String date, String movieTitle) {
-		this.tid = tid;
-		this.date = date;
+	public Transaction (Cineplex cineplex, Calendar date, String movieTitle) {
+		String code = cineplex.getCode();
+		String year = Integer.toString(date.get(Calendar.YEAR));
+		String month = Integer.toString(date.get(Calendar.MONTH+1));
+		String day = Integer.toString(date.get(Calendar.DAY_OF_MONTH));
+		String hour = Integer.toString(date.get(Calendar.HOUR_OF_DAY));
+		String minute = Integer.toString(date.get(Calendar.MINUTE));
+		this.date = year+month+day+hour+minute;
+		this.tid = code + this.date;
 		this.movieTitle = movieTitle;
 	}
 	
