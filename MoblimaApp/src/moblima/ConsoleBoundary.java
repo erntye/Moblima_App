@@ -114,14 +114,24 @@ public class ConsoleBoundary {
 		default: censorR = Movie.Censorship_Rating.PG;
 		}
 		Movie movieToAdd = new Movie(title, status, synopsis, director, cast, censorR);
+		
+		sc.close();
 		return movieToAdd;
 	}
 	
 	public static int printMovieOps() {
+		Scanner sc = new Scanner(System.in);
+
 		System.out.println("========================================");
 		System.out.println("MANAGE MOVIES");
 		System.out.println("========================================");
 		System.out.println("1. Add Movie");
+		System.out.println("2. Remove Movie");
+		System.out.println("3. Edit Movie");
+		int choice = sc.nextInt();
+		
+		sc.close();
+		return choice;
 	}
 	
 	
