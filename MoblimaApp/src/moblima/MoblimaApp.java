@@ -17,6 +17,9 @@ public class MoblimaApp {
 		System.out.println(date.equals(date2));
 		System.out.println(cal.equals(cal2));
 		
+		ConsoleBoundary.loginDisplay();
+		LoginMgr.validate(loginDetails[0], loginDetails[1], loginDetails[2]);
+		
 	}
 	//try sealtong
 	//test master quek
