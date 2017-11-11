@@ -31,6 +31,9 @@ public class CustAcc {
 	public ArrayList<Transaction> getTransactionList(){
 			return transactionList;
 		}	
+	public void addTransaction(Transaction transactionToAdd){
+		transactionList.add(transactionToAdd);	
+		}
 		
 }
 

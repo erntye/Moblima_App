@@ -8,7 +8,7 @@ public class Movie {
 		ComingSoon, NowShowing,Ended
 	}
 	
-	public enum CENSORSHIP_RATING {
+	public enum Censorship_Rating {
 		G,PG, PG13,NC16,M18,R21
 	}
 	
@@ -21,12 +21,12 @@ public class Movie {
 	private ArrayList<Reviews> reviews;
 	private int reviewCount = 0; //usually set to 0;
 	private float sales;
-	private CENSORSHIP_RATING censorshipRating;
+	private Censorship_Rating censorshipRating;
 
 	
 	public Movie(String title, Showing_Status showingStatus, String synopsis,
 			String director, String[] cast, float aveRating, ArrayList<Reviews> reviews,
-			int reviewCount, float sales, CENSORSHIP_RATING censorshipRating){
+			int reviewCount, float sales, Censorship_Rating censorshipRating){
 		this.title = title; 
 		this.showingStatus =  showingStatus;
 		this.synopsis = synopsis;

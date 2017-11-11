@@ -9,13 +9,14 @@ public class Cinema {
 	private String name;
 	private char[][] seatLayout;
 
+//maybe constructor may not take in an array list, but construct the arraylist by calling the addshow function
 	public Cinema (ArrayList<Show> shows, String name)
 	{
 		this.shows = shows;
 		this.name = name;
 	}
 
-	public float calculatePrice(float basePrice, float premium) { //change UML diagram
+	public float calculatePrice(float basePrice) { //change UML diagram
 		return basePrice + premium;
 	}
 	
