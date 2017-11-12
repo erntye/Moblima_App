@@ -1,5 +1,7 @@
 package moblima;
 
+import java.io.Console;
+
 public class CustCtr {
 	int choice;
 	
@@ -18,7 +20,7 @@ public class CustCtr {
 			switch(choice) {
 			case 1: MovieBookingMgr.getInstance().bookByMovie(); break;
 //			case 2: MovieBookingMgr.getInstance().bookByCineplex(); break;
-//			case 3: Addreview
+			case 3: ConsoleBoundary.printMovieList().addReviews(ConsoleBoundary.printAddReview());; break;
 			}
 		} while (choice != 9);
 	}

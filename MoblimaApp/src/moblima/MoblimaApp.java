@@ -6,6 +6,8 @@ import java.util.ArrayList;
 public class MoblimaApp {
 	
 	public static void main(String[] args){
+		initialiseEverything();
+		
 		String[] loginDetails = new String[3];
 		Calendar cal = Calendar.getInstance();
 		cal.set(2001,4,14);
@@ -37,13 +39,16 @@ public class MoblimaApp {
 		ConsoleBoundary.printLogout();
 	}
 	
-	public void intialiseEverything() {
+	public static void initialiseEverything() {
 		
 		
 		//initialise login manager
 		ArrayList<Account> staffArray = DataBoundary.getStaffList();
 		ArrayList<Account> custArray = DataBoundary.getCustList();
 		LoginMgr.getInstance().initialiseAccounts(staffArray, custArray);
+		
+		//initialise cineplexlist
+		//initialise moviemanager
 	}
 
 }
