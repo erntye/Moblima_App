@@ -11,10 +11,11 @@ public class Cinema {
 	private char[][] seatLayout;
 
 //maybe constructor may not take in an array list, but construct the arraylist by calling the addshow function
-	public Cinema (ArrayList<Show> shows, String name)
+	public Cinema (String name, char[][] seatLayout)
 	{
-		this.shows = shows;
+		this.shows = new ArrayList<Show>();
 		this.name = name;
+		this.seatLayout = seatLayout;
 		
 	}
 
