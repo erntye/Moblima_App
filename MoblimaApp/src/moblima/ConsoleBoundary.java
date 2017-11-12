@@ -214,7 +214,7 @@ public class ConsoleBoundary {
 		System.out.println("(1) Add Movie");
 		System.out.println("(2) Remove Movie");
 		System.out.println("(3) Edit Movie");
-		System.out.println("(4) Done Managing Movies");
+		System.out.println("(9) Done Managing Movies");
 		int choice = sc.nextInt();
 		
 		sc.close();
@@ -238,7 +238,7 @@ public class ConsoleBoundary {
 		System.out.println("(1) Add Show");
 		System.out.println("(2) Remove Show");
 		System.out.println("(3) Edit Show");
-		System.out.println("(4) Done Managing Shows");
+		System.out.println("(9) Done Managing Shows");
 		int choice = sc.nextInt();
 		
 		sc.close();
@@ -332,7 +332,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)Change Ticket Base Price\n(2)Add Public Holiday\n(9) Logout");
+		System.out.println("What would you like to do:\n(1)Change Ticket Base Price\n(2)Add Public Holiday\n(9) Done with System Settings");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;

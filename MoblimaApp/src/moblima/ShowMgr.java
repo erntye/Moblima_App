@@ -41,7 +41,7 @@ public class ShowMgr {
 			case 1: addShow();break;
 			case 2: removeShow(); break;
 			case 3: editShow(); break;
-			case 4: loop = false; break;
+			case 9: loop = false; break;
 			}
 		}
 	}

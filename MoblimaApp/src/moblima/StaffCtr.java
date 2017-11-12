@@ -1,7 +1,6 @@
 package moblima;
 
 public class StaffCtr {
-	int choice;
 	
 	//implement Singleton structure
 	private static StaffCtr instance;
@@ -13,11 +12,12 @@ public class StaffCtr {
 	}
 	
 	public void staffOperations(){
+		int choice;
 		do {
 			choice = ConsoleBoundary.printStaffPage();
 			switch(choice) {
 			case 1: MovieMgr.getInstance().movieOps(); break;
-//			case 2: ShowMgr.getInstance().showOps(); break;
+			case 2: ShowMgr.getInstance().showOps(); break;
 			case 3: SystemSettingMgr.getInstance().sysSetOps(); break;
 			}
 		} while (choice != 9);
