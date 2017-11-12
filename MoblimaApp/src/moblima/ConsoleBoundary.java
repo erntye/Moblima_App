@@ -253,6 +253,29 @@ public class ConsoleBoundary {
 		return choice;
 	}
 	
+	public static Reviews printAddReview() {
+		sc = new Scanner(System.in);
+		int choice = 0, rating = 0;
+		String review, reviewer;
+		System.out.println("========================================");
+		System.out.println("ADD A REVIEW");
+		System.out.println("========================================");
+//		System.out.println("CHOOSE MOVIE TO REVIEW");
+//		for(int i = 0; i < MovieList.movieList.size(); i++) {
+//			System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+//		}
+//		choice = sc.nextInt();
+//		Movie movie = MovieList.movieList.get(choice-1);
+		System.out.println("Enter Rating:\n ");
+		rating = sc.nextInt();
+		System.out.println("Enter Review:\n ");
+		review = sc.nextLine();
+		System.out.println("Enter Name:\n ");
+		reviewer = sc.nextLine();
+		Reviews reviews = new Reviews(review, rating, reviewer);
+		return reviews;
+	}
+	
 	public static int printSystemSettingMenu() {
 		sc = new Scanner(System.in);
 		int choice = 0;
