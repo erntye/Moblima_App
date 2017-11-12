@@ -1,15 +1,16 @@
 package moblima;
-
+import java.util.Calendar;
+import java.util.Comparator;
 
 //change UML to include Date class and baseprice as static
 public class Show {
-	private Movie movie;
+	private String movie;
 	private Calendar showTime;
 	private char[][] bookedLayout;
 	private static float basePrice;
 //basePrice is not set in constructor, it is set in main before instantialization of show objects
 	
-	public Show(Movie movie,Calendar showTime, char[][] bookedLayout){
+	public Show(String movie,Calendar showTime, char[][] bookedLayout){
 		this.movie = movie;
 		this.showTime = showTime;
 		this.bookedLayout = bookedLayout;
@@ -39,5 +40,37 @@ public class Show {
 		else 
 			return false;
 	}
+	
+	public Calendar getShowTime() {
+		return showTime;
+	}
+	
+	public String getMovieTitle() {
+		return movie;
+	}
+	
+	public char[][] getBookedLayout() {
+		return bookedLayout;
+	}
+	
+	public float getBasePrice() {
+		return basePrice;
+	}
+	
+	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {
+
+		public int compare(Show s1, Show s2) {
+		   Calendar showTime1 = s1.getShowTime();
+		   Calendar showTime2 = s2.getShowTime();
+
+		   //ascending order
+		   return showTime1.compareTo(showTime2);
+		   
+		   //descending order
+		   //return (int) (movieAveRating2 - movieAveRating1);
+
+		   
+	    }
+	};
 
 }

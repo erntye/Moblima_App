@@ -15,4 +15,12 @@ public class Reviews {
 		return this.rating;
 	}
 	
+	public String getReviewer(){
+		return this.reviewer;
+	}
+	
+	public String getContent(){
+		return this.content;
+	}
+	
 }

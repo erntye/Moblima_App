@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Cineplex {
 	private String name;
+	private String code;
 	private ArrayList<Cinema> cinemas;
 
 	public Cineplex (String name, ArrayList<Cinema> cinemas ) {
@@ -11,6 +12,17 @@ public class Cineplex {
 		this.cinemas = new ArrayList<Cinema>();
 
 	}
+	
+	public String getCode() {
+		return code;
+	}
+	
+	public String getName() {
+		return name;
+	}
  
+	public ArrayList<Cinema> getCinemas() {
+		return cinemas;
+	}
 
 }
