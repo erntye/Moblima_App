@@ -276,6 +276,15 @@ public class ConsoleBoundary {
 		return showTime;
 	}
 	
+	//called by ShowMgr
+	public static Cinema printRemoveShow() {
+		System.out.println("========================================");
+		System.out.println("Remove Shows");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex and Cinema you want to remove the show from, then select the show.");
+		Cinema cinema = printChooseCinema(printChooseCineplex());
+		return cinema;
+	}
 	
 	//unsorted
 	public static int printStaffPage() {
