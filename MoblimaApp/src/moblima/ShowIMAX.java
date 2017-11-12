@@ -8,6 +8,10 @@ public class ShowIMAX extends Show {
 		super(movie, showTime, bookedLayout);
 	}
 
+	public float getBasePrice() {
+		return basePrice;
+	}
+	
 	public static void setBasePrice(float newBasePrice){
 		ShowIMAX.basePrice = newBasePrice; 
 	}

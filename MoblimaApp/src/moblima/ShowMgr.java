@@ -28,7 +28,9 @@ public class ShowMgr {
 	}
 	
 	public void editShow() {
-		
+		Cinema cinemaToEditFrom = ConsoleBoundary.printEditShow();
+		Show showToEdit = ConsoleBoundary.printShowList(cinemaToEditFrom);
+		ConsoleBoundary.printEditShowDetails(showToEdit);
 	}
 	
 	public void showOps() {

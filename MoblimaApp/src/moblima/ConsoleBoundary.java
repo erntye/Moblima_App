@@ -51,6 +51,7 @@ public class ConsoleBoundary {
 		return accountDetails;
 	}
 	
+	//called by LoginMgr
 	public static String[] printAddCustAccount() {
 		String[] accountDetails = new String[6];
 		Scanner sc = new Scanner(System.in);
@@ -190,7 +191,7 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr
-		public static void printTopSales() {
+	public static void printTopSales() {
 			for(int i = 0; i<5; i++) {
 				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Sales: " + MovieList.movieList.get(i).getSales());
 			}
@@ -277,6 +278,43 @@ public class ConsoleBoundary {
 		System.out.println("Choose the Cineplex and Cinema you want to remove the show from, then select the show.");
 		Cinema cinema = printChooseCinema(printChooseCineplex());
 		return cinema;
+	}
+	
+	//called by ShowMgr
+	public static Cinema printEditShow() {
+		System.out.println("========================================");
+		System.out.println("Edit Shows");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex and Cinema, followed by the show you want to edit.");
+		Cinema cinema = printChooseCinema(printChooseCineplex());
+		return cinema;
+	}
+	
+	//called by ShowMgr
+	public static void printEditShowDetails(Show show) {
+		System.out.println("========================================");
+		System.out.println("Edit Show");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Change Movie");
+		System.out.println("Current Movie: " + show.getMovieTitle());
+		System.out.println("1. Change Movie\n2. Skip\n");
+		int choice = sc.nextInt();
+		if(choice == 1) {
+			Movie movieToChange = printMovieList();
+			show.setMovieTitle(movieToChange.getTitle());
+		}
+		
+		System.out.println("Change Show Time");
+		System.out.println("Current Show Time: " + show.getShowTime());
+		System.out.println("1. Change Show Time\n2. Skip\n");
+		choice = sc.nextInt();
+		if(choice == 1) {
+			show.setTime(getShowTime());
+		}
+		
+		sc.close();
 	}
 	
 	//called by ShowMgr
