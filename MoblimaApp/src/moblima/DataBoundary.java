@@ -10,9 +10,10 @@ public class DataBoundary {
 		try {
 			FileInputStream fis = new FileInputStream("staff.tmp");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			while (true) {
-				staffArray.add((StaffAcc) ois.readObject());
-			}
+//			while (true) {
+//				staffArray.add((StaffAcc) ois.readObject());
+//			}
+			staffArray = (ArrayList<Account>) ois.readObject();
 		}
 		catch (EOFException e) {
 			//just to test
@@ -36,9 +37,10 @@ public class DataBoundary {
 		try {
 			FileInputStream fis = new FileInputStream("cust.tmp");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			while (true) {
-				custArray.add((StaffAcc) ois.readObject());
-			}
+//			while (true) {
+//				custArray.add((StaffAcc) ois.readObject());
+//			}
+			custArray = (ArrayList<Account>) ois.readObject();
 		}
 		catch (EOFException e) {
 			//just to test
@@ -57,14 +59,15 @@ public class DataBoundary {
 		return custArray;
 	}
 	
-	public ArrayList<Movie> getMovieList() {
+	public static ArrayList<Movie> getMovieList() {
 		ArrayList<Movie> movieArray = new ArrayList<Movie>();
 		try {
 			FileInputStream fis = new FileInputStream("movie.tmp");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-			while (true) {
-				movieArray.add((Movie) ois.readObject());
-			}
+//			while (true) {
+//				movieArray.add((Movie) ois.readObject());
+//			}
+			movieArray = (ArrayList<Movie>) ois.readObject();
 		}
 		catch (EOFException e) {
 			//just to test
@@ -81,5 +84,35 @@ public class DataBoundary {
 			e.printStackTrace();
 		}
 		return movieArray;
+	}
+	
+	public static void saveStaffList(ArrayList<Account> staffArray) {
+		try{
+			FileOutputStream fos = new FileOutputStream("staff.tmp");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(staffArray);
+		}
+		catch (FileNotFoundException e) {}
+		catch(IOException e) {}
+	}
+	
+	public static void saveCustList(ArrayList<Account> custArray) {
+		try{
+			FileOutputStream fos = new FileOutputStream("cust.tmp");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(custArray);
+		}
+		catch (FileNotFoundException e) {}
+		catch(IOException e) {}
+	}
+	
+	public static void saveMovieList(ArrayList<Movie> movieArray) {
+		try{
+			FileOutputStream fos = new FileOutputStream("movie.tmp");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(movieArray);
+		}
+		catch (FileNotFoundException e) {}
+		catch(IOException e) {}
 	}
 }
