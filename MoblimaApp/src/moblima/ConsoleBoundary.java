@@ -1,7 +1,11 @@
 package moblima;
 import java.util.Scanner;
+
+import javax.security.auth.callback.ConfirmationCallback;
+
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.awt.print.Printable;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -309,10 +313,11 @@ public class ConsoleBoundary {
 			case 2: choiceS = "3D"; break;
 			case 3: choiceS = "IMAX"; break;
 		}
+		sc.close();
 		return choiceS;
 	}
 	
-	public Show printShowsByMovie(Movie movie, Cineplex cineplex, Cinema cinema, String showType) {
+	public static Show printShowsByMovie(Movie movie, Cineplex cineplex, Cinema cinema, String showType) {
 		ArrayList<Show> tempShows = new ArrayList<>();
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -328,18 +333,55 @@ public class ConsoleBoundary {
 			} else if(tempShows.size()==0){
 				System.out.println("No Shows Available");
 				MovieBookingMgr.reset = true;
+				sc.close();
 				return null;
 			}
 		}
 		int choice = sc.nextInt();
+		sc.close();
 		return tempShows.get(choice-1);
 	}
 	
-	public char[] printLayout(Show show) {
+	public static char[] printLayout(Show show) {
 		sc = new Scanner(System.in);
+		char[] seatNumber = new char[2];
 		System.out.println("========================================");
 		System.out.println("CHOOSE SEAT");
 		System.out.println("========================================");
+		// How to print seats?
+		sc.close();
+		return seatNumber;
+	}
+	
+	public static boolean printBookingConfirmation(Float price, Cinema cinema) {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("CONFIRM BOOKING?");
+		System.out.println("========================================");
+		System.out.println("Price: " + price);
+		System.out.println("(1) Confirm\n(2) Cancel");
+		int choice = sc.nextInt();
+		if(choice==1) {
+			sc.close();
+			return true;
+		} else {
+			MovieBookingMgr.reset = true;
+			sc.close();
+			return false;
+		}
+	}
+	
+	public static void printTransaction(CustAcc c,Transaction latest, Show show,String showType,char[] seatNumber, float price) {
+		System.out.println("========================================");
+		System.out.println("BOOKING CONFIRMED!");
+		System.out.println("========================================");
+		System.out.println("Transaction ID: " + latest.getTid());
+		System.out.println("Name: " + c.getName());
+		System.out.println("Email: " + c.getName());
+		System.out.println("Movie Title: " + show.getMovieTitle());
+		System.out.println("Show Time: " + show.getShowTime());
+		System.out.println("Seat Number : " + seatNumber[0] + seatNumber[1]);
+		System.out.println("Price: " + price);
 	}
 	
 	public static void printLogout() {

@@ -47,5 +47,13 @@ public class Show {
 	public String getMovieTitle() {
 		return movie;
 	}
+	
+	public char[][] getBookedLayout() {
+		return bookedLayout;
+	}
+	
+	public float getBasePrice() {
+		return basePrice;
+	}
 
 }

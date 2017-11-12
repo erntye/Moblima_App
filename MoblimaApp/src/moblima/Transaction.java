@@ -18,7 +18,7 @@ public class Transaction {
 		this.movieTitle = movieTitle;
 	}
 	
-	private String getTid() {
+	public String getTid() {
 		return tid;
 	}
 	
