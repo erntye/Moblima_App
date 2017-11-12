@@ -28,8 +28,15 @@ public class Cinema {
 		Cinema.premium = newPremium;
 	}
 
-	public void createShow(String movie, Calendar showTime){
-		shows.add(new Show(movie,showTime, seatLayout.clone()));
+	public void createShow(String movie, Calendar showTime, String showType){
+		switch(showType) {
+		case "Digital":
+			shows.add(new ShowDigital(movie,showTime, seatLayout.clone()));
+		case "3D":
+			shows.add(new Show3D(movie,showTime, seatLayout.clone()));
+		case "IMAX":
+			shows.add(new ShowIMAX(movie,showTime, seatLayout.clone()));
+		}
 	}
 	
 	public String getName() {

@@ -17,15 +17,12 @@ public class ShowMgr {
 		Cinema cinemaToAddTo = ConsoleBoundary.printAddShow();
 		Movie movieToAdd = ConsoleBoundary.printMovieList();
 		Calendar showTime = ConsoleBoundary.getShowTime();
-		cinemaToAddTo.createShow(movieToAdd.getTitle(), showTime);
-		//calls printChooseCinema(), returns Cinema
-		//takes back cinema object
-		//calls printMovieList(), takes movie object
-		//calls boundary to get show time. take Calendar object //create console ask for show time.
-		//calls cinema.createShow(movie, showTime)
+		String showType = ConsoleBoundary.printChooseShowType();
+		cinemaToAddTo.createShow(movieToAdd.getTitle(), showTime, showType);
 	}
 	
 	public void removeShow() {
+		Cinema cinemaToRemoveFrom = ConsoleBoundary.printRemoveShow();
 		
 	}
 	
