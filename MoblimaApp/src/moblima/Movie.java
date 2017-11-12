@@ -1,8 +1,9 @@
 package moblima;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Movie {
+public class Movie{
 	
 	public enum Showing_Status {
 		ComingSoon, NowShowing,Ended;
@@ -69,9 +70,13 @@ public class Movie {
 		return title;
 	}
 	
-//	public String getShowingStatus(){
-//		return showingStatus;
-//	}
+	public Showing_Status getShowingStatus(){
+		return showingStatus;
+	}
+	
+	public Censorship_Rating getCensorshipRating(){
+		return censorshipRating;
+	}
 
 	public String getSynopsis(){
 		return synopsis;
@@ -93,4 +98,57 @@ public class Movie {
 		return reviews;
 	}
 	
+	public float getSales() {
+		return sales;
+	}
+	
+	// Sort by Rating
+	public static Comparator<Movie> MovieRatingComparator = new Comparator<Movie>() {
+
+		public int compare(Movie m1, Movie m2) {
+		   float movieAveRating1 = m1.getAverageRating();
+		   float movieAveRating2 = m2.getAverageRating();
+
+		   //descending order
+		   return (int) (movieAveRating2 - movieAveRating1);
+		   
+		   //ascending order
+		   //return StudentName1.compareTo(StudentName2);
+
+		   
+	    }
+	};
+	
+	// Sort by Sales
+	public static Comparator<Movie> MovieSalesComparator = new Comparator<Movie>() {
+
+		public int compare(Movie m1, Movie m2) {
+		   float movieSales1 = m1.getSales();
+		   float movieSales2 = m2.getSales();
+
+		   //descending order
+		   return (int) (movieSales2 - movieSales1);
+		   
+		   //ascending order
+		   //return StudentName1.compareTo(StudentName2);
+
+		   
+	    }
+	};
+
+	
+//	@Override
+//	public int compareTo(Movie compareMovie) {
+//        float compareRating =  ((Movie)compareMovie).getAverageRating();
+//        /* For Descending order do like this */
+//        return (int) (compareRating - this.aveRating);
+//        
+//        /* For Ascending order*/
+//        //return this.studentage-compareage;
+//	}
+	
+//	@Override
+//	public String toString() {
+//        return "[Title =" + title + "Average Rating: " + aveRating + "]";
+//    }
 }

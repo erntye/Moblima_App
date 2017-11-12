@@ -76,7 +76,7 @@ public class ConsoleBoundary {
 	
 	//called by MovieMgr 
 	public static Movie printAddMovie() {
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		
 		System.out.println("========================================");
 		System.out.println("ADD MOVIE");
@@ -124,6 +124,86 @@ public class ConsoleBoundary {
 		sc.close();
 		return movieToAdd;
 	}
+	
+	//called by MovieMgr 
+	public static Movie printEditMovie() {
+		sc = new Scanner(System.in);	
+		System.out.println("========================================");
+		System.out.println("EDIT MOVIE");
+		System.out.println("========================================");
+		System.out.println("Enter Title: ");
+		String title = sc.nextLine();
+		for(int i = 0; i<MovieList.movieList.size();i++) {
+			if(MovieList.movieList.get(i).getTitle() == title) {
+				sc.close();
+				return MovieList.movieList.get(i);
+			}
+		}
+		System.out.println("Movie not found...");
+		sc.close();
+		return null;
+	}
+	
+	//called by MovieMgr
+	public static Movie printEditMovie2(Movie movieToEdit) {
+		sc = new Scanner(System.in);
+		Movie movieToReplace;
+		System.out.println("Edit Showing Status: ");
+		System.out.println("1. Coming Soon \t 2. Now Showing \t 3. Ended\t 4. Skip");
+		int temp = sc.nextInt();
+		Movie.Showing_Status status;
+		switch(temp) {
+		case 1: status = Movie.Showing_Status.ComingSoon; break;
+		case 2: status = Movie.Showing_Status.NowShowing; break;
+		case 3: status = Movie.Showing_Status.Ended; break;
+		case 4: status = movieToEdit.getShowingStatus(); break;
+		default: status = Movie.Showing_Status.ComingSoon;
+		}
+		sc.nextLine();
+		System.out.println("Edit Censorship Rating: ");//G,PG, PG13,NC16,M18,R21
+		System.out.println("1. G \t 2. PG \t 3. PG13 \t 4. NC16 \t 5. M18 \t 6. R21 \t 7. Skip");
+		temp = sc.nextInt();
+		Movie.Censorship_Rating censorR;
+		switch(temp) {
+		case 1: censorR = Movie.Censorship_Rating.G; break;
+		case 2: censorR = Movie.Censorship_Rating.PG; break;
+		case 3: censorR = Movie.Censorship_Rating.PG13; break;
+		case 4: censorR = Movie.Censorship_Rating.NC16; break;
+		case 5: censorR = Movie.Censorship_Rating.M18; break;
+		case 6: censorR = Movie.Censorship_Rating.R21; break;
+		case 7: censorR = movieToEdit.getCensorshipRating(); break;
+		default: censorR = Movie.Censorship_Rating.PG;
+		}
+		movieToReplace = new Movie(movieToEdit.getTitle(), status, movieToEdit.getSynopsis(), movieToEdit.getDirector(), movieToEdit.getCast(), censorR);
+		sc.close();
+		return movieToReplace;
+//		System.out.println("Edit Synopsis: ");
+//		String synopsis = sc.nextLine();
+//		System.out.println("Edit Director: ");
+//		String director = sc.nextLine();
+//		System.out.println("Edit Number of cast: ");
+//		int castNumber = sc.nextInt();
+//		sc.nextLine();
+//		String[] cast = new String[castNumber];
+//		for(int i = 0; i < castNumber; i ++) {
+//			System.out.println("Enter Cast Number " + (i+1));
+//			cast[i] = sc.nextLine();
+//		}
+	}
+	
+	//called by MovieMgr
+	public static void printTopRatings() {
+		for(int i = 0; i<5; i++) {
+			System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+		}
+	}
+	
+	//called by MovieMgr
+		public static void printTopSales() {
+			for(int i = 0; i<5; i++) {
+				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Sales: " + MovieList.movieList.get(i).getSales());
+			}
+		}
 	
 	public static int printMovieOps() {
 		Scanner sc = new Scanner(System.in);

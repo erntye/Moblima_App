@@ -18,11 +18,15 @@ public class MovieMgr {
 	}
 	
 	public void removeMovie() {
-		Movie movieToRemove = ConsoleBoundary.printRemoveMovie();
+		MovieList.removeMovie(ConsoleBoundary.printRemoveMovie());
 	}
 	
 	public void editMovie() {
-		
+		Movie movieToEdit = ConsoleBoundary.printEditMovie();
+		Movie movietoReplace = ConsoleBoundary.printEditMovie2(movieToEdit);
+		int index = MovieList.movieList.indexOf(movieToEdit);
+		MovieList.movieList.add(index, movietoReplace);
+		MovieList.removeMovie(movieToEdit);
 	}
 	
 	public void movieOps() {
@@ -35,10 +39,12 @@ public class MovieMgr {
 	}
 	
 	public void top5Sales() {
-		
+		MovieList.sortBySales();
+		ConsoleBoundary.printTopSales();
 	}
 	
 	public void top5Ratings() {
-		
+		MovieList.sortByRating();
+		ConsoleBoundary.printTopRatings();
 	}
 }
