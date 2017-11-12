@@ -255,7 +255,7 @@ public class ConsoleBoundary {
 	
 	public static Reviews printAddReview() {
 		sc = new Scanner(System.in);
-		int choice = 0, rating = 0;
+		int rating = 0;
 		String review, reviewer;
 		System.out.println("========================================");
 		System.out.println("ADD A REVIEW");
@@ -273,6 +273,7 @@ public class ConsoleBoundary {
 		System.out.println("Enter Name:\n ");
 		reviewer = sc.nextLine();
 		Reviews reviews = new Reviews(review, rating, reviewer);
+		sc.close();
 		return reviews;
 	}
 	
