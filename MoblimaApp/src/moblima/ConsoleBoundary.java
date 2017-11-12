@@ -214,6 +214,8 @@ public class ConsoleBoundary {
 		System.out.println("(1) Add Movie");
 		System.out.println("(2) Remove Movie");
 		System.out.println("(3) Edit Movie");
+		System.out.println("(4) Top 5 Movies By Sales");
+		System.out.println("(5) Top 5 Movies By Ratings");
 		System.out.println("(9) Done Managing Movies");
 		int choice = sc.nextInt();
 		
@@ -305,7 +307,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1) List Movies\n(2) List Shows by Cineplex\n(3) Add a Review\n(9) Logout");
+		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\\n(5) List Top 5 Movie By Ratings\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
@@ -333,6 +335,12 @@ public class ConsoleBoundary {
 		Reviews reviews = new Reviews(review, rating, reviewer);
 		sc.close();
 		return reviews;
+	}
+	
+	public static void printBookingHistory(CustAcc c) {
+		for(int i = c.getTransactionList().size()-1; i>=0;i--) {
+			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n Date: " + c.getTransactionList().get(i).getDate() + "\n Movie Title:" + c.getTransactionList().get(i).getMovieTitle());
+		}
 	}
 	
 	public static int printSystemSettingMenu() {
@@ -447,7 +455,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
-		for(int i = 0 ; i < CineplexList.cineplexList.size();i++) {
+		for(int i = 0 ; i < cineplex.getCinemas().size();i++) {
 			System.out.println("("+ i+1 + ") " +  cineplex.getCinemas().get(i).getName());
 		}
 		System.out.println("(0) Cancel");
@@ -479,7 +487,7 @@ public class ConsoleBoundary {
 		return choiceS;
 	}
 	
-	public static Show printShowsByMovie(Movie movie, Cineplex cineplex, Cinema cinema, String showType) {
+	public static Show printShowsByMovie(Movie movie, Cinema cinema) {
 		ArrayList<Show> tempShows = new ArrayList<>();
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -490,7 +498,7 @@ public class ConsoleBoundary {
 			int count = 1;
 			if(cinema.getShows().get(i).getMovieTitle() == movie.getTitle()) {
 				tempShows.add(cinema.getShows().get(i));
-				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTime().get(Calendar.HOUR_OF_DAY) + ":" + cinema.getShows().get(i).getShowTime().get(Calendar.MINUTE));
+				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTime().get(Calendar.HOUR_OF_DAY) + ":" + cinema.getShows().get(i).getShowTime().get(Calendar.MINUTE) + " (" + cinema.getShows().get(i).getShowType() + ")");
 				count++;
 			} else if(tempShows.size()==0){
 				System.out.println("No Shows Available");
