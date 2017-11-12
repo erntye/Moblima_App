@@ -10,10 +10,8 @@ public class DataBoundary {
 		try {
 			FileInputStream fis = new FileInputStream("staff.tmp");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-//			while (true) {
-//				staffArray.add((StaffAcc) ois.readObject());
-//			}
 			staffArray = (ArrayList<Account>) ois.readObject();
+			ois.close();
 		}
 		catch (EOFException e) {
 			//just to test
@@ -37,10 +35,8 @@ public class DataBoundary {
 		try {
 			FileInputStream fis = new FileInputStream("cust.tmp");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-//			while (true) {
-//				custArray.add((StaffAcc) ois.readObject());
-//			}
 			custArray = (ArrayList<Account>) ois.readObject();
+			ois.close();
 		}
 		catch (EOFException e) {
 			//just to test
@@ -64,10 +60,8 @@ public class DataBoundary {
 		try {
 			FileInputStream fis = new FileInputStream("movie.tmp");
 			ObjectInputStream ois = new ObjectInputStream(fis);
-//			while (true) {
-//				movieArray.add((Movie) ois.readObject());
-//			}
 			movieArray = (ArrayList<Movie>) ois.readObject();
+			ois.close();
 		}
 		catch (EOFException e) {
 			//just to test
@@ -86,11 +80,37 @@ public class DataBoundary {
 		return movieArray;
 	}
 	
+	public static ArrayList<Cineplex> getCineplexList() {
+		ArrayList<Cineplex> cineplexArray = new ArrayList<Cineplex>();
+		try {
+			FileInputStream fis = new FileInputStream("cineplex.tmp");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			cineplexArray = (ArrayList<Cineplex>) ois.readObject();
+			ois.close();
+		}
+		catch (EOFException e) {
+			//just to test
+			e.printStackTrace();
+			System.out.println("All Cineplexes, Cinemas and Shows Added.");
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return cineplexArray;
+	}
+	
 	public static void saveStaffList(ArrayList<Account> staffArray) {
 		try{
 			FileOutputStream fos = new FileOutputStream("staff.tmp");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(staffArray);
+			oos.close();
 		}
 		catch (FileNotFoundException e) {}
 		catch(IOException e) {}
@@ -101,6 +121,7 @@ public class DataBoundary {
 			FileOutputStream fos = new FileOutputStream("cust.tmp");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(custArray);
+			oos.close();
 		}
 		catch (FileNotFoundException e) {}
 		catch(IOException e) {}
@@ -111,6 +132,18 @@ public class DataBoundary {
 			FileOutputStream fos = new FileOutputStream("movie.tmp");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(movieArray);
+			oos.close();
+		}
+		catch (FileNotFoundException e) {}
+		catch(IOException e) {}
+	}
+
+	public static void saveCineplexList(ArrayList<Cineplex> cineplexArray) {
+		try{
+			FileOutputStream fos = new FileOutputStream("cineplex.tmp");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(cineplexArray);
+			oos.close();
 		}
 		catch (FileNotFoundException e) {}
 		catch(IOException e) {}
