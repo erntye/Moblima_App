@@ -1,10 +1,10 @@
 package moblima;
-
+import java.util.Calendar;
 
 public class ShowIMAX extends Show {
 	private static float basePrice;
 	
-	public ShowIMAX(String movie, MovieCalendar showTime, char[][] bookedLayout) {
+	public ShowIMAX(String movie, Calendar showTime, char[][] bookedLayout) {
 		super(movie, showTime, bookedLayout);
 	}
 

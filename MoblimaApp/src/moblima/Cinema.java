@@ -29,5 +29,9 @@ public class Cinema {
 	public String getName() {
 		return name;
 	}
+	
+	public ArrayList<Show> getShows() {
+		return shows;
+	}
 
 }

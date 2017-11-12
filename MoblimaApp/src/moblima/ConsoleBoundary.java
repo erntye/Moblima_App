@@ -312,6 +312,36 @@ public class ConsoleBoundary {
 		return choiceS;
 	}
 	
+	public Show printShowsByMovie(Movie movie, Cineplex cineplex, Cinema cinema, String showType) {
+		ArrayList<Show> tempShows = new ArrayList<>();
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("CHOOSE SHOW TIME");
+		System.out.println("========================================");
+		System.out.println("Show Times:\n");
+		for(int i = 0; i<cinema.getShows().size();i++) {
+			int count = 1;
+			if(cinema.getShows().get(i).getMovieTitle() == movie.getTitle()) {
+				tempShows.add(cinema.getShows().get(i));
+				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTime().get(Calendar.HOUR_OF_DAY) + ":" + cinema.getShows().get(i).getShowTime().get(Calendar.MINUTE));
+				count++;
+			} else if(tempShows.size()==0){
+				System.out.println("No Shows Available");
+				MovieBookingMgr.reset = true;
+				return null;
+			}
+		}
+		int choice = sc.nextInt();
+		return tempShows.get(choice-1);
+	}
+	
+	public char[] printLayout(Show show) {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("CHOOSE SEAT");
+		System.out.println("========================================");
+	}
+	
 	public static void printLogout() {
 		System.out.println("========================================");
 		System.out.println("GOOD BYE! SEE YOU SOON!");

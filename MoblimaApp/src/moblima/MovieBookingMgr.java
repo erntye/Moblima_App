@@ -10,7 +10,7 @@ public class MovieBookingMgr {
 	Show show;
 	Movie movie;
 	String showType;
-	String[] seatNumber = new String[2];
+	char[] seatNumber = new char[2];
 	boolean proceed, confirm;
 	
 	
@@ -23,7 +23,7 @@ public class MovieBookingMgr {
 		return instance;
 	}
 	
-	public void bookByMovie(){
+	public void bookByMovie(){ //need to save seat booking into layout files
 		do {
 			movie = ConsoleBoundary.printMovieList(); if(reset) break;
 			proceed = ConsoleBoundary.printMovieInfo(movie); if(reset) break;
