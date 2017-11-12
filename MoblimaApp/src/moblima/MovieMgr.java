@@ -29,11 +29,15 @@ public class MovieMgr {
 	}
 	
 	public void movieOps() {
-		int opsChoice = ConsoleBoundary.printMovieOps();
-		switch(opsChoice) {
-		case 1: addMovie();break;
-		case 2: removeMovie(); break;
-		case 3: editMovie(); break;
+		boolean loop = true;
+		while(loop) {
+			int opsChoice = ConsoleBoundary.printMovieOps();
+			switch(opsChoice) {
+			case 1: addMovie();break;
+			case 2: removeMovie(); break;
+			case 3: editMovie(); break;
+			case 4: loop = false; break;
+			}
 		}
 	}
 	

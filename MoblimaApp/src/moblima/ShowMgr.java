@@ -34,11 +34,15 @@ public class ShowMgr {
 	}
 	
 	public void showOps() {
-		int opsChoice = ConsoleBoundary.printShowOps();
-		switch(opsChoice) {
-		case 1: addShow();break;
-		case 2: removeShow(); break;
-		case 3: editShow(); break;
+		boolean loop = true;
+		while(loop) {
+			int opsChoice = ConsoleBoundary.printShowOps();
+			switch(opsChoice) {
+			case 1: addShow();break;
+			case 2: removeShow(); break;
+			case 3: editShow(); break;
+			case 4: loop = false; break;
+			}
 		}
 	}
 }
