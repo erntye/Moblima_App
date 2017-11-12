@@ -11,11 +11,18 @@ public abstract class Account {
 		this.name = name;
 	}
 
-	public boolean verifyLogin(String username, String password) {
-		if ("username" == username && "password" == password) 
-			return true;
+	//return 1: login success
+	//return 2: wrong password
+	//return 3: wrong user name
+	public int verifyLogin(String username, String password) {
+		if (this.username == username) {
+			if(this.password == password) 
+				return 1;
+			else
+				return 2;
+		}
 		else
-			return false;
+			return 3;
 	}
 
 	public String getUsername() {

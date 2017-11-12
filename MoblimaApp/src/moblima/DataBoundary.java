@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 
 public class DataBoundary {
-	//test
-	public ArrayList<Account> getStaffList() {
+
+	public static ArrayList<Account> getStaffList() {
 		ArrayList<Account> staffArray = new ArrayList<Account>();
 		try {
 			FileInputStream fis = new FileInputStream("staff.tmp");
@@ -31,7 +31,7 @@ public class DataBoundary {
 		return staffArray;
 	}
 	
-	public ArrayList<Account> getCustList() {
+	public static ArrayList<Account> getCustList() {
 		ArrayList<Account> custArray = new ArrayList<Account>();
 		try {
 			FileInputStream fis = new FileInputStream("cust.tmp");

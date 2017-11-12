@@ -1,10 +1,10 @@
 package moblima;
 import java.util.ArrayList;
 
-enum AgeCat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
 
 public class CustAcc extends Account{
-		
+	public enum AgeCat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
+
 	public ArrayList<Transaction> transactionList;
 	private double mobileNumber;
 	private String email;

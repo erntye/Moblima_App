@@ -55,4 +55,8 @@ public class Movie {
 		this.reviewCount++;
 	}
 	
+	public String getTitle(){
+		return title;
+	}
+	
 }
