@@ -315,7 +315,7 @@ public class ConsoleBoundary {
 		System.out.println(movie.getTitle().toUpperCase() );
 		System.out.println("========================================");
 		System.out.println("Movie Title: " + movie.getTitle());
-//		System.out.println("Showing Status: " + movie.getShowingStatus());
+		System.out.println("Showing Status: " + movie.getShowingStatus());
 		System.out.println("Synopsis: " + movie.getSynopsis());
 		System.out.println("Director: " + movie.getDirector());
 		System.out.println("Cast: " + movie.getCast()[0] + movie.getCast()[1]);;

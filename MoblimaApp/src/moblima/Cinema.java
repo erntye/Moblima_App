@@ -2,6 +2,7 @@ package moblima;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.*;
 
 public class Cinema {
 	private ArrayList<Show> shows;
@@ -36,6 +37,10 @@ public class Cinema {
 	
 	public ArrayList<Show> getShows() {
 		return shows;
+	}
+	
+	public void sortShowsByTime() {
+		Collections.sort(shows, Show.ShowTimeComparator);
 	}
 
 }
