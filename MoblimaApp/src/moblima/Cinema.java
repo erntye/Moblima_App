@@ -29,7 +29,7 @@ public class Cinema {
 	}
 
 	public void createShow(String movie, Calendar showTime){
-		shows.add(new Show(movie,showTime, seatLayout));
+		shows.add(new Show(movie,showTime, seatLayout.clone()));
 	}
 	
 	public String getName() {
@@ -42,6 +42,10 @@ public class Cinema {
 	
 	public void sortShowsByTime() {
 		Collections.sort(shows, Show.ShowTimeComparator);
+	}
+	
+	public char[][] getSeatLayout() {
+		return seatLayout;
 	}
 
 }

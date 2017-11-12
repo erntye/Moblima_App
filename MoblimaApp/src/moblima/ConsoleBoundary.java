@@ -227,6 +227,37 @@ public class ConsoleBoundary {
 		return printMovieList();
 	}
 	
+	//called by ShowMgr
+	public static Cinema printAddShow() {
+		System.out.println("========================================");
+		System.out.println("Add Shows");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex and Cinema you want to add the show to, then choose the movie and enter the show time.");
+		Cinema cinema = printChooseCinema(printChooseCineplex());
+		return cinema;
+	}
+	
+	//called by ShowMgr
+	public static Calendar getShowTime() {
+		System.out.println("========================================");
+		System.out.println("Get Show Time");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Year: ");
+		int year = sc.nextInt();
+		System.out.println("Enter Month: ");
+		int month = sc.nextInt();
+		System.out.println("Enter Day: ");
+		int day = sc.nextInt();
+		System.out.println("Enter Hour: ");
+		int hour = sc.nextInt();
+		System.out.println("Enter Minutes: ");
+		int minute = sc.nextInt();
+		Calendar showTime = new GregorianCalendar(year, month, day, hour, minute, 0);
+		sc.close();
+		return showTime;
+	}
+	
 	
 	//unsorted
 	public static int printStaffPage() {
