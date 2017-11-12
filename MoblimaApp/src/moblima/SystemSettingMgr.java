@@ -3,7 +3,7 @@ package moblima;
 public class SystemSettingMgr {
 	int choice;
 	
-	//implement Singleton structure
+	//implement Singleton structure 
 	private static SystemSettingMgr instance;
 	public static SystemSettingMgr getInstance() {
 		if(instance == null) {
