@@ -6,8 +6,8 @@ public class CinemaGold extends Cinema{
 	
 	private static float premium;
 	
-	public CinemaGold(ArrayList<Show> shows, String name){
-		super(shows, name);
+	public CinemaGold(String name, char[][] seatLayout){
+		super(name, seatLayout);
 	}
 	
 	public static void setPremium(float newPremium){
