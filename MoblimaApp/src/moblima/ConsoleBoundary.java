@@ -211,9 +211,10 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("MANAGE MOVIES");
 		System.out.println("========================================");
-		System.out.println("1. Add Movie");
-		System.out.println("2. Remove Movie");
-		System.out.println("3. Edit Movie");
+		System.out.println("(1) Add Movie");
+		System.out.println("(2) Remove Movie");
+		System.out.println("(3) Edit Movie");
+		System.out.println("(4) Done Managing Movies");
 		int choice = sc.nextInt();
 		
 		sc.close();
@@ -225,6 +226,23 @@ public class ConsoleBoundary {
 		System.out.println("REMOVE MOVIE");
 		System.out.println("========================================");
 		return printMovieList();
+	}
+	
+	//called by ShowMgr
+	public static int printShowOps() {
+		System.out.println("========================================");
+		System.out.println("Manage Shows");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("(1) Add Show");
+		System.out.println("(2) Remove Show");
+		System.out.println("(3) Edit Show");
+		System.out.println("(4) Done Managing Shows");
+		int choice = sc.nextInt();
+		
+		sc.close();
+		return choice;
 	}
 	
 	//called by ShowMgr
