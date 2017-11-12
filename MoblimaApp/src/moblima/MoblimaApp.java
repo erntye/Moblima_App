@@ -19,12 +19,20 @@ public class MoblimaApp {
 		System.out.println(date.equals(date2));
 		System.out.println(cal.equals(cal2));
 		
+		//Log In
 		loginDetails = ConsoleBoundary.printLoginPage();
 		if(loginDetails[0]=="1" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
 			StaffCtr.getInstance().staffOperations();
 		} else if (loginDetails[0]=="2" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
 			CustCtr.getInstance().custOperations();
 		}
+//		do{
+//			
+////			else if(LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) != 1) {
+////				System.out.println("Login Failed. Try Again.");
+////			}
+//		} while (LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) != 1);
+		
 		
 		ConsoleBoundary.printLogout();
 	}
