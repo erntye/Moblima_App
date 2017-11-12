@@ -11,5 +11,9 @@ public class ShowDigital extends Show {
 	public static void setBasePrice(float newBasePrice){
 		ShowDigital.basePrice = newBasePrice; 
 	}
+	
+	public String getShowType() {
+		return "Digital";
+	}
 
 }

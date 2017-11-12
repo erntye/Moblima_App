@@ -11,5 +11,9 @@ public class ShowIMAX extends Show {
 	public static void setBasePrice(float newBasePrice){
 		ShowIMAX.basePrice = newBasePrice; 
 	}
+	
+	public String getShowType() {
+		return "IMAX";
+	}
 
 }

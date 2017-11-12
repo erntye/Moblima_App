@@ -57,6 +57,10 @@ public class Show {
 		return basePrice;
 	}
 	
+	public String getShowType() {
+		return " ";
+	}
+	
 	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {
 
 		public int compare(Show s1, Show s2) {

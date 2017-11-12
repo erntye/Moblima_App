@@ -11,5 +11,9 @@ public class Show3D extends Show {
 	public static void setBasePrice(float newBasePrice){
 		Show3D.basePrice = newBasePrice; 
 	}
+	
+	public String getShowType() {
+		return "3D";
+	}
 
 }
