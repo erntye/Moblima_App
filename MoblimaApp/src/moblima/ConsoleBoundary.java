@@ -298,6 +298,7 @@ public class ConsoleBoundary {
 		for(int i = 0; i<cinema.getShows().size();i++) {
 			System.out.print((i+1) + ". ");
 			System.out.print(cinema.getShows().get(i).getMovieTitle() + " ");
+			System.out.print(cinema.getShows().get(i).getShowType() + " ");
 			System.out.println(cinema.getShows().get(i).getShowTime());
 			tempShows.add(cinema.getShows().get(i));
 		}
