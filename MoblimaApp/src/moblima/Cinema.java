@@ -39,6 +39,12 @@ public class Cinema {
 		}
 	}
 	
+	public void removeShow(Show showToRemove) {
+		if(shows.remove(showToRemove)) {
+			System.out.println("Show successfully removed!");
+		}
+	}
+	
 	public String getName() {
 		return name;
 	}

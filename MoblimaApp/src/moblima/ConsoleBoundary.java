@@ -288,6 +288,26 @@ public class ConsoleBoundary {
 		return cinema;
 	}
 	
+	//called by ShowMgr
+	public static Show printShowList(Cinema cinema) {
+		System.out.println("========================================");
+		System.out.println("Choose Show");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Show> tempShows = new ArrayList<Show>();
+		for(int i = 0; i<cinema.getShows().size();i++) {
+			System.out.print((i+1) + ". ");
+			System.out.print(cinema.getShows().get(i).getMovieTitle() + " ");
+			System.out.println(cinema.getShows().get(i).getShowTime());
+			tempShows.add(cinema.getShows().get(i));
+		}
+		System.out.print("Enter Choice: ");
+		int choice = sc.nextInt();
+		
+		sc.close();
+		return tempShows.get(choice-1);
+	}
+	
 	//unsorted
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
@@ -488,7 +508,7 @@ public class ConsoleBoundary {
 	}
 	
 	public static Show printShowsByMovie(Movie movie, Cinema cinema) {
-		ArrayList<Show> tempShows = new ArrayList<>();
+		ArrayList<Show> tempShows = new ArrayList<Show>();
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TIME");

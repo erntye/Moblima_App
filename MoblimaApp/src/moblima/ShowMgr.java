@@ -23,6 +23,7 @@ public class ShowMgr {
 	
 	public void removeShow() {
 		Cinema cinemaToRemoveFrom = ConsoleBoundary.printRemoveShow();
+		Show showToRemove = ConsoleBoundary.printShowList(cinemaToRemoveFrom);
 		
 	}
 	
