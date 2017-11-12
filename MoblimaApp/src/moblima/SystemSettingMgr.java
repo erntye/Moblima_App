@@ -18,7 +18,6 @@ public class SystemSettingMgr {
 			switch(choice) {
 			case 1: Show.setBasePrice(ConsoleBoundary.askBasePrice()); break;
 			case 2: MovieCalendar.addPubHol(ConsoleBoundary.askPubHol()); break;
-//			case 3: ShowMgr.getInstance().addShow();break;
 			}
 		} while (choice != 9);
 	}
