@@ -18,11 +18,5 @@ public class CineplexList {
 		cinemas.add(new Cinema(cinemaName, null)); //ArrayList<Cinema> newCinema= new ArrayList<Cinema>();
 		
 	}
-		
-	
-	public static void addShows(String showDetails) {
-		shows.add(new Show(showDetails, null, null));
-		
-	}
 	
 }
