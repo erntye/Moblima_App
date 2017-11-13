@@ -34,7 +34,6 @@ public class LoginMgr {
 			//account not found printed in validate function
 			break;
 		}
-		
 	}
 	
 	//validates user's log in

@@ -459,19 +459,22 @@ public class ConsoleBoundary {
 		return tempShows.get(choice-1);
 	}
 	
-	//unsorted
+	//called by StaffCtr
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("STAFF PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)Modify Movies\n(2)Modify Shows\n(3)Modify System Settings\n(9) Logout");
+		System.out.println("What would you like to do:");
+		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
 	}
 	
+	
+	//unsorted
 	public static int printCustPage() {
 		sc = new Scanner(System.in);
 		int choice = 0;

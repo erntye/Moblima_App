@@ -26,5 +26,6 @@ public class CustCtr {
 			case 5: MovieList.sortBySales(); ConsoleBoundary.printTopSales();break;
 			}
 		} while (choice != 9);
+		ConsoleBoundary.printLogout();
 	}
 }

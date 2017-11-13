@@ -46,7 +46,7 @@ public class MoblimaApp {
 //		} while (LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) != 1);
 		
 		
-		ConsoleBoundary.printLogout();
+		
 	}
 	
 	public static void initialiseEverything() {
