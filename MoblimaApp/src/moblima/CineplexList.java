@@ -9,9 +9,10 @@ public class CineplexList {
 	public static ArrayList<Cinema> cinemas;
 	public static ArrayList<Show> shows;
 	
-	public static void addCineplex(String cineplexName){
-		cineplexList.add(new Cineplex(cineplexName));
-		
+	public static Cineplex addCineplex(String cineplexName){
+		Cineplex cineplex = new Cineplex(cineplexName);
+		cineplexList.add(cineplex);
+		return cineplex;
 	}
 	
 	public static void addCinema(String cinemaName) { // not sure how to add seatLayout because we're gonna read 2d array from csv file?

@@ -100,11 +100,43 @@ public class ConsoleBoundary {
 		
 	}
 	
+	//called by Moblima
+	public static int printMainMenu() {
+		sc = new Scanner(System.in);
+		
+		System.out.println("========================================");
+		System.out.println("WELCOME TO  MOBLIMA");
+		System.out.println("========================================");
+		System.out.println("(1) Log In\n(2)Create Account\n(3) Quit");
+		int choice = sc.nextInt();
+		
+		sc.close();
+		return choice;
+	}
+	
+	public static void printAddAccount() {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("Add Account");
+		System.out.println("========================================");
+		boolean loop = true;
+		while(loop) {
+			System.out.println("(1) Add Staff Account\n(2) Add Customer Account\n(3) Done");
+			switch(sc.nextInt()) {
+			case 1: LoginMgr.getInstance().addStaffAccount(); break;
+			case 2: LoginMgr.getInstance().addCustAccount(); break;
+			case 3: loop = false; break;
+			}
+		}
+		System.out.println("Done adding accounts..");
+		sc.close();
+	}
+	
 	public static String[] printLoginPage() {	
 		sc = new Scanner(System.in);
 		String[] temploginDetails = new String[3];
 		System.out.println("========================================");
-		System.out.println("WELCOME TO  MOBLIMA");
+		System.out.println("Log In");
 		System.out.println("========================================");
 		System.out.println("Account Type:\n(1) Staff\n(2) Customer");
 		temploginDetails[0] = sc.nextLine();
@@ -116,7 +148,6 @@ public class ConsoleBoundary {
 		sc.close();
 		return temploginDetails;
 	}
-	
 	
 	// called by LoginMgr
 	public static String[] printAddStaffAccount() {
