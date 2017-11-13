@@ -1,7 +1,12 @@
 package moblima;
 import java.util.Calendar;
+import java.io.*;
 
-public class Transaction {
+public class Transaction implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3688580483418018261L;
 	private String tid;
 	private String date;
 	private String movieTitle;

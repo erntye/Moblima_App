@@ -1,6 +1,11 @@
 package moblima;
+import java.io.*;
 
-public class Reviews {
+public class Reviews implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8819093047305119458L;
 	private String content;
 	private int rating;
 	private String reviewer;
