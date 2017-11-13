@@ -3,13 +3,12 @@ package moblima;
 import java.util.ArrayList;
 
 public class Cineplex {
-	private String name;
+	public static String name; //changed to public
 	private String code;
-	private ArrayList<Cinema> cinemas;
+	public ArrayList<Cinema> cinemas; // changed to public
 
-	public Cineplex (String name, ArrayList<Cinema> cinemas ) {
+	public Cineplex (String name) {
 		this.name = name;
-		this.cinemas = new ArrayList<Cinema>();
 
 	}
 	
@@ -24,5 +23,6 @@ public class Cineplex {
 	public ArrayList<Cinema> getCinemas() {
 		return cinemas;
 	}
-
+	
+	
 }

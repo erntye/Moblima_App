@@ -32,8 +32,22 @@ public class Cinema implements Serializable{
 	public static void setPremium(float newPremium){
 		Cinema.premium = newPremium;
 	}
-	public void createShow(String movie, Calendar showTime){
-		shows.add(new Show(movie,showTime, seatLayout));
+
+	public void createShow(String movie, Calendar showTime, String showType){
+		switch(showType) {
+		case "Digital":
+			shows.add(new ShowDigital(movie,showTime, seatLayout.clone()));
+		case "3D":
+			shows.add(new Show3D(movie,showTime, seatLayout.clone()));
+		case "IMAX":
+			shows.add(new ShowIMAX(movie,showTime, seatLayout.clone()));
+		}
+	}
+	
+	public void removeShow(Show showToRemove) {
+		if(shows.remove(showToRemove)) {
+			System.out.println("Show successfully removed!");
+		}
 	}
 	
 	public String getName() {
@@ -46,6 +60,10 @@ public class Cinema implements Serializable{
 	
 	public void sortShowsByTime() {
 		Collections.sort(shows, Show.ShowTimeComparator);
+	}
+	
+	public char[][] getSeatLayout() {
+		return seatLayout;
 	}
 
 }

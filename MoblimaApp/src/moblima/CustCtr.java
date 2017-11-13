@@ -16,12 +16,16 @@ public class CustCtr {
 	
 	public void custOperations(){
 		do {
-			choice = ConsoleBoundary.printStaffPage();
+			choice = ConsoleBoundary.printCustPage();
 			switch(choice) {
 			case 1: MovieBookingMgr.getInstance().bookByMovie(); break;
 //			case 2: MovieBookingMgr.getInstance().bookByCineplex(); break;
-			case 3: ConsoleBoundary.printMovieList().addReviews(ConsoleBoundary.printAddReview());; break;
+			case 2: ConsoleBoundary.printMovieList().addReviews(ConsoleBoundary.printAddReview());; break;
+			case 3: ConsoleBoundary.printBookingHistory((CustAcc) LoginMgr.getInstance().loggedInAccount); break;
+			case 4: MovieList.sortByRating(); ConsoleBoundary.printTopRatings(); break;
+			case 5: MovieList.sortBySales(); ConsoleBoundary.printTopSales();break;
 			}
 		} while (choice != 9);
+		ConsoleBoundary.printLogout();
 	}
 }

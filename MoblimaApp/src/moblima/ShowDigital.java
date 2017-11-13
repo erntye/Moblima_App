@@ -8,8 +8,16 @@ public class ShowDigital extends Show {
 		super(movie, showTime, bookedLayout);
 	}
 
+	public float getBasePrice() {
+		return basePrice;
+	}
+	
 	public static void setBasePrice(float newBasePrice){
 		ShowDigital.basePrice = newBasePrice; 
+	}
+	
+	public String getShowType() {
+		return "Digital";
 	}
 
 }

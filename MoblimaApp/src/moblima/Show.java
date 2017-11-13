@@ -22,6 +22,10 @@ public class Show {
 		this.showTime = movieTiming;
 	}
 	
+	public float getBasePrice() {
+		return basePrice;
+	}
+	
 	public static void setBasePrice(float newBasePrice){
 		Show.basePrice = newBasePrice;
 	}
@@ -49,12 +53,18 @@ public class Show {
 		return movie;
 	}
 	
+	public void setMovieTitle(String movieTitle) {
+		movie = movieTitle;
+	}
+	
 	public char[][] getBookedLayout() {
 		return bookedLayout;
 	}
 	
-	public float getBasePrice() {
-		return basePrice;
+
+	
+	public String getShowType() {
+		return " ";
 	}
 	
 	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {

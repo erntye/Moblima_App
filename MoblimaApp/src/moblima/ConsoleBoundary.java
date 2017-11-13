@@ -1,5 +1,6 @@
 package moblima;
 import java.util.Scanner;
+import java.util.jar.Attributes.Name;
 
 import javax.security.auth.callback.ConfirmationCallback;
 
@@ -14,11 +15,130 @@ import java.util.ArrayList;
 public class ConsoleBoundary {
 	static Scanner sc;
 	
+/*	public static int intialiseMoblima() {
+		sc = new Scanner(System.in);
+		int check = 0;
+		boolean loop = true;
+		
+		//Create Cineplex
+		System.out.print("Creating new Cineplex. Enter 1 to continue, enter 2 to skip: ");
+		if(sc.nextInt() == 2)
+			loop = false;
+		while (loop) {
+			  String cineplexName = new String();
+			  
+			  System.out.println("Create new Cineplex");
+			  System.out.println("Create new Cineplex: name of the cineplex");
+			  cineplexName = sc.nextLine();
+			  CineplexList.addCineplex(cineplexName); //add cineplex
+			  
+			  System.out.print("Enter 1 when add more, enter 2 if you are done: ");
+			  if(sc.nextInt() == 2)
+				  loop = false;
+		  }
+		
+		
+		
+		while (check != 1) {
+			 
+			  String cinemaName = new String();
+			
+			  System.out.println("Create new Cinemas in the Cineplex. Type the name of the cinemas"); //add cinemas
+			  cinemaName = sc.nextLine();
+			  CineplexList.addCinema(cinemaName);
+			  
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		}
+
+		while (check != 1) {
+			  
+			  System.out.print("Add new shows");
+			  ShowMgr.getInstance().addShow();
+			  
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+			  
+		}
+		
+		
+		while (check != 1) {
+			  
+			  System.out.println("Add new Movies");
+			  MovieMgr.getInstance().addMovie();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		
+		  while (check != 1) {
+			  
+			  System.out.println("Create new CustAcc, add in the details");
+			  LoginMgr.getInstance().addCustAccount();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  check = 0;
+		  while (check != 1) {
+			  
+			  System.out.println("Create new StaffAcc, add in the details");
+			  LoginMgr.getInstance().addStaffAccount();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  while (check != 1) {
+			  System.out.println("Set Base Price and Public Holidays");
+			  SystemSettingMgr.getInstance().sysSetOps();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  return 0;
+		  
+
+		
+	}*/
+	
+	//called by MoblimaApp
+	public static int printMainMenu() {
+		sc = new Scanner(System.in);
+		
+		System.out.println("========================================");
+		System.out.println("WELCOME TO  MOBLIMA");
+		System.out.println("========================================");
+		System.out.println("(1) Log In\n(2)Create Account\n(3) Quit");
+		int choice = sc.nextInt();
+		
+		sc.close();
+		return choice;
+	}
+	
+	//called by MoblimaApp
+	public static void printAddAccount() {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("Add Account");
+		System.out.println("========================================");
+		boolean loop = true;
+		while(loop) {
+			System.out.println("(1) Add Staff Account\n(2) Add Customer Account\n(3) Done");
+			switch(sc.nextInt()) {
+			case 1: LoginMgr.getInstance().addStaffAccount(); break;
+			case 2: LoginMgr.getInstance().addCustAccount(); break;
+			case 3: loop = false; break;
+			}
+		}
+		System.out.println("Done adding accounts..");
+		sc.close();
+	}
+	
+	//called by LoginMgr
 	public static String[] printLoginPage() {	
 		sc = new Scanner(System.in);
 		String[] temploginDetails = new String[3];
 		System.out.println("========================================");
-		System.out.println("WELCOME TO  MOBLIMA");
+		System.out.println("Log In");
 		System.out.println("========================================");
 		System.out.println("Account Type:\n(1) Staff\n(2) Customer");
 		temploginDetails[0] = sc.nextLine();
@@ -30,7 +150,6 @@ public class ConsoleBoundary {
 		sc.close();
 		return temploginDetails;
 	}
-	
 	
 	// called by LoginMgr
 	public static String[] printAddStaffAccount() {
@@ -51,6 +170,7 @@ public class ConsoleBoundary {
 		return accountDetails;
 	}
 	
+	//called by LoginMgr
 	public static String[] printAddCustAccount() {
 		String[] accountDetails = new String[6];
 		Scanner sc = new Scanner(System.in);
@@ -127,29 +247,19 @@ public class ConsoleBoundary {
 	
 	//called by MovieMgr 
 	public static Movie printEditMovie() {
-		sc = new Scanner(System.in);	
 		System.out.println("========================================");
 		System.out.println("EDIT MOVIE");
 		System.out.println("========================================");
-		System.out.println("Enter Title: ");
-		String title = sc.nextLine();
-		for(int i = 0; i<MovieList.movieList.size();i++) {
-			if(MovieList.movieList.get(i).getTitle() == title) {
-				sc.close();
-				return MovieList.movieList.get(i);
-			}
-		}
-		System.out.println("Movie not found...");
-		sc.close();
-		return null;
+		return printMovieList();
 	}
 	
 	//called by MovieMgr
 	public static Movie printEditMovie2(Movie movieToEdit) {
 		sc = new Scanner(System.in);
 		Movie movieToReplace;
-		System.out.println("Edit Showing Status: ");
-		System.out.println("1. Coming Soon \t 2. Now Showing \t 3. Ended\t 4. Skip");
+		System.out.println("Edit Showing Status");
+		System.out.println("Current Showing Status: " + movieToEdit.getShowingStatus());
+		System.out.println("Choose:\n1. Coming Soon \t 2. Now Showing \t 3. Ended\t 4. Skip");
 		int temp = sc.nextInt();
 		Movie.Showing_Status status;
 		switch(temp) {
@@ -160,7 +270,8 @@ public class ConsoleBoundary {
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
 		sc.nextLine();
-		System.out.println("Edit Censorship Rating: ");//G,PG, PG13,NC16,M18,R21
+		System.out.println("Edit Censorship Rating");//G,PG, PG13,NC16,M18,R21
+		System.out.println("Current Censorship Rating: " + movieToEdit.getCensorshipRating());
 		System.out.println("1. G \t 2. PG \t 3. PG13 \t 4. NC16 \t 5. M18 \t 6. R21 \t 7. Skip");
 		temp = sc.nextInt();
 		Movie.Censorship_Rating censorR;
@@ -199,27 +310,32 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr
-		public static void printTopSales() {
+	public static void printTopSales() {
 			for(int i = 0; i<5; i++) {
 				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Sales: " + MovieList.movieList.get(i).getSales());
 			}
 		}
 	
+	//called by MovieMgr
 	public static int printMovieOps() {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("========================================");
 		System.out.println("MANAGE MOVIES");
 		System.out.println("========================================");
-		System.out.println("1. Add Movie");
-		System.out.println("2. Remove Movie");
-		System.out.println("3. Edit Movie");
+		System.out.println("(1) Add Movie");
+		System.out.println("(2) Remove Movie");
+		System.out.println("(3) Edit Movie");
+		System.out.println("(4) Top 5 Movies By Sales");
+		System.out.println("(5) Top 5 Movies By Ratings");
+		System.out.println("(9) Done Managing Movies");
 		int choice = sc.nextInt();
 		
 		sc.close();
 		return choice;
 	}
 	
+	//called by MovieMgr
 	public static Movie printRemoveMovie() {
 		System.out.println("========================================");
 		System.out.println("REMOVE MOVIE");
@@ -227,27 +343,179 @@ public class ConsoleBoundary {
 		return printMovieList();
 	}
 	
+	//called by ShowMgr
+	public static int printShowOps() {
+		System.out.println("========================================");
+		System.out.println("Manage Shows");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("(1) Add Show");
+		System.out.println("(2) Remove Show");
+		System.out.println("(3) Edit Show");
+		System.out.println("(9) Done Managing Shows");
+		int choice = sc.nextInt();
+		
+		sc.close();
+		return choice;
+	}
 	
-	//unsorted
+	//called by ShowMgr
+	public static Cinema printAddShow() {
+		System.out.println("========================================");
+		System.out.println("Add Shows");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex and Cinema you want to add the show to, then choose the movie and enter the show time.");
+		Cinema cinema = printChooseCinema(printChooseCineplex());
+		return cinema;
+	}
+	
+	//called by ShowMgr
+	public static Calendar getShowTime() {
+		System.out.println("========================================");
+		System.out.println("Get Show Time");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Year: ");
+		int year = sc.nextInt();
+		System.out.println("Enter Month: ");
+		int month = sc.nextInt();
+		System.out.println("Enter Day: ");
+		int day = sc.nextInt();
+		System.out.println("Enter Hour: ");
+		int hour = sc.nextInt();
+		System.out.println("Enter Minutes: ");
+		int minute = sc.nextInt();
+		Calendar showTime = new GregorianCalendar(year, month, day, hour, minute, 0);
+		sc.close();
+		return showTime;
+	}
+	
+	//called by ShowMgr
+	public static Cinema printRemoveShow() {
+		System.out.println("========================================");
+		System.out.println("Remove Shows");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex and Cinema you want to remove the show from, then select the show.");
+		Cinema cinema = printChooseCinema(printChooseCineplex());
+		return cinema;
+	}
+	
+	//called by ShowMgr
+	public static Cinema printEditShow() {
+		System.out.println("========================================");
+		System.out.println("Edit Shows");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex and Cinema, followed by the show you want to edit.");
+		Cinema cinema = printChooseCinema(printChooseCineplex());
+		return cinema;
+	}
+	
+	//called by ShowMgr
+	public static void printEditShowDetails(Show show) {
+		System.out.println("========================================");
+		System.out.println("Edit Show");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Change Movie");
+		System.out.println("Current Movie: " + show.getMovieTitle());
+		System.out.println("1. Change Movie\n2. Skip\n");
+		int choice = sc.nextInt();
+		if(choice == 1) {
+			Movie movieToChange = printMovieList();
+			show.setMovieTitle(movieToChange.getTitle());
+		}
+		
+		System.out.println("Change Show Time");
+		System.out.println("Current Show Time: " + show.getShowTime());
+		System.out.println("1. Change Show Time\n2. Skip\n");
+		choice = sc.nextInt();
+		if(choice == 1) {
+			show.setTime(getShowTime());
+		}
+		
+		sc.close();
+	}
+	
+	//called by ShowMgr
+	public static Show printShowList(Cinema cinema) {
+		System.out.println("========================================");
+		System.out.println("Choose Show");
+		System.out.println("========================================");
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Show> tempShows = new ArrayList<Show>();
+		for(int i = 0; i<cinema.getShows().size();i++) {
+			System.out.print((i+1) + ". ");
+			System.out.print(cinema.getShows().get(i).getMovieTitle() + " ");
+			System.out.print(cinema.getShows().get(i).getShowType() + " ");
+			System.out.println(cinema.getShows().get(i).getShowTime());
+			tempShows.add(cinema.getShows().get(i));
+		}
+		System.out.print("Enter Choice: ");
+		int choice = sc.nextInt();
+		
+		sc.close();
+		return tempShows.get(choice-1);
+	}
+	
+	//called by CineplexMgr
+	public static int printCineplexOps() {
+		sc = new Scanner(System.in);
+		int choice = 0;
+		System.out.println("========================================");
+		System.out.println("Cineplex Ops");
+		System.out.println("========================================");
+		System.out.println("What would you like to do:");
+		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(9) Done");
+		choice = sc.nextInt();
+		sc.close();
+		return choice;
+	}
+	
+	//called by CineplexMgr
+	public static String printAddCineplex() {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("Add Cineplex");
+		System.out.println("========================================");
+		System.out.println("Enter name of cineplex");
+		sc.close();
+		return sc.nextLine();
+	}
+	
+	//called by CineplexMgr
+	public static Cineplex printRemoveCineplex() {
+		System.out.println("========================================");
+		System.out.println("Remove Cineplex");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex you wish to remove.");
+		return printChooseCineplex();
+	}
+	
+	//called by StaffCtr
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("STAFF PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)Modify Movies\n(2)Modify Shows\n(3)Modify System Settings\n(9) Logout");
+		System.out.println("What would you like to do:");
+		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
 	}
 	
+	
+	//unsorted
 	public static int printCustPage() {
 		sc = new Scanner(System.in);
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1) List Movies\n(2) List Shows by Cineplex\n(3) Add a Review\n(9) Logout");
+		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\\n(5) List Top 5 Movie By Ratings\n(9) Logout");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
@@ -277,13 +545,19 @@ public class ConsoleBoundary {
 		return reviews;
 	}
 	
+	public static void printBookingHistory(CustAcc c) {
+		for(int i = c.getTransactionList().size()-1; i>=0;i--) {
+			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n Date: " + c.getTransactionList().get(i).getDate() + "\n Movie Title:" + c.getTransactionList().get(i).getMovieTitle());
+		}
+	}
+	
 	public static int printSystemSettingMenu() {
 		sc = new Scanner(System.in);
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)Change Ticket Base Price\n(2)Add Public Holiday\n(9) Logout");
+		System.out.println("What would you like to do:\n(1)Change Ticket Base Price\n(2)Add Public Holiday\n(9) Done with System Settings");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
@@ -389,7 +663,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
-		for(int i = 0 ; i < CineplexList.cineplexList.size();i++) {
+		for(int i = 0 ; i < cineplex.getCinemas().size();i++) {
 			System.out.println("("+ i+1 + ") " +  cineplex.getCinemas().get(i).getName());
 		}
 		System.out.println("(0) Cancel");
@@ -421,8 +695,8 @@ public class ConsoleBoundary {
 		return choiceS;
 	}
 	
-	public static Show printShowsByMovie(Movie movie, Cineplex cineplex, Cinema cinema, String showType) {
-		ArrayList<Show> tempShows = new ArrayList<>();
+	public static Show printShowsByMovie(Movie movie, Cinema cinema) {
+		ArrayList<Show> tempShows = new ArrayList<Show>();
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TIME");
@@ -432,7 +706,7 @@ public class ConsoleBoundary {
 			int count = 1;
 			if(cinema.getShows().get(i).getMovieTitle() == movie.getTitle()) {
 				tempShows.add(cinema.getShows().get(i));
-				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTime().get(Calendar.HOUR_OF_DAY) + ":" + cinema.getShows().get(i).getShowTime().get(Calendar.MINUTE));
+				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTime().get(Calendar.HOUR_OF_DAY) + ":" + cinema.getShows().get(i).getShowTime().get(Calendar.MINUTE) + " (" + cinema.getShows().get(i).getShowType() + ")");
 				count++;
 			} else if(tempShows.size()==0){
 				System.out.println("No Shows Available");
