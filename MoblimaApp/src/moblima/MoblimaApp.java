@@ -29,12 +29,7 @@ public class MoblimaApp {
 			mainMenuChoice = ConsoleBoundary.printMainMenu();
 			switch(mainMenuChoice) {
 			case 1: //Log In
-				loginDetails = ConsoleBoundary.printLoginPage();
-				if(loginDetails[0]=="1" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-					StaffCtr.getInstance().staffOperations();
-				} else if (loginDetails[0]=="2" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-					CustCtr.getInstance().custOperations();
-				}
+				LoginMgr.getInstance().login(); break;
 			case 2: //Add Account
 				ConsoleBoundary.printAddAccount(); break;
 			case 3: //quit
@@ -42,14 +37,7 @@ public class MoblimaApp {
 			}
 		}
 		
-		
-		//Log In
-		loginDetails = ConsoleBoundary.printLoginPage();
-		if(loginDetails[0]=="1" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-			StaffCtr.getInstance().staffOperations();
-		} else if (loginDetails[0]=="2" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-			CustCtr.getInstance().custOperations();
-		}
+	
 //		do{
 //			
 ////			else if(LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) != 1) {
