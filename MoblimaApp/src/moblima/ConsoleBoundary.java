@@ -43,14 +43,9 @@ public class ConsoleBoundary {
 		}
 
 		while (check != 1) {
-			
-			  String showDetails = new String();
 			  
-			  System.out.print("Add shows : [movie]");
-			  showDetails = sc.nextLine();
-			  CineplexList.addShows(showDetails);
-			  System.out.print("Add shows : [showtime]");
-			  System.out.print("Add shows : [layout]");
+			  System.out.print("Add new shows");
+			  ShowMgr.getInstance().addShow();
 			  
 			  System.out.print("Type 1 when done adding, Type 2 if not");
 			  check = sc.nextInt();

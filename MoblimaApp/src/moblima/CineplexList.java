@@ -14,7 +14,7 @@ public class CineplexList {
 		
 	}
 	
-	public static void addCinema(String cinemaName) {
+	public static void addCinema(String cinemaName) { // not sure how to add seatLayout because we're gonna read 2d array from csv file?
 		cinemas.add(new Cinema(cinemaName, null)); //ArrayList<Cinema> newCinema= new ArrayList<Cinema>();
 		
 	}
