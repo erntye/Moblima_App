@@ -3,8 +3,13 @@ package moblima;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.*;
+import java.io.*;
 
-public class Cinema {
+public class Cinema implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1100625453212704609L;
 	private ArrayList<Show> shows;
 	private static float premium;
 	private String name;

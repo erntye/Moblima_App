@@ -71,9 +71,10 @@ public class LoginMgr {
 		}
 		
 		CustAcc newAcc = new CustAcc(accountDetails[0],accountDetails[1],accountDetails[2],mobileNumber,accountDetails[4],ageCategory);
-		if(custArray.add(newAcc))
+		if(custArray.add(newAcc)) {
 			System.out.println("customer account added successfully!"); //for testing
-
+			DataBoundary.saveCustList(custArray);
+		}
 	}
 	
 	public void addStaffAccount() {
