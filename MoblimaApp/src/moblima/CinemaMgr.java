@@ -26,34 +26,31 @@ public class CinemaMgr {
 	}
 	
 	public void addCinema(Cineplex cineplex) {
-		boolean cineplexLoop = true;
-		while(cineplexLoop) {
-			String[] movieDetails = ConsoleBoundary.printAddCinema(cineplex.getName());
-			int layoutNumber = Integer.parseInt(movieDetails[1]);
-			switch(Integer.parseInt(movieDetails[2])) {
-			case 1: //normal
-				cineplex.addCinema(new Cinema(movieDetails[0], layoutNumber));
-				System.out.print("normal cinema added");
-				break;
-			case 2: //gold
-				cineplex.addCinema(new CinemaGold(movieDetails[0], layoutNumber));
-				System.out.print("Gold Class cinema added");
-				break;
-			case 3: //platinum
-				cineplex.addCinema(new CinemaPlatinum(movieDetails[0], layoutNumber));
-				System.out.print("Platinum Class cinema added");
-				break;
-			default: //normal
-				cineplex.addCinema(new Cinema(movieDetails[0], layoutNumber));
-				System.out.print("default cinema (normal) added");
-				break;
-			}
-			
+		String[] movieDetails = ConsoleBoundary.printAddCinema(cineplex.getName());
+		int layoutNumber = Integer.parseInt(movieDetails[1]);
+		switch(Integer.parseInt(movieDetails[2])) {
+		case 1: //normal
+			cineplex.addCinema(new Cinema(movieDetails[0], layoutNumber));
+			System.out.println("normal cinema added");
+			break;
+		case 2: //gold
+			cineplex.addCinema(new CinemaGold(movieDetails[0], layoutNumber));
+			System.out.println("Gold Class cinema added");
+			break;
+		case 3: //platinum
+			cineplex.addCinema(new CinemaPlatinum(movieDetails[0], layoutNumber));
+			System.out.println("Platinum Class cinema added");
+			break;
+		default: //normal
+			cineplex.addCinema(new Cinema(movieDetails[0], layoutNumber));
+			System.out.println("default cinema (normal) added");
+			break;
 		}
 	}
 	
 	public void removeCinema(Cineplex cineplex) {
 		Cinema cinemaToRemove = ConsoleBoundary.printRemoveCinema(cineplex);
 		cineplex.removeCinema(cinemaToRemove);
+		System.out.println("Cinema removed");
 	}
 }

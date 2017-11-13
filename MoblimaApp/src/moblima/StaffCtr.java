@@ -20,7 +20,7 @@ public class StaffCtr {
 			case 2: ShowMgr.getInstance().showOps(); break;
 			case 3: SystemSettingMgr.getInstance().sysSetOps(); break;
 			case 4: CineplexMgr.getInstance().CineplexOps(); break;
-			case 5: //modify cinemas
+			case 5: CinemaMgr.getInstance().CinemaOps(); break;
 			}
 		} while (choice != 9);
 		ConsoleBoundary.printLogout();
