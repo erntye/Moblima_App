@@ -20,17 +20,31 @@ public class ConsoleBoundary {
 		
 		while (check != 1) {
 			  String cineplexName = new String();
-			  String cinemaName = new String();
-			  String showDetails = new String();
 			  
 			  System.out.println("Create new Cineplex");
 			  System.out.println("Create new Cineplex: name of the cineplex");
 			  cineplexName = sc.nextLine();
 			  CineplexList.addCineplex(cineplexName); //add cineplex
 			  
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		
+		while (check != 1) {
+			 
+			  String cinemaName = new String();
+			
 			  System.out.println("Create new Cinemas in the Cineplex. Type the name of the cinemas"); //add cinemas
 			  cinemaName = sc.nextLine();
 			  CineplexList.addCinema(cinemaName);
+			  
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		}
+
+		while (check != 1) {
+			
+			  String showDetails = new String();
 			  
 			  System.out.print("Add shows : [movie]");
 			  showDetails = sc.nextLine();
@@ -38,10 +52,10 @@ public class ConsoleBoundary {
 			  System.out.print("Add shows : [showtime]");
 			  System.out.print("Add shows : [layout]");
 			  
-			  
 			  System.out.print("Type 1 when done adding, Type 2 if not");
 			  check = sc.nextInt();
-		  }
+			  
+		}
 		
 		
 		while (check != 1) {
@@ -65,13 +79,6 @@ public class ConsoleBoundary {
 			  
 			  System.out.println("Create new StaffAcc, add in the details");
 			  LoginMgr.getInstance().addStaffAccount();
-			  System.out.print("Type 1 when done adding, Type 2 if not");
-			  check = sc.nextInt();
-		  }
-		  
-		  while (check != 1) {
-			  System.out.println("Create new Movie, add in the details");
-			  MovieMgr.getInstance().addMovie();
 			  System.out.print("Type 1 when done adding, Type 2 if not");
 			  check = sc.nextInt();
 		  }
