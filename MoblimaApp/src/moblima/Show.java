@@ -1,9 +1,14 @@
 package moblima;
 import java.util.Calendar;
 import java.util.Comparator;
+import java.io.*;
 
 //change UML to include Date class and baseprice as static
-public class Show {
+public class Show implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8999338132604198550L;
 	private String movie;
 	private Calendar showTime;
 	private char[][] bookedLayout;

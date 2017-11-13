@@ -1,10 +1,16 @@
 package moblima;
+import java.io.*;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class Movie{
+public class Movie implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5835831193063619356L;
+
 	public enum Showing_Status {
 		ComingSoon, NowShowing,Ended;
 	}
