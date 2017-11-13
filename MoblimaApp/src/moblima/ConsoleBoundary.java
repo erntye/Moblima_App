@@ -781,4 +781,14 @@ public class ConsoleBoundary {
 		System.out.println("GOOD BYE! SEE YOU SOON!");
 		System.out.println("========================================");
 	}
+	
+	public static void printEmptyLayout(char[][] seatLayout, int height, int width) {
+		for(int i=0; i<height; i++) {
+			for (int j=0; j<width; j++) {
+			System.out.print(seatLayout[i][j]);
+			System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
 }
