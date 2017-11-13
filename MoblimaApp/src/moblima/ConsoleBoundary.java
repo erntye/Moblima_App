@@ -279,6 +279,7 @@ public class ConsoleBoundary {
 			}
 		}
 	
+	//called by MovieMgr
 	public static int printMovieOps() {
 		Scanner sc = new Scanner(System.in);
 
@@ -297,6 +298,7 @@ public class ConsoleBoundary {
 		return choice;
 	}
 	
+	//called by MovieMgr
 	public static Movie printRemoveMovie() {
 		System.out.println("========================================");
 		System.out.println("REMOVE MOVIE");
