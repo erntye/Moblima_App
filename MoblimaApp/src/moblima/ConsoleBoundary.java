@@ -713,8 +713,8 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
-		for(int i = 0 ; i < cineplex.getCinemas().size();i++) {
-			System.out.println("("+ i+1 + ") " +  cineplex.getCinemas().get(i).getName());
+		for(int i = 0 ; i < cineplex.getCinemaList().size();i++) {
+			System.out.println("("+ i+1 + ") " +  cineplex.getCinemaList().get(i).getName());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt();
@@ -724,7 +724,7 @@ public class ConsoleBoundary {
 			return null;
 		} else {
 			sc.close();
-			return cineplex.getCinemas().get(choice-1);
+			return cineplex.getCinemaList().get(choice-1);
 		}
 	}
 	

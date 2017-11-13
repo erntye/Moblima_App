@@ -10,12 +10,12 @@ public class Cineplex implements Serializable{
 	private static final long serialVersionUID = -3576833979103642973L;
 	private String name;
 	private String code;
-	private ArrayList<Cinema> cinemas;
+	private ArrayList<Cinema> cinemaList;
 
 	public Cineplex (String name, String code) {
 		this.name = name;
 		this.code = code;
-		cinemas = new ArrayList<Cinema>();
+		cinemaList = new ArrayList<Cinema>();
 	}
 	
 	public String getCode() {
@@ -26,11 +26,11 @@ public class Cineplex implements Serializable{
 		return name;
 	}
  
-	public ArrayList<Cinema> getCinemas() {
-		return cinemas;
+	public ArrayList<Cinema> getCinemaList() {
+		return cinemaList;
 	}
 	
 	public void addCinema(Cinema cinemaToAdd) {
-		cinemas.add(cinemaToAdd);
+		cinemaList.add(cinemaToAdd);
 	}
 }
