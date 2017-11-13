@@ -19,10 +19,9 @@ public class CineplexList {
 		
 	}
 		
-	}
 	
-	public static void addShows(String shows) {
-		shows.add(new Show(movie, showTime, bookedLayout));
+	public static void addShows(String showDetails) {
+		shows.add(new Show(showDetails, null, null));
 		
 	}
 	

@@ -19,43 +19,35 @@ public class ConsoleBoundary {
 		int check = 0;
 		
 		while (check != 1) {
-			  String[] cineplexName = new String[1];
-			  String[] cinemaName = new String[1];
-			  String[] showDetails = new String[3];
+			  String cineplexName = new String();
+			  String cinemaName = new String();
+			  String showDetails = new String();
+			  
 			  System.out.println("Create new Cineplex");
 			  System.out.println("Create new Cineplex: name of the cineplex");
-			  cineplexName [0] = sc.nextLine();
-			  CineplexList.addCineplex(String cineplexName); //add cineplex
+			  cineplexName = sc.nextLine();
+			  CineplexList.addCineplex(cineplexName); //add cineplex
 			  
 			  System.out.println("Create new Cinemas in the Cineplex. Type the name of the cinemas"); //add cinemas
-			  cinemaName [0] = sc.nextLine();
-			  CineplexList.addCinema(String cinemaName);
+			  cinemaName = sc.nextLine();
+			  CineplexList.addCinema(cinemaName);
 			  
-			  System.out.print("Add shows in the Cinema: [movie]");
-			  showDetails[0] = sc.nextLine();
-			  System.out.print("Add shows in the Cinema: [showtime]");
-			  showDetails[1] = sc.nextLine();
-			  System.out.print("Add shows in the Cinema: [layout");
+			  System.out.print("Add shows : [movie]");
+			  showDetails = sc.nextLine();
+			  CineplexList.addShows(showDetails);
+			  System.out.print("Add shows : [showtime]");
+			  System.out.print("Add shows : [layout]");
 			  
 			  
-			  
+			  System.out.print("Type 1 when done adding, Type 2 if not");
 			  check = sc.nextInt();
 		  }
 		
-		/*while (check != 1) {
-			  
-			  System.out.println("Create new Cinema");
-			  LoginMgr.getInstance().addCustAccount();
-			  System.out.println("Create new Cinemas in the Cineplex");
-			  System.out.print("Type 1 when done adding, Type 2 if not");
-			  check = sc.nextInt();
-		  }*/
 		
 		while (check != 1) {
 			  
-			  System.out.println("Create new Shows");
+			  System.out.println("Add new Movies");
 			  MovieMgr.getInstance().addMovie();
-			  System.out.println("Add new Showtimes for the Movies");
 			  System.out.print("Type 1 when done adding, Type 2 if not");
 			  check = sc.nextInt();
 		  }
@@ -87,13 +79,6 @@ public class ConsoleBoundary {
 		  while (check != 1) {
 			  System.out.println("Set Base Price and Public Holidays");
 			  SystemSettingMgr.getInstance().sysSetOps();
-			  System.out.print("Type 1 when done adding, Type 2 if not");
-			  check = sc.nextInt();
-		  }
-		  
-		  while (check != 1) {
-			  System.out.println("Create Cineplex");
-			  CineplexList.cineplexList.addCineplex();
 			  System.out.print("Type 1 when done adding, Type 2 if not");
 			  check = sc.nextInt();
 		  }
