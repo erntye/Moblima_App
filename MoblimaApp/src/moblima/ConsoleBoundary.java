@@ -16,9 +16,15 @@ public class ConsoleBoundary {
 	static Scanner sc;
 	
 	public static int intialiseMoblima() {
+		sc = new Scanner(System.in);
 		int check = 0;
+		boolean loop = true;
 		
-		while (check != 1) {
+		//Create Cineplex
+		System.out.print("Creating new Cineplex. Enter 1 to continue, enter 2 to skip: ");
+		if(sc.nextInt() == 2)
+			loop = false;
+		while (loop) {
 			  String cineplexName = new String();
 			  
 			  System.out.println("Create new Cineplex");
@@ -26,9 +32,12 @@ public class ConsoleBoundary {
 			  cineplexName = sc.nextLine();
 			  CineplexList.addCineplex(cineplexName); //add cineplex
 			  
-			  System.out.print("Type 1 when done adding, Type 2 if not");
-			  check = sc.nextInt();
+			  System.out.print("Enter 1 when add more, enter 2 if you are done: ");
+			  if(sc.nextInt() == 2)
+				  loop = false;
 		  }
+		
+		
 		
 		while (check != 1) {
 			 
