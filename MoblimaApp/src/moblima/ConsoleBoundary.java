@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ConsoleBoundary {
 	static Scanner sc;
 	
-	public static int intialiseMoblima() {
+/*	public static int intialiseMoblima() {
 		sc = new Scanner(System.in);
 		int check = 0;
 		boolean loop = true;
@@ -98,9 +98,9 @@ public class ConsoleBoundary {
 		  
 
 		
-	}
+	}*/
 	
-	//called by Moblima
+	//called by MoblimaApp
 	public static int printMainMenu() {
 		sc = new Scanner(System.in);
 		
@@ -114,6 +114,7 @@ public class ConsoleBoundary {
 		return choice;
 	}
 	
+	//called by MoblimaApp
 	public static void printAddAccount() {
 		sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -132,6 +133,7 @@ public class ConsoleBoundary {
 		sc.close();
 	}
 	
+	//called by LoginMgr
 	public static String[] printLoginPage() {	
 		sc = new Scanner(System.in);
 		String[] temploginDetails = new String[3];
