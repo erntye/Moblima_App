@@ -13,11 +13,16 @@ public class CSVBoundary {
 		try {
 			BufferedReader br =  new BufferedReader(new FileReader(fileName));
 			String temp;
+			int height = 0;
+			while (br.readLine() != null) {
+				height++;
+			}
+			br =  new BufferedReader(new FileReader(fileName));
 			int i = 0;
 			temp = br.readLine();
 			temp = temp.replaceAll(",", "");
-			int size = temp.length();
-			seatLayout = new char[size][size];
+			int width = temp.length();
+			seatLayout = new char[width][height];
 			seatLayout[i++] =  temp.toCharArray();				
 			while ((temp = br.readLine())!= null) {
 				temp = temp.replaceAll(",", "");
@@ -27,12 +32,35 @@ public class CSVBoundary {
 			return seatLayout;
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Choice not valid, setting default layout1");
+			try {
+				BufferedReader br =  new BufferedReader(new FileReader("layout1.csv"));
+				String temp;
+				int height = 0;
+				while (br.readLine() != null) {
+					height++;
+				}
+				br =  new BufferedReader(new FileReader(fileName));
+				int i = 0;
+				temp = br.readLine();
+				temp = temp.replaceAll(",", "");
+				int width = temp.length();
+				seatLayout = new char[width][height];
+				seatLayout[i++] =  temp.toCharArray();				
+				while ((temp = br.readLine())!= null) {
+					temp = temp.replaceAll(",", "");
+					seatLayout[i++] =  temp.toCharArray();	
+				}
+				br.close();
+				return seatLayout;
+			}
+			catch (FileNotFoundException e2) {}
+			catch (IOException e2) {}
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		return new char[10][10];
+		return new char[1][1];
 	}
 	
 	public static void printAllLayout() {
@@ -58,7 +86,7 @@ public class CSVBoundary {
 					temp = temp.replaceAll(",", "");
 					seatLayout[i++] =  temp.toCharArray();
 				}
-				ConsoleBoundary.printEmptyLayout(seatLayout, height, width);
+				ConsoleBoundary.printEmptyLayout(seatLayout, height, width, c);
 				c++;
 			}
 			catch (FileNotFoundException e) {
