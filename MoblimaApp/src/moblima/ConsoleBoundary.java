@@ -473,14 +473,18 @@ public class ConsoleBoundary {
 	}
 	
 	//called by CineplexMgr
-	public static String printAddCineplex() {
+	public static String[] printAddCineplex() {
 		sc = new Scanner(System.in);
+		String[] cineplexDetails = new String[2];
 		System.out.println("========================================");
 		System.out.println("Add Cineplex");
 		System.out.println("========================================");
-		System.out.println("Enter name of cineplex");
+		System.out.print("Enter name of cineplex: ");
+		cineplexDetails[0] = sc.nextLine();
+		System.out.print("Enter 3 letter code of cineplex: ");
+		cineplexDetails[1] = sc.nextLine();
 		sc.close();
-		return sc.nextLine();
+		return cineplexDetails;
 	}
 	
 	//called by CineplexMgr
@@ -528,6 +532,15 @@ public class ConsoleBoundary {
 		
 		sc.close();
 		return cinemaDetails; //index 0: name; index 1: layout number; index 2: cinema class
+	}
+	
+	//called by CinemaMgr
+	public static Cinema printRemoveCinema(Cineplex cineplex) {
+		System.out.println("========================================");
+		System.out.println("Add Cinema");
+		System.out.println("========================================");
+		System.out.println("You are removing a cinema from the cineplex " + cineplex.getName());
+		return printChooseCinema(cineplex);
 	}
 	
 	//called by StaffCtr

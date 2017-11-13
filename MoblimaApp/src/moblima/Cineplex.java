@@ -8,13 +8,14 @@ public class Cineplex implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -3576833979103642973L;
-	public static String name; //changed to public
+	private String name;
 	private String code;
-	public ArrayList<Cinema> cinemas; // changed to public
+	private ArrayList<Cinema> cinemas;
 
-	public Cineplex (String name) {
+	public Cineplex (String name, String code) {
 		this.name = name;
-
+		this.code = code;
+		cinemas = new ArrayList<Cinema>();
 	}
 	
 	public String getCode() {
@@ -30,6 +31,6 @@ public class Cineplex implements Serializable{
 	}
 	
 	public void addCinema(Cinema cinemaToAdd) {
-		
+		cinemas.add(cinemaToAdd);
 	}
 }

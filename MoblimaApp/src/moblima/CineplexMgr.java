@@ -25,7 +25,8 @@ public class CineplexMgr {
 	}
 	
 	public void addCineplex() {
-		CineplexList.addCineplex(ConsoleBoundary.printAddCineplex());
+		String[] cineplexDetails = ConsoleBoundary.printAddCineplex();
+		CineplexList.addCineplex(cineplexDetails[0], cineplexDetails[1]);
 	}
 	
 	public void removeCineplex() {

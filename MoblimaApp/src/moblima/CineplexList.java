@@ -8,8 +8,8 @@ public class CineplexList {
 	public static ArrayList<Cineplex> cineplexList;
 
 	
-	public static void addCineplex(String cineplexName){
-		cineplexList.add(new Cineplex(cineplexName));
+	public static void addCineplex(String cineplexName, String cineplexCode){
+		cineplexList.add(new Cineplex(cineplexName,cineplexCode));
 	}
 	
 	public static void removeCineplex(Cineplex cineplexToRemove) {
