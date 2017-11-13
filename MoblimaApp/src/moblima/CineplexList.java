@@ -9,8 +9,8 @@ public class CineplexList {
 	public static ArrayList<Cinema> cinemas;
 	public static ArrayList<Show> shows;
 	
-	public static void addCineplex(String name){
-		cineplexList.add(new Cineplex(name));
+	public static void addCineplex(String cineplexName){
+		cineplexList.add(new Cineplex(cineplexName));
 		
 	}
 	
