@@ -1,5 +1,6 @@
 package moblima;
 import java.util.Scanner;
+import java.util.jar.Attributes.Name;
 
 import javax.security.auth.callback.ConfirmationCallback;
 
@@ -13,6 +14,95 @@ import java.util.ArrayList;
 
 public class ConsoleBoundary {
 	static Scanner sc;
+	
+	public static int intialiseMoblima() {
+		int check = 0;
+		
+		while (check != 1) {
+			  String[] cineplexName = new String[1];
+			  String[] cinemaName = new String[1];
+			  String[] showDetails = new String[3];
+			  System.out.println("Create new Cineplex");
+			  System.out.println("Create new Cineplex: name of the cineplex");
+			  cineplexName [0] = sc.nextLine();
+			  CineplexList.addCineplex(String cineplexName); //add cineplex
+			  
+			  System.out.println("Create new Cinemas in the Cineplex. Type the name of the cinemas"); //add cinemas
+			  cinemaName [0] = sc.nextLine();
+			  CineplexList.addCinema(String cinemaName);
+			  
+			  System.out.print("Add shows in the Cinema: [movie]");
+			  showDetails[0] = sc.nextLine();
+			  System.out.print("Add shows in the Cinema: [showtime]");
+			  showDetails[1] = sc.nextLine();
+			  System.out.print("Add shows in the Cinema: [layout");
+			  
+			  
+			  
+			  check = sc.nextInt();
+		  }
+		
+		/*while (check != 1) {
+			  
+			  System.out.println("Create new Cinema");
+			  LoginMgr.getInstance().addCustAccount();
+			  System.out.println("Create new Cinemas in the Cineplex");
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }*/
+		
+		while (check != 1) {
+			  
+			  System.out.println("Create new Shows");
+			  MovieMgr.getInstance().addMovie();
+			  System.out.println("Add new Showtimes for the Movies");
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		
+		  while (check != 1) {
+			  
+			  System.out.println("Create new CustAcc, add in the details");
+			  LoginMgr.getInstance().addCustAccount();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  check = 0;
+		  while (check != 1) {
+			  
+			  System.out.println("Create new StaffAcc, add in the details");
+			  LoginMgr.getInstance().addStaffAccount();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  while (check != 1) {
+			  System.out.println("Create new Movie, add in the details");
+			  MovieMgr.getInstance().addMovie();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  while (check != 1) {
+			  System.out.println("Set Base Price and Public Holidays");
+			  SystemSettingMgr.getInstance().sysSetOps();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  while (check != 1) {
+			  System.out.println("Create Cineplex");
+			  CineplexList.cineplexList.addCineplex();
+			  System.out.print("Type 1 when done adding, Type 2 if not");
+			  check = sc.nextInt();
+		  }
+		  
+		  return 0;
+		  
+
+		
+	}
 	
 	public static String[] printLoginPage() {	
 		sc = new Scanner(System.in);
