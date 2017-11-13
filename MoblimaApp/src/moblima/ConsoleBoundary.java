@@ -493,6 +493,20 @@ public class ConsoleBoundary {
 		return printChooseCineplex();
 	}
 	
+	//called by CinemaMgr
+	public static int printCinemaOps() {
+		sc = new Scanner(System.in);
+		int choice = 0;
+		System.out.println("========================================");
+		System.out.println("Cinema Ops");
+		System.out.println("========================================");
+		System.out.println("What would you like to do:");
+		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(9) Done");
+		choice = sc.nextInt();
+		sc.close();
+		return choice;
+	}
+	
 	//called by StaffCtr
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);

@@ -24,5 +24,7 @@ public class Cineplex {
 		return cinemas;
 	}
 	
-	
+	public void addCinema(Cinema cinemaToAdd) {
+		
+	}
 }
