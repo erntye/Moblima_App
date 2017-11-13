@@ -459,6 +459,40 @@ public class ConsoleBoundary {
 		return tempShows.get(choice-1);
 	}
 	
+	//called by CineplexMgr
+	public static int printCineplexOps() {
+		sc = new Scanner(System.in);
+		int choice = 0;
+		System.out.println("========================================");
+		System.out.println("Cineplex Ops");
+		System.out.println("========================================");
+		System.out.println("What would you like to do:");
+		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(9) Done");
+		choice = sc.nextInt();
+		sc.close();
+		return choice;
+	}
+	
+	//called by CineplexMgr
+	public static String printAddCineplex() {
+		sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("Add Cineplex");
+		System.out.println("========================================");
+		System.out.println("Enter name of cineplex");
+		sc.close();
+		return sc.nextLine();
+	}
+	
+	//called by CineplexMgr
+	public static Cineplex printRemoveCineplex() {
+		System.out.println("========================================");
+		System.out.println("Remove Cineplex");
+		System.out.println("========================================");
+		System.out.println("Choose the Cineplex you wish to remove.");
+		return printChooseCineplex();
+	}
+	
 	//called by StaffCtr
 	public static int printStaffPage() {
 		sc = new Scanner(System.in);
