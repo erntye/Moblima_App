@@ -33,4 +33,8 @@ public class Cineplex implements Serializable{
 	public void addCinema(Cinema cinemaToAdd) {
 		cinemaList.add(cinemaToAdd);
 	}
+	
+	public void removeCinema(Cinema cinemaToRemove) {
+		cinemaList.remove(cinemaToRemove);
+	}
 }

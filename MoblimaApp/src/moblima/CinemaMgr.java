@@ -54,6 +54,6 @@ public class CinemaMgr {
 	
 	public void removeCinema(Cineplex cineplex) {
 		Cinema cinemaToRemove = ConsoleBoundary.printRemoveCinema(cineplex);
-//		cineplex.
+		cineplex.removeCinema(cinemaToRemove);
 	}
 }
