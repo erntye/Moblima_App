@@ -193,7 +193,6 @@ public class ConsoleBoundary {
 		return accountDetails;
 	}
 	
-	
 	//called by MovieMgr 
 	public static Movie printAddMovie() {
 		sc = new Scanner(System.in);
@@ -494,17 +493,41 @@ public class ConsoleBoundary {
 	}
 	
 	//called by CinemaMgr
-	public static int printCinemaOps() {
+	public static int printCinemaOps(String cineplexName) {
 		sc = new Scanner(System.in);
 		int choice = 0;
 		System.out.println("========================================");
-		System.out.println("Cinema Ops");
+		System.out.println("Manage Cinemas");
 		System.out.println("========================================");
+		System.out.println("You are managing cinemas in cineplex " + cineplexName);
 		System.out.println("What would you like to do:");
 		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(9) Done");
 		choice = sc.nextInt();
 		sc.close();
 		return choice;
+	}
+	
+	//called by CinemaMgr
+	public static String[] printAddCinema(String cineplexName) {
+		sc = new Scanner(System.in);
+		String[] cinemaDetails = new String[3];
+		
+		System.out.println("========================================");
+		System.out.println("Add Cinema");
+		System.out.println("========================================");
+		System.out.println("You are adding a cinema into the cineplex " + cineplexName);
+		System.out.print("Enter Cinema Name: ");
+		cinemaDetails[0] = sc.nextLine();
+		System.out.println("Now choose the cinema layout");
+		CSVBoundary.printAllLayout();
+		System.out.print("Enter your layout choice: ");
+		cinemaDetails[1] = sc.nextLine();
+		System.out.println("Choose the Cinema Class");
+		System.out.print("(1) Normal\n(2) Gold Class\n(3) Platinum Class");
+		cinemaDetails[2] = sc.nextLine();
+		
+		sc.close();
+		return cinemaDetails; //index 0: name; index 1: layout number; index 2: cinema class
 	}
 	
 	//called by StaffCtr
@@ -782,6 +805,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 	}
 	
+	//called by CSV Boundary
 	public static void printEmptyLayout(char[][] seatLayout, int height, int width, int choice) {
 		System.out.println(choice + ". Layout "+choice);
 		for(int i=0; i<height; i++) {

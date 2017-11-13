@@ -17,11 +17,11 @@ public class Cinema implements Serializable{
 	private char[][] seatLayout;
 
 //maybe constructor may not take in an array list, but construct the arraylist by calling the addshow function
-	public Cinema (String name, char[][] seatLayout)
+	public Cinema (String name, int layoutNumber)
 	{
 		this.shows = new ArrayList<Show>();
 		this.name = name;
-		this.seatLayout = seatLayout;
+		this.seatLayout = CSVBoundary.getLayout(layoutNumber);
 		
 	}
 
