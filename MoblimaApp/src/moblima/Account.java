@@ -1,6 +1,11 @@
 package moblima;
+import java.io.*;
 
-public abstract class Account {
+public abstract class Account implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6384389949172773596L;
 	private String username;
 	private String password;
 	private String name;

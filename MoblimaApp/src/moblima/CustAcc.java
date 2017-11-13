@@ -3,6 +3,10 @@ import java.util.ArrayList;
 
 
 public class CustAcc extends Account{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5983626060596941305L;
 	public enum AgeCat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
 
 	public ArrayList<Transaction> transactionList;
