@@ -64,7 +64,7 @@ public class LoginMgr {
 			for (Account account : custArray) {
 				result = account.verifyLogin(username, password);
 				if(result == 1) {
-					StaffAcc temp = (StaffAcc)account;
+					CustAcc temp = (CustAcc)account;
 					loggedInAccount = temp;
 					return 1;
 				}else if(result == 2) {

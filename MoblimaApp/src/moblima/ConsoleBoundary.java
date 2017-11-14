@@ -130,7 +130,6 @@ public class ConsoleBoundary {
 		case 3: status = Movie.Showing_Status.Ended; break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
-		sc.nextLine();
 		System.out.println("Enter Synopsis: ");
 		String synopsis = sc.nextLine();
 		System.out.println("Enter Director: ");
@@ -249,6 +248,7 @@ public class ConsoleBoundary {
 		System.out.println("(5) Top 5 Movies By Ratings");
 		System.out.println("(9) Done Managing Movies");
 		int choice = sc.nextInt();
+		sc.nextLine();
 		
 		//sc.close();
 		return choice;
@@ -429,6 +429,7 @@ public class ConsoleBoundary {
 		System.out.println("What would you like to do:");
 		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(9) Done");
 		choice = sc.nextInt();
+		sc.nextLine();
 		//sc.close();
 		return choice;
 	}
@@ -502,7 +503,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\\n(5) List Top 5 Movie By Ratings\n(9) Logout");
+		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\n(5) List Top 5 Movie By Ratings\n(9) Logout");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
