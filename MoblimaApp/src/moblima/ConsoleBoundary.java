@@ -620,8 +620,8 @@ public class ConsoleBoundary {
 		System.out.println("Showing Status: " + movie.getShowingStatus());
 		System.out.println("Synopsis: " + movie.getSynopsis());
 		System.out.println("Director: " + movie.getDirector());
-		System.out.print("Cast: ");
-		for(int i = 0; i<movie.getCast().length; i++) {
+		System.out.print("Cast: " + movie.getCast()[0]);
+		for(int i = 1; i<movie.getCast().length; i++) {
 			System.out.print(", " + movie.getCast()[i]);
 		}
 		System.out.println("Average Rating: " + movie.getAverageRating());
