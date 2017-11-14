@@ -285,7 +285,7 @@ public class ConsoleBoundary {
 		System.out.println("(1) Add Show");
 		System.out.println("(2) Remove Show");
 		System.out.println("(3) Edit Show");
-		System.out.println("(9) Done Managing Shows");
+		System.out.println("(0) Done");
 		int choice = sc.nextInt();
 		sc.nextLine();
 		//sc.close();
@@ -402,7 +402,7 @@ public class ConsoleBoundary {
 		System.out.println("Cineplex Ops");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:");
-		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(9) Done");
+		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(0) Done");
 		choice = sc.nextInt();
 		sc.nextLine();
 		//sc.close();
@@ -442,7 +442,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("You are managing cinemas in cineplex " + cineplexName);
 		System.out.println("What would you like to do:");
-		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(9) Done");
+		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(0) Done");
 		choice = sc.nextInt();
 		sc.nextLine();
 		//sc.close();
@@ -504,7 +504,7 @@ public class ConsoleBoundary {
 		System.out.println("STAFF PAGE");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:");
-		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(9) Logout");
+		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -518,7 +518,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\n(5) List Top 5 Movie By Ratings\n(9) Logout");
+		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\n(5) List Top 5 Movie By Ratings\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -560,7 +560,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(9) Done with System Settings");
+		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(0) Done");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
