@@ -34,7 +34,7 @@ public class MovieBookingMgr {
 //			showType = ConsoleBoundary.printChooseShowType(); if(reset) break;
 			cinema.sortShowsByTime();
 			show = ConsoleBoundary.printShowsByMovie(movie, cinema); if(reset) break;
-			price = cinema.calculatePrice(show,LoginMgr.getInstance().loggedInAccount);
+			price = cinema.calculatePrice(show,(CustAcc)LoginMgr.getInstance().loggedInAccount);
 			char[][] bookedLayout = show.getBookedLayout();
 			seatNumber = ConsoleBoundary.printLayout(bookedLayout); if(reset) break;
 			confirm = ConsoleBoundary.printBookingConfirmation(price, cinema); if(reset) break;
