@@ -21,13 +21,19 @@ public abstract class Account implements Serializable{
 	//return 3: wrong user name
 	public int verifyLogin(String username, String password) {
 		if (this.username == username) {
-			if(this.password == password) 
+			if(this.password == password) {
+				System.out.println("in password loop");
 				return 1;
-			else
+			}
+			else {
+				System.out.println("in password loop2");
 				return 2;
+			}
 		}
-		else
+		else {
+			System.out.println("in password loop3");
 			return 3;
+		}
 	}
 
 	public String getUsername() {

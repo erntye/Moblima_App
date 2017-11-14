@@ -108,6 +108,7 @@ public class LoginMgr {
 		if(staffArray.add(newAcc)) {
 			System.out.println("staff account added successfully!"); //for testing
 			DataBoundary.saveStaffList(staffArray);
+			System.out.println(staffArray.get(0).getName());
 		}
 	}
 	
