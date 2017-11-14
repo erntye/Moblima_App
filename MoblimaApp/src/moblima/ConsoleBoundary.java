@@ -221,16 +221,30 @@ public class ConsoleBoundary {
 	
 	//called by MovieMgr
 	public static void printTopRatings() {
-		for(int i = 0; i<5; i++) {
-			System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+		if(MovieList.movieList.size()>=5) {
+			for(int i = 0; i<5; i++) {
+				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+			}
+		} else {
+			for(int i = 0; i<MovieList.movieList.size(); i++) {
+				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+			}
 		}
+		
 	}
 	
 	//called by MovieMgr
 	public static void printTopSales() {
+		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
 				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Sales: " + MovieList.movieList.get(i).getSales());
 			}
+		} else {
+			for(int i = 0; i<MovieList.movieList.size(); i++) {
+				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Sales: " + MovieList.movieList.get(i).getSales());
+			}
+		}
+			
 		}
 	
 	//called by MovieMgr
@@ -586,7 +600,9 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		int choice = 0;
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-			System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
+				System.out.println((i+1) + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+			}
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt(); sc.nextLine();
@@ -603,7 +619,11 @@ public class ConsoleBoundary {
 		System.out.println("Showing Status: " + movie.getShowingStatus());
 		System.out.println("Synopsis: " + movie.getSynopsis());
 		System.out.println("Director: " + movie.getDirector());
-		System.out.println("Cast: " + movie.getCast()[0] + movie.getCast()[1]);
+		System.out.print("Cast: " + movie.getCast()[0]);
+		for(int i = 1; i<movie.getCast().length; i++) {
+			System.out.print(", " + movie.getCast()[i]);
+		}
+		System.out.println();
 		System.out.println("Average Rating: " + movie.getAverageRating());
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
@@ -630,7 +650,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE CINEPLEX");
 		System.out.println("========================================");
 		for(int i = 0 ; i < CineplexList.cineplexList.size();i++) {
-			System.out.println("("+ i+1 + ") " + CineplexList.cineplexList.get(i).getName());
+			System.out.println("("+ (i+1) + ") " + CineplexList.cineplexList.get(i).getName());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
@@ -651,7 +671,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
 		for(int i = 0 ; i < cineplex.getCinemaList().size();i++) {
-			System.out.println("("+ i+1 + ") " +  cineplex.getCinemaList().get(i).getName());
+			System.out.println("("+ (i+1) + ") " +  cineplex.getCinemaList().get(i).getName());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
