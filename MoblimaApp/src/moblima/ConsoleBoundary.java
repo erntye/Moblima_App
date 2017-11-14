@@ -817,7 +817,7 @@ public class ConsoleBoundary {
 		}
 	}
 	
-	public static void printTransaction(CustAcc c,Transaction latest, Show show,String showType,char[] seatNumber, float price) {
+	public static void printTransaction(CustAcc c,Transaction latest, Show show,String showType,String[] seatNumber, float price) {
 		System.out.println("========================================");
 		System.out.println("BOOKING CONFIRMED!");
 		System.out.println("========================================");

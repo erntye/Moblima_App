@@ -10,7 +10,7 @@ public class MovieBookingMgr {
 	private Show show;
 	private Movie movie;
 	private String showType;
-	private char[] seatNumber = new char[2];
+	private String[] seatNumber = new String[2];
 	private boolean proceed, confirm;
 	private float price;
 	
