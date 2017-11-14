@@ -77,6 +77,10 @@ public class Show implements Serializable{
 		return " ";
 	}
 	
+	public void setBookedLayout(char[] seatNumber) {
+		bookedLayout[seatNumber[0]][seatNumber[1]] = 'X';
+	}
+	
 	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {
 
 		public int compare(Show s1, Show s2) {
