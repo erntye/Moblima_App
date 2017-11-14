@@ -1,8 +1,11 @@
 package moblima;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class CSVBoundary {
@@ -95,5 +98,72 @@ public class CSVBoundary {
 			catch (IOException e) {}
 		}
 		
+	}
+	
+	public static float[] retrieveBasePrices() {
+		try{
+			BufferedReader br =  new BufferedReader(new FileReader("basePrices.csv"));
+			String temp = br.readLine();
+			String[] tempArray = temp.split(",");
+			float[] basePrices = new float[tempArray.length];
+			for (int i = 0; i<tempArray.length; i++) {
+				basePrices[i] = Float.parseFloat(tempArray[i]);
+			}
+			return basePrices;
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("No base prices found. Please set base prices");
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		float[] basePrices = {6, 8, 12, 15} ;
+		return basePrices;
+	}
+	
+	public static float[] retrieveCinemaPremium() {
+		try{
+			BufferedReader br =  new BufferedReader(new FileReader("cinemaPremium.csv"));
+			String temp = br.readLine();
+			String[] tempArray = temp.split(",");
+			float[] cinemaPremiums = new float[tempArray.length];
+			for (int i = 0; i<tempArray.length; i++) {
+				cinemaPremiums[i] = Float.parseFloat(tempArray[i]);
+			}
+			return cinemaPremiums;
+		}
+		catch (FileNotFoundException e) {
+			System.out.println("No premiums found. Please set cinema premiums.");
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		float[] cinemaPremiums = {0, 15, 20} ;
+		return cinemaPremiums;
+	}
+	
+	public static void saveCinemaPremium(float[] cinemaPremiums) {
+		try {
+			File file = new File("cinemaPremium.csv");
+			if (!file.exists())
+				file.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+			String temp = cinemaPremiums[0] + ", " + cinemaPremiums[1] + ", " + cinemaPremiums[2];
+			bw.write(temp);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void saveBasePrices(float[] basePrices) {
+		try {
+			File file = new File("basePrices.csv");
+			if (!file.exists())
+				file.createNewFile();
+			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+			String temp = basePrices[0] + ", " + basePrices[1] + ", " + basePrices[2] + ", " + basePrices[3];
+			bw.write(temp);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

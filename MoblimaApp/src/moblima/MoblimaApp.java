@@ -61,6 +61,18 @@ public class MoblimaApp {
 		CineplexList.cineplexList = DataBoundary.getCineplexList();
 		//initialise moviemanager
 		MovieList.movieList = DataBoundary.getMovieList();
+		float[] basePrices = CSVBoundary.retrieveBasePrices();
+		Show.setBasePrice(basePrices[0]);
+		ShowDigital.setBasePrice(basePrices[1]);
+		Show3D.setBasePrice(basePrices[2]);
+		ShowIMAX.setBasePrice(basePrices[3]);
+		
+		float[] cinemaPremiums = CSVBoundary.retrieveCinemaPremium();
+		Cinema.setPremium(cinemaPremiums[0]);
+		CinemaGold.setPremium(cinemaPremiums[1]);
+		CinemaPlatinum.setPremium(cinemaPremiums[2]);
+		
+		
 	}
 
 }
