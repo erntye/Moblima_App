@@ -56,6 +56,7 @@ public class MoblimaApp {
 		CineplexList.cineplexList = DataBoundary.getCineplexList();
 		//initialise moviemanager
 		MovieList.movieList = DataBoundary.getMovieList();
+		PublicHolidayCalendar.pubHolList = DataBoundary.getPubHolList();
 		float[] basePrices = CSVBoundary.retrieveBasePrices();
 		Show.setBasePrice(basePrices[0]);
 		ShowDigital.setBasePrice(basePrices[1]);

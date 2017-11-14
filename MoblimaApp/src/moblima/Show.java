@@ -28,7 +28,7 @@ public class Show implements Serializable{
 		this.showTime = movieTiming;
 	}
 	
-	public float getBasePrice() {
+	public static float getBasePrice() {
 		return basePrice;
 	}
 	

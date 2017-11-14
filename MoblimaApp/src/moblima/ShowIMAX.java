@@ -12,7 +12,7 @@ public class ShowIMAX extends Show {
 		super(movie, showTime, cinemaLayout);
 	}
 
-	public float getBasePrice() {
+	public static float getBasePrice() {
 		return basePrice;
 	}
 	

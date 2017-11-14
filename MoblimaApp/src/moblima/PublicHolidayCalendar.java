@@ -20,6 +20,7 @@ public class PublicHolidayCalendar implements Serializable{
 		
 	public static void addPubHol(Calendar date) {
 		pubHolList.add(date);
+		DataBoundary.savePubHolList(pubHolList);
 	}
 		
 	public static boolean isPubHol(Calendar date) {

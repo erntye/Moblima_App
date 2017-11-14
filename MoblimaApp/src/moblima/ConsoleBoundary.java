@@ -784,7 +784,7 @@ public class ConsoleBoundary {
 		System.out.println();
 		int i = 0;
 	
-		while(i < 6) {
+		while(i < 4) {
 			System.out.print(String.valueOf((char)(i+65) + " "));
 			for (int j=0; j<bookedLayout[1].length; j++) {
 			System.out.print(bookedLayout[i][j]);

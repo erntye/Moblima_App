@@ -43,8 +43,11 @@ public class MovieBookingMgr {
 				Transaction latest = new Transaction(cineplex, Calendar.getInstance(), movie.getTitle());
 				System.out.println(latest.getTid());
 				movie.setSales(movie.getSales()+price);
+				DataBoundary.saveMovieList(MovieList.movieList);
 				show.setBookedLayout(seatNumber);
 				c.transactionList.add(latest);
+				DataBoundary.saveCineplexList(CineplexList.cineplexList);
+				DataBoundary.saveCustList(LoginMgr.getInstance().getCustList());
 				ConsoleBoundary.printTransaction(c,latest, show, showType, seatNumber, price); if(reset) break;
 			}
 			reset = true;

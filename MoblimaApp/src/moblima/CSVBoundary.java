@@ -154,11 +154,17 @@ public class CSVBoundary {
 			e.printStackTrace();
 		}
 	}
-	public static void saveBasePrices(float[] basePrices) {
+	public static void saveBasePrices() {
 		try {
 			File file = new File("basePrices.csv");
 			if (!file.exists())
 				file.createNewFile();
+			float[] basePrices = new float[4];
+			basePrices[0] = Show.getBasePrice();
+			basePrices[1] = ShowDigital.getBasePrice();
+			basePrices[2] = Show3D.getBasePrice();
+			basePrices[3] = ShowIMAX.getBasePrice();
+ 				
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 			String temp = basePrices[0] + ", " + basePrices[1] + ", " + basePrices[2] + ", " + basePrices[3];
 			bw.write(temp);
