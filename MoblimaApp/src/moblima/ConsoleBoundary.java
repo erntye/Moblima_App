@@ -748,14 +748,24 @@ public class ConsoleBoundary {
 		return tempShows.get(choice-1);
 	}
 	
-	public static char[] printLayout(Show show) {
+	public static char[] printLayout(char[][] bookedLayout) {
 		//sc = new Scanner(System.in);
 		char[] seatNumber = new char[2];
 		System.out.println("========================================");
 		System.out.println("CHOOSE SEAT");
 		System.out.println("========================================");
-		// How to print seats?
-		//sc.close();
+		System.out.print(" ");
+		for (int i=1; i<=bookedLayout[1].length; i++) {
+			System.out.print(" " + i);
+		}
+		for(int i=0; i<bookedLayout.length; i++) {
+			System.out.println(String.valueOf((char)(i+64) + " "));
+			for (int j=0; j<bookedLayout[1].length; j++) {
+			System.out.print(bookedLayout[i][j]);
+			System.out.print(" ");
+			}
+			System.out.println();
+		}
 		return seatNumber;
 	}
 	
