@@ -458,6 +458,21 @@ public class ConsoleBoundary {
 		return printChooseCinema(cineplex);
 	}
 	
+	//called by CinemaMgr
+	public static float[] printChangePremium() {
+		float[] premiumDetails = new float[2];
+		System.out.println("========================================");
+		System.out.println("Change Cinema Premium");
+		System.out.println("========================================");
+		System.out.println("Which type of cinema are you editing?");
+		System.out.println("(1) Normal\n(2) Gold Class\n(3) Platinum Class");
+		premiumDetails[0] = sc.nextFloat();
+		System.out.println("What is the new premium value?");
+		premiumDetails[1] = sc.nextFloat();
+		
+		return premiumDetails;
+	}
+	
 	//called by StaffCtr
 	public static int printStaffPage() {
 		//sc = new Scanner(System.in);
