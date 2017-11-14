@@ -16,6 +16,9 @@ public class Cinema implements Serializable{
 	private int rows, columns;
 	private char[][] seatLayout;
 
+
+//premium is a static which needs to be set by initializer
+
 //maybe constructor may not take in an array list, but construct the arraylist by calling the addshow function
 	public Cinema (String name, int layoutNumber)
 	{
@@ -25,7 +28,7 @@ public class Cinema implements Serializable{
 		
 	}
 
-	public float calculatePrice(Show show) { //change UML diagram
+	public float calculatePrice(Show show) { 
 		return show.getBasePrice() + premium;
 	}
 	

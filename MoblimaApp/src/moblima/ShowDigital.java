@@ -8,8 +8,8 @@ public class ShowDigital extends Show {
 	private static final long serialVersionUID = -6262724137447971700L;
 	private static float basePrice;
 	
-	public ShowDigital(String movie, Calendar showTime, char[][] bookedLayout) {
-		super(movie, showTime, bookedLayout);
+	public ShowDigital(String movie, Calendar showTime, char[][] cinemaLayout) {
+		super(movie, showTime, cinemaLayout);
 	}
 
 	public float getBasePrice() {

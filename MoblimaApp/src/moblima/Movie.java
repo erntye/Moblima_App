@@ -27,7 +27,7 @@ public class Movie implements Serializable{
 	private float aveRating = 0; //initialize to 0
 	private ArrayList<Reviews> reviews;
 	private int reviewCount = 0; //initialize to 0
-	private float sales;
+	private float sales = 0;	//initialize to 0
 	private Censorship_Rating censorshipRating;
 
 
@@ -53,7 +53,8 @@ public class Movie implements Serializable{
 		this.synopsis = synopsis;
 		this.director = director;
 		this.cast = cast; 
-		this.censorshipRating = censorshipRating;	
+		this.censorshipRating = censorshipRating;
+		this.reviews = new ArrayList<Reviews>();
 	}
 	
 	
@@ -65,6 +66,7 @@ public class Movie implements Serializable{
 	public void addReviews(Reviews reviewToAdd){
 		this.reviews.add(reviewToAdd);
 		updateRatings(reviewToAdd.getRating());
+		//reviewCount updated in updateRatings
 	}
 	
 	public void updateRatings(int ratingToAdd){
@@ -106,6 +108,10 @@ public class Movie implements Serializable{
 	
 	public float getSales() {
 		return sales;
+	}
+	
+	public void setSales(float newSales){
+		this.sales = newSales;
 	}
 	
 	// Sort by Rating
