@@ -22,16 +22,13 @@ public abstract class Account implements Serializable{
 	public int verifyLogin(String username, String password) {
 		if (this.username.equals(username)) {
 			if(this.password.equals(password)) {
-				System.out.println("in password loop");
 				return 1;
 			}
 			else {
-				System.out.println("in password loop2");
 				return 2;
 			}
 		}
 		else {
-			System.out.println("in password loop3");
 			return 3;
 		}
 	}

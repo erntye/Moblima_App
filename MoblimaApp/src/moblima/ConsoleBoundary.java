@@ -711,13 +711,14 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TYPE");
 		System.out.println("========================================");
-		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX");
+		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX\n(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		String choiceS = null;
 		switch(choice){
 			case 1: choiceS = "Digital"; break;
 			case 2: choiceS = "3D"; break;
 			case 3: choiceS = "IMAX"; break;
+			case 0: choiceS = null; break;
 		}
 		//sc.close();
 		return choiceS;
@@ -732,7 +733,7 @@ public class ConsoleBoundary {
 		System.out.println("Show Times:\n");
 		for(int i = 0; i<cinema.getShows().size();i++) {
 			int count = 1;
-			if(cinema.getShows().get(i).getMovieTitle() == movie.getTitle()) {
+			if(cinema.getShows().get(i).getMovieTitle().equals(movie.getTitle())) {
 				tempShows.add(cinema.getShows().get(i));
 				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTime().get(Calendar.HOUR_OF_DAY) + ":" + cinema.getShows().get(i).getShowTime().get(Calendar.MINUTE) + " (" + cinema.getShows().get(i).getShowType() + ")");
 				count++;
