@@ -222,16 +222,30 @@ public class ConsoleBoundary {
 	
 	//called by MovieMgr
 	public static void printTopRatings() {
-		for(int i = 0; i<5; i++) {
-			System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+		if(MovieList.movieList.size()>=5) {
+			for(int i = 0; i<5; i++) {
+				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+			}
+		} else {
+			for(int i = 0; i<MovieList.movieList.size(); i++) {
+				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+			}
 		}
+		
 	}
 	
 	//called by MovieMgr
 	public static void printTopSales() {
+		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
 				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Sales: " + MovieList.movieList.get(i).getSales());
 			}
+		} else {
+			for(int i = 0; i<MovieList.movieList.size(); i++) {
+				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Sales: " + MovieList.movieList.get(i).getSales());
+			}
+		}
+			
 		}
 	
 	//called by MovieMgr
