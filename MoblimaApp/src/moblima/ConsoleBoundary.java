@@ -744,12 +744,12 @@ public class ConsoleBoundary {
 	public static Show printShowsByMovie(Movie movie, Cinema cinema) {
 		ArrayList<Show> tempShows = new ArrayList<Show>();
 		//sc = new Scanner(System.in);
+		int count = 1;
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TIME");
 		System.out.println("========================================");
 		System.out.println("Show Times:\n");
 		for(int i = 0; i<cinema.getShows().size();i++) {
-			int count = 1;
 			if(cinema.getShows().get(i).getMovieTitle().equals(movie.getTitle())) {
 				tempShows.add(cinema.getShows().get(i));
 				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTimeString()+ " (" + cinema.getShows().get(i).getShowType() + ")");
