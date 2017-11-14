@@ -22,9 +22,9 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("WELCOME TO  MOBLIMA");
 		System.out.println("========================================");
-		System.out.println("(1) Log In\n(2)Create Account\n(3) Quit");
-		int choice = sc.nextInt();
-		
+		System.out.println("(1) Log In\n(2) Create Account\n(3) Quit");
+		int choice = sc.nextInt(); 
+		sc.nextLine();
 		//sc.close();
 		return choice;
 	}
@@ -39,12 +39,14 @@ public class ConsoleBoundary {
 		while(loop) {
 			System.out.println("(1) Add Staff Account\n(2) Add Customer Account\n(3) Done");
 			switch(sc.nextInt()) {
-			case 1: LoginMgr.getInstance().addStaffAccount(); break;
-			case 2: LoginMgr.getInstance().addCustAccount(); break;
-			case 3: loop = false; break;
+			case 1: sc.nextLine();LoginMgr.getInstance().addStaffAccount(); break;
+			case 2: sc.nextLine();LoginMgr.getInstance().addCustAccount(); break;
+			case 3: sc.nextLine();loop = false; break;
 			}
 		}
+		
 		System.out.println("Done adding accounts..");
+		
 		//sc.close();
 	}
 	
@@ -120,6 +122,7 @@ public class ConsoleBoundary {
 		System.out.println("Enter Showing Status: ");
 		System.out.println("1. Coming Soon \t 2. Now Showing \t 3. Ended");
 		int temp = sc.nextInt();
+		sc.nextLine();
 		Movie.Showing_Status status;
 		switch(temp) {
 		case 1: status = Movie.Showing_Status.ComingSoon; break;
@@ -143,6 +146,7 @@ public class ConsoleBoundary {
 		System.out.println("Enter Censorship Rating: ");//G,PG, PG13,NC16,M18,R21
 		System.out.println("1. G \t 2. PG \t 3. PG13 \t 4. NC16 \t 5. M18 \t 6. R21");
 		temp = sc.nextInt();
+		sc.nextLine();
 		Movie.Censorship_Rating censorR;
 		switch(temp) {
 		case 1: censorR = Movie.Censorship_Rating.G; break;
@@ -175,6 +179,7 @@ public class ConsoleBoundary {
 		System.out.println("Current Showing Status: " + movieToEdit.getShowingStatus());
 		System.out.println("Choose:\n1. Coming Soon \t 2. Now Showing \t 3. Ended\t 4. Skip");
 		int temp = sc.nextInt();
+		sc.nextLine();
 		Movie.Showing_Status status;
 		switch(temp) {
 		case 1: status = Movie.Showing_Status.ComingSoon; break;
@@ -269,7 +274,7 @@ public class ConsoleBoundary {
 		System.out.println("(3) Edit Show");
 		System.out.println("(9) Done Managing Shows");
 		int choice = sc.nextInt();
-		
+		sc.nextLine();
 		//sc.close();
 		return choice;
 	}
@@ -291,15 +296,15 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		//sc = new Scanner(System.in);
 		System.out.println("Enter Year: ");
-		int year = sc.nextInt();
+		int year = sc.nextInt(); sc.nextLine();
 		System.out.println("Enter Month: ");
-		int month = sc.nextInt();
+		int month = sc.nextInt();sc.nextLine();
 		System.out.println("Enter Day: ");
-		int day = sc.nextInt();
+		int day = sc.nextInt();sc.nextLine();
 		System.out.println("Enter Hour: ");
-		int hour = sc.nextInt();
+		int hour = sc.nextInt();sc.nextLine();
 		System.out.println("Enter Minutes: ");
-		int minute = sc.nextInt();
+		int minute = sc.nextInt();sc.nextLine();
 		Calendar showTime = new GregorianCalendar(year, month, day, hour, minute, 0);
 		//sc.close();
 		return showTime;
@@ -336,6 +341,7 @@ public class ConsoleBoundary {
 		System.out.println("Current Movie: " + show.getMovieTitle());
 		System.out.println("1. Change Movie\n2. Skip\n");
 		int choice = sc.nextInt();
+		sc.nextLine();
 		if(choice == 1) {
 			Movie movieToChange = printMovieList();
 			show.setMovieTitle(movieToChange.getTitle());
@@ -344,7 +350,7 @@ public class ConsoleBoundary {
 		System.out.println("Change Show Time");
 		System.out.println("Current Show Time: " + show.getShowTime());
 		System.out.println("1. Change Show Time\n2. Skip\n");
-		choice = sc.nextInt();
+		choice = sc.nextInt();sc.nextLine();
 		if(choice == 1) {
 			show.setTime(getShowTime());
 		}
@@ -368,7 +374,7 @@ public class ConsoleBoundary {
 		}
 		System.out.print("Enter Choice: ");
 		int choice = sc.nextInt();
-		
+		sc.nextLine();
 		//sc.close();
 		return tempShows.get(choice-1);
 	}
@@ -383,6 +389,7 @@ public class ConsoleBoundary {
 		System.out.println("What would you like to do:");
 		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(9) Done");
 		choice = sc.nextInt();
+		sc.nextLine();
 		//sc.close();
 		return choice;
 	}
@@ -466,9 +473,9 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("Which type of cinema are you editing?");
 		System.out.println("(1) Normal\n(2) Gold Class\n(3) Platinum Class");
-		premiumDetails[0] = sc.nextFloat();
+		premiumDetails[0] = sc.nextFloat(); sc.nextLine();
 		System.out.println("What is the new premium value?");
-		premiumDetails[1] = sc.nextFloat();
+		premiumDetails[1] = sc.nextFloat(); sc.nextLine();
 		
 		return premiumDetails;
 	}
@@ -482,7 +489,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("What would you like to do:");
 		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(9) Logout");
-		choice = sc.nextInt();
+		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
 	}
@@ -496,7 +503,7 @@ public class ConsoleBoundary {
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\\n(5) List Top 5 Movie By Ratings\n(9) Logout");
-		choice = sc.nextInt();
+		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
 	}
@@ -515,7 +522,7 @@ public class ConsoleBoundary {
 //		choice = sc.nextInt();
 //		Movie movie = MovieList.movieList.get(choice-1);
 		System.out.println("Enter Rating:\n ");
-		rating = sc.nextInt();
+		rating = sc.nextInt(); sc.nextLine();
 		System.out.println("Enter Review:\n ");
 		review = sc.nextLine();
 		System.out.println("Enter Name:\n ");
@@ -538,7 +545,7 @@ public class ConsoleBoundary {
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(9) Done with System Settings");
-		choice = sc.nextInt();
+		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
 	}
@@ -550,7 +557,7 @@ public class ConsoleBoundary {
 		System.out.println("CHANGE TICKET BASE PRICE");
 		System.out.println("========================================");
 		System.out.println("Enter New Ticket Base Price: ");
-		basePrice = sc.nextFloat();
+		basePrice = sc.nextFloat(); sc.nextLine();
 		//sc.close();
 		return basePrice;
 	}
@@ -562,11 +569,11 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("Enter New Public Holiday Date");
 		System.out.print("Enter Day:");
-		int day = sc.nextInt();
+		int day = sc.nextInt(); sc.nextLine();
 		System.out.print("Enter Month:");
-		int month = sc.nextInt();
+		int month = sc.nextInt(); sc.nextLine();
 		System.out.print("Enter Year:");
-		int year = sc.nextInt();
+		int year = sc.nextInt(); sc.nextLine();
 		Calendar date = new GregorianCalendar(year,month,day);
 		//sc.close();
 		return date;
@@ -582,7 +589,7 @@ public class ConsoleBoundary {
 			System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 		}
 		System.out.println("Choose a movie: ");
-		choice = sc.nextInt();
+		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return MovieList.movieList.get(choice-1);
 	}
@@ -605,7 +612,7 @@ public class ConsoleBoundary {
 			System.out.println("Review: " + movie.getReviews().get(i).getContent());
 		}
 		System.out.println("(1) Proceed to book tickets\n(0) Cancel");
-		int choice = sc.nextInt();
+		int choice = sc.nextInt(); sc.nextLine();
 		if(choice==1) {
 			//sc.close();
 			return true;
@@ -626,7 +633,7 @@ public class ConsoleBoundary {
 			System.out.println("("+ i+1 + ") " + CineplexList.cineplexList.get(i).getName());
 		}
 		System.out.println("(0) Cancel");
-		int choice = sc.nextInt();
+		int choice = sc.nextInt(); sc.nextLine();
 		if(choice == 0) {
 			MovieBookingMgr.reset = true;
 			//sc.close();
@@ -647,7 +654,7 @@ public class ConsoleBoundary {
 			System.out.println("("+ i+1 + ") " +  cineplex.getCinemaList().get(i).getName());
 		}
 		System.out.println("(0) Cancel");
-		int choice = sc.nextInt();
+		int choice = sc.nextInt(); sc.nextLine();
 		if(choice == 0) {
 			MovieBookingMgr.reset = true;
 			//sc.close();
@@ -664,7 +671,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE SHOW TYPE");
 		System.out.println("========================================");
 		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX");
-		int choice = sc.nextInt();
+		int choice = sc.nextInt(); sc.nextLine();
 		String choiceS = null;
 		switch(choice){
 			case 1: choiceS = "Digital"; break;
@@ -695,7 +702,7 @@ public class ConsoleBoundary {
 				return null;
 			}
 		}
-		int choice = sc.nextInt();
+		int choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return tempShows.get(choice-1);
 	}
@@ -718,7 +725,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("Price: " + price);
 		System.out.println("(1) Confirm\n(2) Cancel");
-		int choice = sc.nextInt();
+		int choice = sc.nextInt(); sc.nextLine();
 		if(choice==1) {
 			//sc.close();
 			return true;
