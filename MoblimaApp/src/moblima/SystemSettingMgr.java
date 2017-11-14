@@ -21,11 +21,14 @@ public class SystemSettingMgr {
 				break;
 			case 2: 
 				Show3D.setBasePrice(ConsoleBoundary.askBasePrice()); 
+				break;
 			case 3:
 				ShowDigital.setBasePrice(ConsoleBoundary.askBasePrice()); 
+				break;
 			case 4:
 				ShowIMAX.setBasePrice(ConsoleBoundary.askBasePrice()); 
-			case 5:
+				break;
+			case 5: 
 				MovieCalendar.addPubHol(ConsoleBoundary.askPubHol()); 
 				break;
 			}
