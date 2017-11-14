@@ -8,12 +8,13 @@ public class Show {
 	private Calendar showTime;
 	private char[][] bookedLayout;
 	private static float basePrice;
-//basePrice is not set in constructor, it is set in main before instantialization of show objects
 	
-	public Show(String movie,Calendar showTime, char[][] bookedLayout){
+//basePrice is not set in constructor, it is set in main before instantialization of show objects
+//the first time Show is created, it takes in the array of the Cinema class to create an empty array of fixed size
+	public Show(String movie,Calendar showTime,char[][] cinemaLayout){
 		this.movie = movie;
 		this.showTime = showTime;
-		this.bookedLayout = bookedLayout;
+		this.bookedLayout = cinemaLayout;
 	}
 
 	

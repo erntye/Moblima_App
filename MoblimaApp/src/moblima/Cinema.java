@@ -11,7 +11,7 @@ public class Cinema {
 	private int rows, columns;
 	private char[][] seatLayout;
 
-//maybe constructor may not take in an array list, but construct the arraylist by calling the addshow function
+//premium is a static which needs to be set by initializer
 	public Cinema (String name, char[][] seatLayout)
 	{
 		this.shows = new ArrayList<Show>();
@@ -20,7 +20,7 @@ public class Cinema {
 		
 	}
 
-	public float calculatePrice(Show show) { //change UML diagram
+	public float calculatePrice(Show show) { 
 		return show.getBasePrice() + premium;
 	}
 	
