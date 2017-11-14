@@ -47,6 +47,7 @@ public class MovieBookingMgr {
 				c.transactionList.add(latest);
 				ConsoleBoundary.printTransaction(c,latest, show, showType, seatNumber, price); if(reset) break;
 			}
+			reset = true;
 		} while (!reset);
 		
 	}
