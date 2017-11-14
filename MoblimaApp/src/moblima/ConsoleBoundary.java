@@ -570,7 +570,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(0) Done");
+		System.out.println("What would you like to do:\n(1) Change Ticket Base Price of: Show \n(2) Change Ticket Base Price of: 3D Show \n(3) Change Ticket Base Price of: Digital Show \n(4) Change Ticket Base Price of: IMAX Show\n(5) Add Public Holiday\n(0) Done");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -849,5 +849,9 @@ public class ConsoleBoundary {
 			}
 			System.out.println();
 		}
+	}
+	
+	public static void printTerminate() {
+		System.out.println("Terminating...");
 	}
 }
