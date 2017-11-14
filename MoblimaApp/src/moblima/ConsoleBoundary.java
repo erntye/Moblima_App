@@ -167,7 +167,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("EDIT MOVIE");
 		System.out.println("========================================");
-		return printMovieList();
+		return printAllMovieList();
 	}
 	
 	//called by MovieMgr
@@ -599,10 +599,31 @@ public class ConsoleBoundary {
 		System.out.println("MOVIE LIST");
 		System.out.println("========================================");
 		int choice = 0;
+		int count = 1;
+		ArrayList<Movie> temp = new ArrayList<Movie>();
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
 			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
-				System.out.println((i+1) + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				temp.add(MovieList.movieList.get(i));
+				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				count++;
 			}
+		}
+		System.out.println("Choose a movie: ");
+		choice = sc.nextInt(); sc.nextLine();
+		//sc.close();
+		return temp.get(choice-1);
+	}
+	
+	public static Movie printAllMovieList() {
+		//sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("MOVIE LIST");
+		System.out.println("========================================");
+		int choice = 0;
+		int count = 1;
+		for(int i = 0; i < MovieList.movieList.size(); i++) {
+				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				count++;
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt(); sc.nextLine();
