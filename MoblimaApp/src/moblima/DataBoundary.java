@@ -20,7 +20,7 @@ public class DataBoundary {
 			System.out.println("All Staff Accounts Added.");
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("No Staff Accounts Found.");
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -45,7 +45,7 @@ public class DataBoundary {
 			System.out.println("All Customer Accounts Added.");
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("No Customer Accounts Found.");
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class DataBoundary {
 			System.out.println("All Movies Added.");
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("No Movies Found.");
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -95,7 +95,7 @@ public class DataBoundary {
 			System.out.println("All Cineplexes, Cinemas and Shows Added.");
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("No Cineplexes Found.");
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -120,7 +120,7 @@ public class DataBoundary {
 			System.out.println("All Public Holidays Added.");
 		}
 		catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("No Public Holidays Found.");
 		}
 		catch (IOException e) {
 			e.printStackTrace();
