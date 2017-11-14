@@ -43,6 +43,7 @@ public class ShowMgr {
 			case 3: editShow(); break;
 			case 9: loop = false; break;
 			}
+			DataBoundary.saveCineplexList(CineplexList.cineplexList);
 		}
 	}
 }
