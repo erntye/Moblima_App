@@ -39,11 +39,11 @@ public class Cinema implements Serializable{
 	public void createShow(String movie, Calendar showTime, String showType){
 		switch(showType) {
 		case "Digital":
-			shows.add(new ShowDigital(movie,showTime, seatLayout.clone()));
+			shows.add(new ShowDigital(movie,showTime, seatLayout.clone())); break;
 		case "3D":
-			shows.add(new Show3D(movie,showTime, seatLayout.clone()));
+			shows.add(new Show3D(movie,showTime, seatLayout.clone())); break;
 		case "IMAX":
-			shows.add(new ShowIMAX(movie,showTime, seatLayout.clone()));
+			shows.add(new ShowIMAX(movie,showTime, seatLayout.clone())); break;
 		}
 	}
 	
