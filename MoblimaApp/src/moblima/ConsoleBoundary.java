@@ -259,7 +259,7 @@ public class ConsoleBoundary {
 		System.out.println("(3) Edit Movie");
 		System.out.println("(4) Top 5 Movies By Sales");
 		System.out.println("(5) Top 5 Movies By Ratings");
-		System.out.println("(9) Done Managing Movies");
+		System.out.println("(0) Done");
 		int choice = sc.nextInt();
 		sc.nextLine();
 		
@@ -606,7 +606,7 @@ public class ConsoleBoundary {
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
 			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
 				temp.add(MovieList.movieList.get(i));
-				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				System.out.println("("+count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 				count++;
 			}
 		}
@@ -624,7 +624,7 @@ public class ConsoleBoundary {
 		int choice = 0;
 		int count = 1;
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				System.out.println("(" + count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 				count++;
 		}
 		System.out.println("Choose a movie: ");
