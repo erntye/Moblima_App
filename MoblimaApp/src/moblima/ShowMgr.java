@@ -27,6 +27,7 @@ public class ShowMgr {
 		if(showType == null)
 			return;
 		cinemaToAddTo.createShow(movieToAdd.getTitle(), showTime, showType);
+		cinemaToAddTo.sortShowsByTime();
 	}
 	
 	public void removeShow() {
