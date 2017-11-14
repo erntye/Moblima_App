@@ -167,7 +167,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("EDIT MOVIE");
 		System.out.println("========================================");
-		return printMovieList();
+		return printAllMovieList();
 	}
 	
 	//called by MovieMgr
@@ -187,7 +187,6 @@ public class ConsoleBoundary {
 		case 4: status = movieToEdit.getShowingStatus(); break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
-		sc.nextLine();
 		System.out.println("Edit Censorship Rating");//G,PG, PG13,NC16,M18,R21
 		System.out.println("Current Censorship Rating: " + movieToEdit.getCensorshipRating());
 		System.out.println("1. G \t 2. PG \t 3. PG13 \t 4. NC16 \t 5. M18 \t 6. R21 \t 7. Skip");
@@ -375,19 +374,21 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static Show printShowList(Cinema cinema) {
 		System.out.println("========================================");
-		System.out.println("Choose Show");
+		System.out.println("CHOOSE SHOW");
 		System.out.println("========================================");
 		//sc = new Scanner(System.in);
 		ArrayList<Show> tempShows = new ArrayList<Show>();
 		for(int i = 0; i<cinema.getShows().size();i++) {
-			System.out.print((i+1) + ". ");
+			System.out.print("(" + (i+1) + ") ");
 			System.out.print(cinema.getShows().get(i).getMovieTitle() + " ");
 			System.out.print(cinema.getShows().get(i).getShowType() + " ");
 			System.out.println(cinema.getShows().get(i).getShowTimeString());
 			tempShows.add(cinema.getShows().get(i));
 		}
+		System.out.println("(0) Cancel ");
 		System.out.print("Enter Choice: ");
 		int choice = sc.nextInt();
+		if(choice==0) return null;
 		sc.nextLine();
 		//sc.close();
 		return tempShows.get(choice-1);
@@ -600,10 +601,31 @@ public class ConsoleBoundary {
 		System.out.println("MOVIE LIST");
 		System.out.println("========================================");
 		int choice = 0;
+		int count = 1;
+		ArrayList<Movie> temp = new ArrayList<Movie>();
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
 			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
-				System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				temp.add(MovieList.movieList.get(i));
+				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				count++;
 			}
+		}
+		System.out.println("Choose a movie: ");
+		choice = sc.nextInt(); sc.nextLine();
+		//sc.close();
+		return temp.get(choice-1);
+	}
+	
+	public static Movie printAllMovieList() {
+		//sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("MOVIE LIST");
+		System.out.println("========================================");
+		int choice = 0;
+		int count = 1;
+		for(int i = 0; i < MovieList.movieList.size(); i++) {
+				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				count++;
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt(); sc.nextLine();
@@ -620,7 +642,11 @@ public class ConsoleBoundary {
 		System.out.println("Showing Status: " + movie.getShowingStatus());
 		System.out.println("Synopsis: " + movie.getSynopsis());
 		System.out.println("Director: " + movie.getDirector());
-		System.out.println("Cast: " + movie.getCast()[0] + movie.getCast()[1]);;
+		System.out.print("Cast: " + movie.getCast()[0]);
+		for(int i = 1; i<movie.getCast().length; i++) {
+			System.out.print(", " + movie.getCast()[i]);
+		}
+		System.out.println();
 		System.out.println("Average Rating: " + movie.getAverageRating());
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
@@ -647,7 +673,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE CINEPLEX");
 		System.out.println("========================================");
 		for(int i = 0 ; i < CineplexList.cineplexList.size();i++) {
-			System.out.println("("+ i+1 + ") " + CineplexList.cineplexList.get(i).getName());
+			System.out.println("("+ (i+1) + ") " + CineplexList.cineplexList.get(i).getName());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
@@ -668,7 +694,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
 		for(int i = 0 ; i < cineplex.getCinemaList().size();i++) {
-			System.out.println("("+ i+1 + ") " +  cineplex.getCinemaList().get(i).getName());
+			System.out.println("("+ (i+1) + ") " +  cineplex.getCinemaList().get(i).getName());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
@@ -687,13 +713,14 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TYPE");
 		System.out.println("========================================");
-		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX");
+		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX\n(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		String choiceS = null;
 		switch(choice){
 			case 1: choiceS = "Digital"; break;
 			case 2: choiceS = "3D"; break;
 			case 3: choiceS = "IMAX"; break;
+			case 0: choiceS = null; break;
 		}
 		//sc.close();
 		return choiceS;
@@ -708,7 +735,7 @@ public class ConsoleBoundary {
 		System.out.println("Show Times:\n");
 		for(int i = 0; i<cinema.getShows().size();i++) {
 			int count = 1;
-			if(cinema.getShows().get(i).getMovieTitle() == movie.getTitle()) {
+			if(cinema.getShows().get(i).getMovieTitle().equals(movie.getTitle())) {
 				tempShows.add(cinema.getShows().get(i));
 				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTimeString()+ " (" + cinema.getShows().get(i).getShowType() + ")");
 				count++;
