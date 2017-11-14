@@ -28,7 +28,7 @@ public class SystemSettingMgr {
 			case 4:
 				ShowIMAX.setBasePrice(ConsoleBoundary.askBasePrice()); 
 				break;
-			case 5:
+			case 5: 
 				MovieCalendar.addPubHol(ConsoleBoundary.askPubHol()); 
 				break;
 			}
