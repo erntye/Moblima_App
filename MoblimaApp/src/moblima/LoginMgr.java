@@ -74,7 +74,7 @@ public class LoginMgr {
 			}
 			System.out.println("Customer Account not found!");
 			return 3;
-		de`fault:
+		default:
 			return 4;
 		}
 	}
