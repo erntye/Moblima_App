@@ -560,7 +560,7 @@ public class ConsoleBoundary {
 	
 	public static void printBookingHistory(CustAcc c) {
 		for(int i = c.getTransactionList().size()-1; i>=0;i--) {
-			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n Date: " + c.getTransactionList().get(i).getDate() + "\n Movie Title:" + c.getTransactionList().get(i).getMovieTitle());
+			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n\tDate & Time: " + c.getTransactionList().get(i).getDate() + "\n\tMovie Title:" + c.getTransactionList().get(i).getMovieTitle());
 		}
 	}
 	
@@ -665,9 +665,9 @@ public class ConsoleBoundary {
 		
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
-			System.out.println("Reviewer: " + movie.getReviews().get(i).getReviewer());
-			System.out.println("Rating: " + movie.getReviews().get(i).getRating());
-			System.out.println("Review: " + movie.getReviews().get(i).getContent());
+			System.out.println("\tReviewer: " + movie.getReviews().get(i).getReviewer());
+			System.out.println("\tRating: " + movie.getReviews().get(i).getRating());
+			System.out.println("\tReview: " + movie.getReviews().get(i).getContent());
 		}
 		System.out.println("(1) Proceed to book tickets\n(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
