@@ -57,7 +57,7 @@ public class ShowMgr {
 			case 1: addShow();break;
 			case 2: removeShow(); break;
 			case 3: editShow(); break;
-			case 9: loop = false; break;
+			case 0: loop = false; break;
 			}
 			DataBoundary.saveCineplexList(CineplexList.cineplexList);
 		}
