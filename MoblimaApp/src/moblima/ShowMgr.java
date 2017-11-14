@@ -15,9 +15,17 @@ public class ShowMgr {
 	
 	public void addShow() {
 		Cinema cinemaToAddTo = ConsoleBoundary.printAddShow();
+		if(cinemaToAddTo == null)
+			return;
 		Movie movieToAdd = ConsoleBoundary.printMovieList();
+		if(movieToAdd == null)
+			return;
 		Calendar showTime = ConsoleBoundary.getShowTime();
+		if(showTime == null)
+			return;
 		String showType = ConsoleBoundary.printChooseShowType();
+		if(showType == null)
+			return;
 		cinemaToAddTo.createShow(movieToAdd.getTitle(), showTime, showType);
 	}
 	
