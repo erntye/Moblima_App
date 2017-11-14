@@ -528,7 +528,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\n(5) List Top 5 Movie By Ratings\n(0) Logout");
+		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Ratings\n(5) List Top 5 Movie By Sales\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
