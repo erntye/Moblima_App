@@ -20,8 +20,8 @@ public abstract class Account implements Serializable{
 	//return 2: wrong password
 	//return 3: wrong user name
 	public int verifyLogin(String username, String password) {
-		if (this.username == username) {
-			if(this.password == password) {
+		if (this.username.equals(username)) {
+			if(this.password.equals(password)) {
 				System.out.println("in password loop");
 				return 1;
 			}
