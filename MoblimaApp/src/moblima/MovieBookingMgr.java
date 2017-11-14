@@ -25,7 +25,7 @@ public class MovieBookingMgr {
 	}
 	
 	public void bookByMovie(){ //need to save seat booking into layout files
-		do {
+		do {reset = false;
 			proceed = false; confirm = false;
 			movie = ConsoleBoundary.printMovieList(); if(reset) break;
 			proceed = ConsoleBoundary.printMovieInfo(movie); if(reset) break;

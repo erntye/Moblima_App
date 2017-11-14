@@ -167,7 +167,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("EDIT MOVIE");
 		System.out.println("========================================");
-		return printMovieList();
+		return printAllMovieList();
 	}
 	
 	//called by MovieMgr
@@ -187,7 +187,6 @@ public class ConsoleBoundary {
 		case 4: status = movieToEdit.getShowingStatus(); break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
-		sc.nextLine();
 		System.out.println("Edit Censorship Rating");//G,PG, PG13,NC16,M18,R21
 		System.out.println("Current Censorship Rating: " + movieToEdit.getCensorshipRating());
 		System.out.println("1. G \t 2. PG \t 3. PG13 \t 4. NC16 \t 5. M18 \t 6. R21 \t 7. Skip");
@@ -600,10 +599,31 @@ public class ConsoleBoundary {
 		System.out.println("MOVIE LIST");
 		System.out.println("========================================");
 		int choice = 0;
+		int count = 1;
+		ArrayList<Movie> temp = new ArrayList<Movie>();
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
 			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
-				System.out.println((i+1) + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				temp.add(MovieList.movieList.get(i));
+				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				count++;
 			}
+		}
+		System.out.println("Choose a movie: ");
+		choice = sc.nextInt(); sc.nextLine();
+		//sc.close();
+		return temp.get(choice-1);
+	}
+	
+	public static Movie printAllMovieList() {
+		//sc = new Scanner(System.in);
+		System.out.println("========================================");
+		System.out.println("MOVIE LIST");
+		System.out.println("========================================");
+		int choice = 0;
+		int count = 1;
+		for(int i = 0; i < MovieList.movieList.size(); i++) {
+				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				count++;
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt(); sc.nextLine();
@@ -624,6 +644,7 @@ public class ConsoleBoundary {
 		for(int i = 1; i<movie.getCast().length; i++) {
 			System.out.print(", " + movie.getCast()[i]);
 		}
+		System.out.println();
 		System.out.println("Average Rating: " + movie.getAverageRating());
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
