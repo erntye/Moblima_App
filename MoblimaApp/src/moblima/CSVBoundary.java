@@ -123,7 +123,7 @@ public class CSVBoundary {
 	
 	public static float[] retrieveCinemaPremium() {
 		try{
-			BufferedReader br =  new BufferedReader(new FileReader("cinemaPremium.csv"));
+			BufferedReader br =  new BufferedReader(new FileReader("cinemaPremiums.csv"));
 			String temp = br.readLine();
 			String[] tempArray = temp.split(",");
 			float[] cinemaPremiums = new float[tempArray.length];
@@ -144,7 +144,7 @@ public class CSVBoundary {
 	
 	public static void saveCinemaPremium(float[] cinemaPremiums) {
 		try {
-			File file = new File("cinemaPremium.csv");
+			File file = new File("cinemaPremiums.csv");
 			if (!file.exists())
 				file.createNewFile();
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
