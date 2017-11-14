@@ -488,7 +488,7 @@ public class ConsoleBoundary {
 		System.out.println("CHANGE CINEMA PREMIUM");
 		System.out.println("========================================");
 		System.out.println("Which type of cinema are you editing?");
-		System.out.println("(1) Normal\n(2) Gold Class\n(3) Platinum Class");
+		System.out.println("(1) Normal\n(2) Gold Class\n(3) Platinum Class\n");
 		premiumDetails[0] = sc.nextFloat(); sc.nextLine();
 		System.out.println("What is the new premium value?");
 		premiumDetails[1] = sc.nextFloat(); sc.nextLine();
