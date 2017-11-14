@@ -33,7 +33,7 @@ public class ConsoleBoundary {
 	public static void printAddAccount() {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
-		System.out.println("Add Account");
+		System.out.println("ADD ACCOUNT");
 		System.out.println("========================================");
 		boolean loop = true;
 		while(loop) {
@@ -55,7 +55,7 @@ public class ConsoleBoundary {
 		//sc = new Scanner(System.in);
 		String[] temploginDetails = new String[3];
 		System.out.println("========================================");
-		System.out.println("Log In");
+		System.out.println("LOGIN");
 		System.out.println("========================================");
 		System.out.println("Account Type:\n(1) Staff\n(2) Customer");
 		temploginDetails[0] = sc.nextLine();
@@ -278,14 +278,14 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static int printShowOps() {
 		System.out.println("========================================");
-		System.out.println("Manage Shows");
+		System.out.println("MANAGE SHOWS");
 		System.out.println("========================================");
 		//sc = new Scanner(System.in);
 		
 		System.out.println("(1) Add Show");
 		System.out.println("(2) Remove Show");
 		System.out.println("(3) Edit Show");
-		System.out.println("(9) Done Managing Shows");
+		System.out.println("(0) Done");
 		int choice = sc.nextInt();
 		sc.nextLine();
 		//sc.close();
@@ -295,7 +295,7 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static Cinema printAddShow() {
 		System.out.println("========================================");
-		System.out.println("Add Shows");
+		System.out.println("ADD SHOWS");
 		System.out.println("========================================");
 		System.out.println("Choose the Cineplex and Cinema you want to add the show to, then choose the movie and enter the show time.");
 		Cinema cinema = printChooseCinema(printChooseCineplex());
@@ -305,7 +305,7 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static Calendar getShowTime() {
 		System.out.println("========================================");
-		System.out.println("Get Show Time");
+		System.out.println("SHOW TIME");
 		System.out.println("========================================");
 		//sc = new Scanner(System.in);
 		System.out.println("Enter Year: ");
@@ -326,7 +326,7 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static Cinema printRemoveShow() {
 		System.out.println("========================================");
-		System.out.println("Remove Shows");
+		System.out.println("REMOVE SHOWS");
 		System.out.println("========================================");
 		System.out.println("Choose the Cineplex and Cinema you want to remove the show from, then select the show.");
 		Cinema cinema = printChooseCinema(printChooseCineplex());
@@ -336,7 +336,7 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static Cinema printEditShow() {
 		System.out.println("========================================");
-		System.out.println("Edit Shows");
+		System.out.println("EDIT SHOWS");
 		System.out.println("========================================");
 		System.out.println("Choose the Cineplex and Cinema, followed by the show you want to edit.");
 		Cinema cinema = printChooseCinema(printChooseCineplex());
@@ -346,7 +346,7 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static void printEditShowDetails(Show show) {
 		System.out.println("========================================");
-		System.out.println("Edit Show");
+		System.out.println("EDIT SHOW");
 		System.out.println("========================================");
 		//sc = new Scanner(System.in);
 		
@@ -399,10 +399,10 @@ public class ConsoleBoundary {
 		//sc = new Scanner(System.in);
 		int choice = 0;
 		System.out.println("========================================");
-		System.out.println("Cineplex Ops");
+		System.out.println("CINEPLEX OPS");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:");
-		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(9) Done");
+		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(0) Done");
 		choice = sc.nextInt();
 		sc.nextLine();
 		//sc.close();
@@ -414,7 +414,7 @@ public class ConsoleBoundary {
 		//sc = new Scanner(System.in);
 		String[] cineplexDetails = new String[2];
 		System.out.println("========================================");
-		System.out.println("Add Cineplex");
+		System.out.println("ADD CINEPLEX");
 		System.out.println("========================================");
 		System.out.print("Enter name of cineplex: ");
 		cineplexDetails[0] = sc.nextLine();
@@ -427,7 +427,7 @@ public class ConsoleBoundary {
 	//called by CineplexMgr
 	public static Cineplex printRemoveCineplex() {
 		System.out.println("========================================");
-		System.out.println("Remove Cineplex");
+		System.out.println("REMOVE CINEPLEX");
 		System.out.println("========================================");
 		System.out.println("Choose the Cineplex you wish to remove.");
 		return printChooseCineplex();
@@ -438,11 +438,11 @@ public class ConsoleBoundary {
 		//sc = new Scanner(System.in);
 		int choice = 0;
 		System.out.println("========================================");
-		System.out.println("Manage Cinemas");
+		System.out.println("MANAGE CINEMAS");
 		System.out.println("========================================");
 		System.out.println("You are managing cinemas in cineplex " + cineplexName);
 		System.out.println("What would you like to do:");
-		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(9) Done");
+		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(0) Done");
 		choice = sc.nextInt();
 		sc.nextLine();
 		//sc.close();
@@ -455,7 +455,7 @@ public class ConsoleBoundary {
 		String[] cinemaDetails = new String[3];
 		
 		System.out.println("========================================");
-		System.out.println("Add Cinema");
+		System.out.println("ADD CINEMA");
 		System.out.println("========================================");
 		System.out.println("You are adding a cinema into the cineplex " + cineplexName);
 		System.out.print("Enter Cinema Name: ");
@@ -475,7 +475,7 @@ public class ConsoleBoundary {
 	//called by CinemaMgr
 	public static Cinema printRemoveCinema(Cineplex cineplex) {
 		System.out.println("========================================");
-		System.out.println("Add Cinema");
+		System.out.println("ADD CINEMA");
 		System.out.println("========================================");
 		System.out.println("You are removing a cinema from the cineplex " + cineplex.getName());
 		return printChooseCinema(cineplex);
@@ -485,10 +485,10 @@ public class ConsoleBoundary {
 	public static float[] printChangePremium() {
 		float[] premiumDetails = new float[2];
 		System.out.println("========================================");
-		System.out.println("Change Cinema Premium");
+		System.out.println("CHANGE CINEMA PREMIUM");
 		System.out.println("========================================");
 		System.out.println("Which type of cinema are you editing?");
-		System.out.println("(1) Normal\n(2) Gold Class\n(3) Platinum Class");
+		System.out.println("(1) Normal\n(2) Gold Class\n(3) Platinum Class\n");
 		premiumDetails[0] = sc.nextFloat(); sc.nextLine();
 		System.out.println("What is the new premium value?");
 		premiumDetails[1] = sc.nextFloat(); sc.nextLine();
@@ -504,7 +504,7 @@ public class ConsoleBoundary {
 		System.out.println("STAFF PAGE");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:");
-		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(9) Logout");
+		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -518,7 +518,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\n(5) List Top 5 Movie By Ratings\n(9) Logout");
+		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\n(5) List Top 5 Movie By Ratings\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -560,7 +560,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(9) Done with System Settings");
+		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(0) Done");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -739,12 +739,13 @@ public class ConsoleBoundary {
 				tempShows.add(cinema.getShows().get(i));
 				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTimeString()+ " (" + cinema.getShows().get(i).getShowType() + ")");
 				count++;
-			} else if(tempShows.size()==0){
-				System.out.println("No Shows Available");
-				MovieBookingMgr.reset = true;
-				//sc.close();
-				return null;
 			}
+		}
+		if(tempShows.size()==0){
+			System.out.println("No Shows Available");
+			MovieBookingMgr.reset = true;
+			//sc.close();
+			return null;
 		}
 		int choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
