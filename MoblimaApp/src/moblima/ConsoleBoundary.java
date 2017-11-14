@@ -522,7 +522,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1)Change Ticket Base Price\n(2)Add Public Holiday\n(9) Done with System Settings");
+		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(9) Done with System Settings");
 		choice = sc.nextInt();
 		//sc.close();
 		return choice;
