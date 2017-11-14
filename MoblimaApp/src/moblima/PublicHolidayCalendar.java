@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.io.*;
 import java.util.Calendar;
 
-public class MovieCalendar implements Serializable{					
-	/**
-	 * 
-	 */
+public class PublicHolidayCalendar implements Serializable{					
+
+	private static float publicHolidayPremium;
+	
 	private static final long serialVersionUID = -7989540302679891401L;
 	//Date class has to be created* using gregarion calendar to include pubHolList
 		
@@ -21,12 +21,20 @@ public class MovieCalendar implements Serializable{
 		pubHolList.add(date);
 	}
 		
-	public boolean isPubHol(Calendar date) {
+	public static boolean isPubHol(Calendar date) {
 		for (int counter = 0; counter < pubHolList.size(); counter++) { 		      
-			if (pubHolList.get(counter) == date)
+			if (pubHolList.get(counter).equals(date))
 				return true;
 		} 
 		return false;	
+	}
+	
+	public static void setPublicHolidayPremium(float newPremium) {
+		publicHolidayPremium = newPremium;
+	}
+	
+	public static float getPublicHolidayPremium() {
+		return publicHolidayPremium;
 	}
 
 }

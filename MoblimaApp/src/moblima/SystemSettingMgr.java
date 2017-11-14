@@ -29,7 +29,7 @@ public class SystemSettingMgr {
 				ShowIMAX.setBasePrice(ConsoleBoundary.askBasePrice()); 
 				break;
 			case 5: 
-				MovieCalendar.addPubHol(ConsoleBoundary.askPubHol()); 
+				PublicHolidayCalendar.addPubHol(ConsoleBoundary.askPubHol()); 
 				break;
 			}
 		} while (choice != 9);
