@@ -55,6 +55,10 @@ public class Show implements Serializable{
 		return showTime;
 	}
 	
+	public String getShowTimeString(){
+		return new String(showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
+	}
+	
 	public String getMovieTitle() {
 		return movie;
 	}
