@@ -19,7 +19,7 @@ public class CineplexMgr {
 			switch(choice) {
 			case 1: addCineplex(); break;
 			case 2: removeCineplex(); break;
-			case 9: loop = false; break;
+			case 0: loop = false; break;
 			}
 			DataBoundary.saveCineplexList(CineplexList.cineplexList);
 		}

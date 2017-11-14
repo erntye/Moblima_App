@@ -120,14 +120,15 @@ public class ConsoleBoundary {
 		System.out.println("Enter Title: ");
 		String title = sc.nextLine();
 		System.out.println("Enter Showing Status: ");
-		System.out.println("1. Coming Soon \t 2. Now Showing \t 3. Ended");
+		System.out.println("1. Coming Soon \t 2. Preview \t 3. Now Showing \t 4. Ended");
 		int temp = sc.nextInt();
 		sc.nextLine();
 		Movie.Showing_Status status;
 		switch(temp) {
 		case 1: status = Movie.Showing_Status.ComingSoon; break;
 		case 2: status = Movie.Showing_Status.NowShowing; break;
-		case 3: status = Movie.Showing_Status.Ended; break;
+		case 3: status = Movie.Showing_Status.NowShowing; break;
+		case 4: status = Movie.Showing_Status.Ended; break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
 		System.out.println("Enter Synopsis: ");
@@ -176,15 +177,16 @@ public class ConsoleBoundary {
 		Movie movieToReplace;
 		System.out.println("Edit Showing Status");
 		System.out.println("Current Showing Status: " + movieToEdit.getShowingStatus());
-		System.out.println("Choose:\n1. Coming Soon \t 2. Now Showing \t 3. Ended\t 4. Skip");
+		System.out.println("Choose:\n1. Coming Soon \t 2. Preview \t 3. Now Showing \t 4. Ended\t 5. Skip");
 		int temp = sc.nextInt();
 		sc.nextLine();
 		Movie.Showing_Status status;
 		switch(temp) {
 		case 1: status = Movie.Showing_Status.ComingSoon; break;
-		case 2: status = Movie.Showing_Status.NowShowing; break;
-		case 3: status = Movie.Showing_Status.Ended; break;
-		case 4: status = movieToEdit.getShowingStatus(); break;
+		case 2: status = Movie.Showing_Status.Preview; break;
+		case 3: status = Movie.Showing_Status.NowShowing; break;
+		case 4: status = Movie.Showing_Status.Ended; break;
+		case 5: status = movieToEdit.getShowingStatus(); break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
 		System.out.println("Edit Censorship Rating");//G,PG, PG13,NC16,M18,R21
@@ -223,11 +225,19 @@ public class ConsoleBoundary {
 	public static void printTopRatings() {
 		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
-				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				if(MovieList.movieList.get(i).getReviewCount()==0) {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
+				} else {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				}
 			}
 		} else {
 			for(int i = 0; i<MovieList.movieList.size(); i++) {
-				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				if(MovieList.movieList.get(i).getReviewCount()==0) {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
+				} else {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				}
 			}
 		}
 		
@@ -518,7 +528,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Sales\n(5) List Top 5 Movie By Ratings\n(0) Logout");
+		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Ratings\n(5) List Top 5 Movie By Sales\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -550,7 +560,7 @@ public class ConsoleBoundary {
 	
 	public static void printBookingHistory(CustAcc c) {
 		for(int i = c.getTransactionList().size()-1; i>=0;i--) {
-			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n Date: " + c.getTransactionList().get(i).getDate() + "\n Movie Title:" + c.getTransactionList().get(i).getMovieTitle());
+			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n\tDate & Time: " + c.getTransactionList().get(i).getDate() + "\n\tMovie Title:" + c.getTransactionList().get(i).getMovieTitle());
 		}
 	}
 	
@@ -560,7 +570,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
-		System.out.println("What would you like to do:\n Change Ticket Base Price of: \n(1)Show \n(2)3D Show \n(3)Digital Show \n(4) IMAX Show or \n(5)Add Public Holiday\n(0) Done");
+		System.out.println("What would you like to do:\n(1) Change Ticket Base Price of: Show \n(2) Change Ticket Base Price of: 3D Show \n(3) Change Ticket Base Price of: Digital Show \n(4) Change Ticket Base Price of: IMAX Show\n(5) Add Public Holiday\n(0) Done");
 		choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
 		return choice;
@@ -604,7 +614,7 @@ public class ConsoleBoundary {
 		int count = 1;
 		ArrayList<Movie> temp = new ArrayList<Movie>();
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
+			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended && MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.ComingSoon) {
 				temp.add(MovieList.movieList.get(i));
 				System.out.println("("+count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 				count++;
@@ -647,12 +657,17 @@ public class ConsoleBoundary {
 			System.out.print(", " + movie.getCast()[i]);
 		}
 		System.out.println();
-		System.out.println("Average Rating: " + movie.getAverageRating());
+		if(movie.getReviewCount()==0) {
+			System.out.println("Average Rating: N/A");
+		} else {
+			System.out.println("Average Rating: " + movie.getAverageRating());
+		}
+		
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
-			System.out.println("Reviewer: " + movie.getReviews().get(i).getReviewer());
-			System.out.println("Rating: " + movie.getReviews().get(i).getRating());
-			System.out.println("Review: " + movie.getReviews().get(i).getContent());
+			System.out.println("\tReviewer: " + movie.getReviews().get(i).getReviewer());
+			System.out.println("\tRating: " + movie.getReviews().get(i).getRating());
+			System.out.println("\tReview: " + movie.getReviews().get(i).getContent());
 		}
 		System.out.println("(1) Proceed to book tickets\n(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
@@ -752,9 +767,9 @@ public class ConsoleBoundary {
 		return tempShows.get(choice-1);
 	}
 	
-	public static char[] printLayout(char[][] bookedLayout) {
+	public static String[] printLayout (char[][] bookedLayout) {
 		//sc = new Scanner(System.in);
-		char[] seatNumber = new char[2];
+		String[] seatNumber = new String[2];
 		System.out.println("========================================");
 		System.out.println("CHOOSE SEAT");
 		System.out.println("========================================");
@@ -768,7 +783,8 @@ public class ConsoleBoundary {
 		}
 		System.out.println();
 		int i = 0;
-		while(i<6) {
+	
+		while(i < 6) {
 			System.out.print(String.valueOf((char)(i+65) + " "));
 			for (int j=0; j<bookedLayout[1].length; j++) {
 			System.out.print(bookedLayout[i][j]);
@@ -777,10 +793,12 @@ public class ConsoleBoundary {
 			System.out.println();
 			i++;
 		}
-		System.out.println("Enter choice of seat:");
-		String temp = sc.nextLine();
-		seatNumber[0] = temp.charAt(0);
-		seatNumber[1] = temp.charAt(1);
+		
+		System.out.println("Enter choice of row:");
+		seatNumber[0] = sc.nextLine();
+		System.out.println("Enter choice of column:");
+		seatNumber[1] = sc.nextLine();
+
 		return seatNumber;
 	}
 	
@@ -802,13 +820,13 @@ public class ConsoleBoundary {
 		}
 	}
 	
-	public static void printTransaction(CustAcc c,Transaction latest, Show show,String showType,char[] seatNumber, float price) {
+	public static void printTransaction(CustAcc c,Transaction latest, Show show,String showType,String[] seatNumber, float price) {
 		System.out.println("========================================");
 		System.out.println("BOOKING CONFIRMED!");
 		System.out.println("========================================");
 		System.out.println("Transaction ID: " + latest.getTid());
 		System.out.println("Name: " + c.getName());
-		System.out.println("Email: " + c.getName());
+		System.out.println("Email: " + c.getEmail());
 		System.out.println("Movie Title: " + show.getMovieTitle());
 		System.out.println("Show Time: " + show.getShowTimeString());
 		System.out.println("Seat Number : " + seatNumber[0] + seatNumber[1]);
@@ -831,5 +849,9 @@ public class ConsoleBoundary {
 			}
 			System.out.println();
 		}
+	}
+	
+	public static void printTerminate() {
+		System.out.println("Terminating...");
 	}
 }
