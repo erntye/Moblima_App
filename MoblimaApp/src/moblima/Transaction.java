@@ -14,7 +14,7 @@ public class Transaction implements Serializable{
 	public Transaction (Cineplex cineplex, Calendar date, String movieTitle) {
 		String code = cineplex.getCode();
 		String year = Integer.toString(date.get(Calendar.YEAR));
-		String month = Integer.toString(date.get(Calendar.MONTH+1));
+		String month = Integer.toString(date.get(Calendar.MONTH)+1);
 		String day = Integer.toString(date.get(Calendar.DAY_OF_MONTH));
 		String hour = Integer.toString(date.get(Calendar.HOUR_OF_DAY));
 		String minute = Integer.toString(date.get(Calendar.MINUTE));
