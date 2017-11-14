@@ -20,6 +20,7 @@ public class CinemaMgr {
 			switch(choice) {
 			case 1: addCinema(cineplex); break;
 			case 2: removeCinema(cineplex); break;
+			case 3: changePremium(); break;
 			case 9: loop = false; break;
 			}
 			DataBoundary.saveCineplexList(CineplexList.cineplexList);
@@ -53,5 +54,23 @@ public class CinemaMgr {
 		Cinema cinemaToRemove = ConsoleBoundary.printRemoveCinema(cineplex);
 		cineplex.removeCinema(cinemaToRemove);
 		System.out.println("Cinema removed");
+	}
+
+	public void changePremium() {
+		float[] changePremiumDetails = ConsoleBoundary.printChangePremium();
+		switch((int)changePremiumDetails[0]) {
+		case 1: //normal
+			Cinema.setPremium(changePremiumDetails[1]);
+			System.out.println("Normal Cinema premium updated!");
+			break;
+		case 2: //Gold Class
+			CinemaGold.setPremium(changePremiumDetails[1]);
+			System.out.println("Gold Class Cinema premium updated!");
+			break;
+		case 3: //Platinum Class
+			CinemaPlatinum.setPremium(changePremiumDetails[1]);
+			System.out.println("Platinum Class Cinema premium updated!");
+			break;
+		}
 	}
 }
