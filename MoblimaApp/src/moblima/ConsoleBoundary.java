@@ -602,7 +602,7 @@ public class ConsoleBoundary {
 		int choice = 0;
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
 			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
-				System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				System.out.println((i+1) + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 			}
 		}
 		System.out.println("Choose a movie: ");
@@ -647,7 +647,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE CINEPLEX");
 		System.out.println("========================================");
 		for(int i = 0 ; i < CineplexList.cineplexList.size();i++) {
-			System.out.println("("+ i+1 + ") " + CineplexList.cineplexList.get(i).getName());
+			System.out.println("("+ (i+1) + ") " + CineplexList.cineplexList.get(i).getName());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
@@ -668,7 +668,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
 		for(int i = 0 ; i < cineplex.getCinemaList().size();i++) {
-			System.out.println("("+ i+1 + ") " +  cineplex.getCinemaList().get(i).getName());
+			System.out.println("("+ (i+1) + ") " +  cineplex.getCinemaList().get(i).getName());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
