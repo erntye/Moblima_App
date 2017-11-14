@@ -614,7 +614,7 @@ public class ConsoleBoundary {
 		int count = 1;
 		ArrayList<Movie> temp = new ArrayList<Movie>();
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended && MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Preview) {
+			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended && MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.ComingSoon) {
 				temp.add(MovieList.movieList.get(i));
 				System.out.println("("+count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 				count++;

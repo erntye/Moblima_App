@@ -25,7 +25,7 @@ public class CustCtr {
 			case 4: MovieList.sortByRating(); ConsoleBoundary.printTopRatings(); break;
 			case 5: MovieList.sortBySales(); ConsoleBoundary.printTopSales();break;
 			}
-		} while (choice != 9);
+		} while (choice != 0);
 		ConsoleBoundary.printLogout();
 	}
 }
