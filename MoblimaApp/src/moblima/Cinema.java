@@ -29,7 +29,10 @@ public class Cinema implements Serializable{
 	}
 
 	public float calculatePrice(Show show) { 
-		return show.getBasePrice() + premium;
+		float price = show.getBasePrice() + premium;
+		if(PublicHolidayCalendar.isPubHol(show.getShowTime()))
+			price += PublicHolidayCalendar.getPublicHolidayPremium();
+		return price;
 	}
 	
 	public static void setPremium(float newPremium){

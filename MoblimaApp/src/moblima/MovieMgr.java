@@ -40,7 +40,7 @@ public class MovieMgr {
 			case 3: editMovie(); break;
 			case 4: top5Sales(); break;
 			case 5: top5Ratings(); break;
-			case 9: loop = false; break;
+			case 0: loop = false; break;
 			}
 			DataBoundary.saveMovieList(MovieList.movieList);
 		}
