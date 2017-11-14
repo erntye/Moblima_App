@@ -79,6 +79,8 @@ public class Show implements Serializable{
 	
 	public void setBookedLayout(String[] seatNumber) {
 		bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-1][Integer.parseInt(seatNumber[1])-1] = 'X';
+		System.out.println(Character.getNumericValue(seatNumber[0].charAt(0)));
+		System.out.println(Integer.parseInt(seatNumber[1]));
 	}
 	
 	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {
