@@ -16,6 +16,9 @@ public class Transaction implements Serializable{
 		String year = Integer.toString(date.get(Calendar.YEAR));
 		String month = Integer.toString(date.get(Calendar.MONTH)+1);
 		String day = Integer.toString(date.get(Calendar.DAY_OF_MONTH));
+		if(date.get(Calendar.DAY_OF_MONTH)<10) {
+			day = "0" + day;
+		}
 		String hour = Integer.toString(date.get(Calendar.HOUR_OF_DAY));
 		String minute = Integer.toString(date.get(Calendar.MINUTE));
 		this.date = year+month+day+hour+minute;

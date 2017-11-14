@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 
 public class PublicHolidayCalendar implements Serializable{					
 
-	private static float publicHolidayPremium;
+	private static float publicHolidayPremium = 2.3f;
 	
 	private static final long serialVersionUID = -7989540302679891401L;
 	//Date class has to be created* using gregarion calendar to include pubHolList
