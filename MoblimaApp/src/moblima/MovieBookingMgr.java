@@ -31,9 +31,9 @@ public class MovieBookingMgr {
 			proceed = ConsoleBoundary.printMovieInfo(movie); if(reset) break;
 			if(proceed) cineplex = ConsoleBoundary.printChooseCineplex(); if(reset) break;
 			cinema = ConsoleBoundary.printChooseCinema(cineplex); if(reset) break;
-			showType = ConsoleBoundary.printChooseShowType(); if(reset) break;
+//			showType = ConsoleBoundary.printChooseShowType(); if(reset) break;
 			cinema.sortShowsByTime();
-			show = ConsoleBoundary.printShowsByMovie(movie, cineplex, cinema, showType); if(reset) break;
+			show = ConsoleBoundary.printShowsByMovie(movie, cinema); if(reset) break;
 			price = cinema.calculatePrice(show);
 			seatNumber = ConsoleBoundary.printLayout(show); if(reset) break;
 			confirm = ConsoleBoundary.printBookingConfirmation(price, cinema); if(reset) break;
