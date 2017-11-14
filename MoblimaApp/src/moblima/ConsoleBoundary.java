@@ -225,7 +225,7 @@ public class ConsoleBoundary {
 	public static void printTopRatings() {
 		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
-				if(MovieList.movieList.get(i).getReviewCount()!=0) {
+				if(MovieList.movieList.get(i).getReviewCount()==0) {
 					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
 				} else {
 					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
@@ -233,7 +233,7 @@ public class ConsoleBoundary {
 			}
 		} else {
 			for(int i = 0; i<MovieList.movieList.size(); i++) {
-				if(MovieList.movieList.get(i).getReviewCount()!=0) {
+				if(MovieList.movieList.get(i).getReviewCount()==0) {
 					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
 				} else {
 					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
@@ -657,7 +657,7 @@ public class ConsoleBoundary {
 			System.out.print(", " + movie.getCast()[i]);
 		}
 		System.out.println();
-		if(movie.getReviewCount()!=0) {
+		if(movie.getReviewCount()==0) {
 			System.out.println("Average Rating: N/A");
 		} else {
 			System.out.println("Average Rating: " + movie.getAverageRating());
