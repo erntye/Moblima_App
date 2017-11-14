@@ -20,7 +20,7 @@ public class CustCtr {
 			switch(choice) {
 			case 1: MovieBookingMgr.getInstance().bookByMovie(); break;
 //			case 2: MovieBookingMgr.getInstance().bookByCineplex(); break;
-			case 2: ConsoleBoundary.printMovieList().addReviews(ConsoleBoundary.printAddReview());; break;
+			case 2: ConsoleBoundary.printAllMovieList().addReviews(ConsoleBoundary.printAddReview());; break;
 			case 3: ConsoleBoundary.printBookingHistory((CustAcc) LoginMgr.getInstance().loggedInAccount); break;
 			case 4: MovieList.sortByRating(); ConsoleBoundary.printTopRatings(); break;
 			case 5: MovieList.sortBySales(); ConsoleBoundary.printTopSales();break;
