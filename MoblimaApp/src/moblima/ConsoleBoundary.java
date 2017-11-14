@@ -601,7 +601,9 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		int choice = 0;
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-			System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
+				System.out.println(i+1 + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+			}
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt(); sc.nextLine();
