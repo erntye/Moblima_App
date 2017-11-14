@@ -9,8 +9,9 @@ public class MoblimaApp {
 	public static void main(String[] args){
 		initialiseEverything();	//this is to read data from database
 		
-		GregorianCalendar cal = new GregorianCalendar(2017,10,14, 14, 30, 00);
-		System.out.println(cal.get(Calendar.HOUR_OF_DAY) + ":"+ cal.get(Calendar.MINUTE));
+		GregorianCalendar showTime = new GregorianCalendar(2017,10,14, 14, 30, 00);
+		System.out.println(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH)+1) + " " + 
+				showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
 		
 		
 		

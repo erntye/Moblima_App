@@ -24,8 +24,10 @@ public class PublicHolidayCalendar implements Serializable{
 		
 	public static boolean isPubHol(Calendar date) {
 		for (int counter = 0; counter < pubHolList.size(); counter++) { 		      
-			if (pubHolList.get(counter).equals(date))
-				return true;
+			if (pubHolList.get(counter).get(Calendar.MONTH) == date.get(Calendar.MONTH)){
+				if(pubHolList.get(counter).get(Calendar.DAY_OF_MONTH) == date.get(Calendar.DAY_OF_MONTH))
+					return true;
+			}
 		} 
 		return false;	
 	}
