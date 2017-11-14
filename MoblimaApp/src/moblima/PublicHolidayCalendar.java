@@ -3,6 +3,7 @@ package moblima;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class PublicHolidayCalendar implements Serializable{					
 
@@ -11,7 +12,7 @@ public class PublicHolidayCalendar implements Serializable{
 	private static final long serialVersionUID = -7989540302679891401L;
 	//Date class has to be created* using gregarion calendar to include pubHolList
 		
-	private static ArrayList<Calendar> pubHolList;
+	public static ArrayList<Calendar> pubHolList = new ArrayList<Calendar>();
 		
 	public ArrayList<Calendar> getPubHolList() {
 		return pubHolList;
