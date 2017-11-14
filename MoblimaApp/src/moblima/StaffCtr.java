@@ -22,7 +22,7 @@ public class StaffCtr {
 			case 4: CineplexMgr.getInstance().CineplexOps(); break;
 			case 5: CinemaMgr.getInstance().CinemaOps(); break;
 			}
-		} while (choice != 9);
+		} while (choice != 0);
 		ConsoleBoundary.printLogout();
 	} 
 }

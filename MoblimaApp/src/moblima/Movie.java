@@ -12,7 +12,7 @@ public class Movie implements Serializable{
 	private static final long serialVersionUID = 5835831193063619356L;
 
 	public enum Showing_Status {
-		ComingSoon, NowShowing,Ended;
+		ComingSoon, Preview, NowShowing,Ended;
 	}
 	
 	public enum Censorship_Rating {
@@ -70,8 +70,7 @@ public class Movie implements Serializable{
 	}
 	
 	public void updateRatings(int ratingToAdd){
-		this.aveRating = (aveRating*reviewCount+ ratingToAdd)/reviewCount;
-		this.reviewCount++;
+		this.aveRating = (aveRating*reviewCount+ ratingToAdd)/++reviewCount;
 	}
 	
 	public String getTitle(){
@@ -100,6 +99,10 @@ public class Movie implements Serializable{
 	
 	public float getAverageRating(){
 		return aveRating;
+	}
+	
+	public int getReviewCount() {
+		return reviewCount;
 	}
 	
 	public ArrayList<Reviews> getReviews(){

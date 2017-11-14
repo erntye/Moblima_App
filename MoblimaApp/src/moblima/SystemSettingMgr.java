@@ -32,6 +32,6 @@ public class SystemSettingMgr {
 				PublicHolidayCalendar.addPubHol(ConsoleBoundary.askPubHol()); 
 				break;
 			}
-		} while (choice != 9);
+		} while (choice != 0);
 	}
 }

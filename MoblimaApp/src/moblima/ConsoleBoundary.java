@@ -120,14 +120,15 @@ public class ConsoleBoundary {
 		System.out.println("Enter Title: ");
 		String title = sc.nextLine();
 		System.out.println("Enter Showing Status: ");
-		System.out.println("1. Coming Soon \t 2. Now Showing \t 3. Ended");
+		System.out.println("1. Coming Soon \t 2. Preview \t 3. Now Showing \t 4. Ended");
 		int temp = sc.nextInt();
 		sc.nextLine();
 		Movie.Showing_Status status;
 		switch(temp) {
 		case 1: status = Movie.Showing_Status.ComingSoon; break;
 		case 2: status = Movie.Showing_Status.NowShowing; break;
-		case 3: status = Movie.Showing_Status.Ended; break;
+		case 3: status = Movie.Showing_Status.NowShowing; break;
+		case 4: status = Movie.Showing_Status.Ended; break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
 		System.out.println("Enter Synopsis: ");
@@ -176,15 +177,16 @@ public class ConsoleBoundary {
 		Movie movieToReplace;
 		System.out.println("Edit Showing Status");
 		System.out.println("Current Showing Status: " + movieToEdit.getShowingStatus());
-		System.out.println("Choose:\n1. Coming Soon \t 2. Now Showing \t 3. Ended\t 4. Skip");
+		System.out.println("Choose:\n1. Coming Soon \t 2. Preview \t 3. Now Showing \t 4. Ended\t 5. Skip");
 		int temp = sc.nextInt();
 		sc.nextLine();
 		Movie.Showing_Status status;
 		switch(temp) {
 		case 1: status = Movie.Showing_Status.ComingSoon; break;
-		case 2: status = Movie.Showing_Status.NowShowing; break;
-		case 3: status = Movie.Showing_Status.Ended; break;
-		case 4: status = movieToEdit.getShowingStatus(); break;
+		case 2: status = Movie.Showing_Status.Preview; break;
+		case 3: status = Movie.Showing_Status.NowShowing; break;
+		case 4: status = Movie.Showing_Status.Ended; break;
+		case 5: status = movieToEdit.getShowingStatus(); break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
 		System.out.println("Edit Censorship Rating");//G,PG, PG13,NC16,M18,R21
@@ -223,11 +225,19 @@ public class ConsoleBoundary {
 	public static void printTopRatings() {
 		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
-				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				if(MovieList.movieList.get(i).getReviewCount()!=0) {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
+				} else {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				}
 			}
 		} else {
 			for(int i = 0; i<MovieList.movieList.size(); i++) {
-				System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				if(MovieList.movieList.get(i).getReviewCount()!=0) {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
+				} else {
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+				}
 			}
 		}
 		
@@ -604,7 +614,7 @@ public class ConsoleBoundary {
 		int count = 1;
 		ArrayList<Movie> temp = new ArrayList<Movie>();
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
+			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended && MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.ComingSoon) {
 				temp.add(MovieList.movieList.get(i));
 				System.out.println("("+count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 				count++;
@@ -647,7 +657,12 @@ public class ConsoleBoundary {
 			System.out.print(", " + movie.getCast()[i]);
 		}
 		System.out.println();
-		System.out.println("Average Rating: " + movie.getAverageRating());
+		if(movie.getReviewCount()!=0) {
+			System.out.println("Average Rating: N/A");
+		} else {
+			System.out.println("Average Rating: " + movie.getAverageRating());
+		}
+		
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
 			System.out.println("Reviewer: " + movie.getReviews().get(i).getReviewer());
