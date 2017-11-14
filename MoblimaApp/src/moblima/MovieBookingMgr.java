@@ -40,6 +40,7 @@ public class MovieBookingMgr {
 			if(confirm) {
 				CustAcc c = (CustAcc) LoginMgr.getInstance().loggedInAccount;
 				Transaction latest = new Transaction(cineplex, Calendar.getInstance(), movie.getTitle());
+				movie.setSales(movie.getSales()+price);
 				c.transactionList.add(latest);
 				ConsoleBoundary.printTransaction(c,latest, show, showType, seatNumber, price); if(reset) break;
 			}
