@@ -739,12 +739,13 @@ public class ConsoleBoundary {
 				tempShows.add(cinema.getShows().get(i));
 				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTimeString()+ " (" + cinema.getShows().get(i).getShowType() + ")");
 				count++;
-			} else if(tempShows.size()==0){
-				System.out.println("No Shows Available");
-				MovieBookingMgr.reset = true;
-				//sc.close();
-				return null;
 			}
+		}
+		if(tempShows.size()==0){
+			System.out.println("No Shows Available");
+			MovieBookingMgr.reset = true;
+			//sc.close();
+			return null;
 		}
 		int choice = sc.nextInt(); sc.nextLine();
 		//sc.close();
