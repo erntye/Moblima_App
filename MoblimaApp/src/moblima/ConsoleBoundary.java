@@ -374,19 +374,21 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static Show printShowList(Cinema cinema) {
 		System.out.println("========================================");
-		System.out.println("Choose Show");
+		System.out.println("CHOOSE SHOW");
 		System.out.println("========================================");
 		//sc = new Scanner(System.in);
 		ArrayList<Show> tempShows = new ArrayList<Show>();
 		for(int i = 0; i<cinema.getShows().size();i++) {
-			System.out.print((i+1) + ". ");
+			System.out.print("(" + (i+1) + ") ");
 			System.out.print(cinema.getShows().get(i).getMovieTitle() + " ");
 			System.out.print(cinema.getShows().get(i).getShowType() + " ");
 			System.out.println(cinema.getShows().get(i).getShowTime());
 			tempShows.add(cinema.getShows().get(i));
 		}
+		System.out.println("(0) Cancel ");
 		System.out.print("Enter Choice: ");
 		int choice = sc.nextInt();
+		if(choice==0) return null;
 		sc.nextLine();
 		//sc.close();
 		return tempShows.get(choice-1);

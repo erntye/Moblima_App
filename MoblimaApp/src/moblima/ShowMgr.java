@@ -31,13 +31,21 @@ public class ShowMgr {
 	
 	public void removeShow() {
 		Cinema cinemaToRemoveFrom = ConsoleBoundary.printRemoveShow();
+		if(cinemaToRemoveFrom == null)
+			return;
 		Show showToRemove = ConsoleBoundary.printShowList(cinemaToRemoveFrom);
+		if(showToRemove == null)
+			return;
 		cinemaToRemoveFrom.removeShow(showToRemove);
 	}
 	
 	public void editShow() {
 		Cinema cinemaToEditFrom = ConsoleBoundary.printEditShow();
+		if(cinemaToEditFrom == null)
+			return;
 		Show showToEdit = ConsoleBoundary.printShowList(cinemaToEditFrom);
+		if(showToEdit == null)
+			return;
 		ConsoleBoundary.printEditShowDetails(showToEdit);
 	}
 	
