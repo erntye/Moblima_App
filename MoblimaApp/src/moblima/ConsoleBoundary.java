@@ -259,7 +259,7 @@ public class ConsoleBoundary {
 		System.out.println("(3) Edit Movie");
 		System.out.println("(4) Top 5 Movies By Sales");
 		System.out.println("(5) Top 5 Movies By Ratings");
-		System.out.println("(9) Done Managing Movies");
+		System.out.println("(0) Done");
 		int choice = sc.nextInt();
 		sc.nextLine();
 		
@@ -361,7 +361,7 @@ public class ConsoleBoundary {
 		}
 		
 		System.out.println("Change Show Time");
-		System.out.println("Current Show Time: " + show.getShowTime());
+		System.out.println("Current Show Time: " + show.getShowTimeString());
 		System.out.println("1. Change Show Time\n2. Skip\n");
 		choice = sc.nextInt();sc.nextLine();
 		if(choice == 1) {
@@ -374,19 +374,21 @@ public class ConsoleBoundary {
 	//called by ShowMgr
 	public static Show printShowList(Cinema cinema) {
 		System.out.println("========================================");
-		System.out.println("Choose Show");
+		System.out.println("CHOOSE SHOW");
 		System.out.println("========================================");
 		//sc = new Scanner(System.in);
 		ArrayList<Show> tempShows = new ArrayList<Show>();
 		for(int i = 0; i<cinema.getShows().size();i++) {
-			System.out.print((i+1) + ". ");
+			System.out.print("(" + (i+1) + ") ");
 			System.out.print(cinema.getShows().get(i).getMovieTitle() + " ");
 			System.out.print(cinema.getShows().get(i).getShowType() + " ");
-			System.out.println(cinema.getShows().get(i).getShowTime());
+			System.out.println(cinema.getShows().get(i).getShowTimeString());
 			tempShows.add(cinema.getShows().get(i));
 		}
+		System.out.println("(0) Cancel ");
 		System.out.print("Enter Choice: ");
 		int choice = sc.nextInt();
+		if(choice==0) return null;
 		sc.nextLine();
 		//sc.close();
 		return tempShows.get(choice-1);
@@ -604,7 +606,7 @@ public class ConsoleBoundary {
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
 			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {
 				temp.add(MovieList.movieList.get(i));
-				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				System.out.println("("+count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 				count++;
 			}
 		}
@@ -622,7 +624,7 @@ public class ConsoleBoundary {
 		int choice = 0;
 		int count = 1;
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-				System.out.println(count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				System.out.println("(" + count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
 				count++;
 		}
 		System.out.println("Choose a movie: ");
@@ -711,13 +713,14 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TYPE");
 		System.out.println("========================================");
-		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX");
+		System.out.println("(1) Digital\n(2) 3D\n(3) IMAX\n(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		String choiceS = null;
 		switch(choice){
 			case 1: choiceS = "Digital"; break;
 			case 2: choiceS = "3D"; break;
 			case 3: choiceS = "IMAX"; break;
+			case 0: choiceS = null; break;
 		}
 		//sc.close();
 		return choiceS;
@@ -734,7 +737,7 @@ public class ConsoleBoundary {
 			int count = 1;
 			if(cinema.getShows().get(i).getMovieTitle().equals(movie.getTitle())) {
 				tempShows.add(cinema.getShows().get(i));
-				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTime().get(Calendar.HOUR_OF_DAY) + ":" + cinema.getShows().get(i).getShowTime().get(Calendar.MINUTE) + " (" + cinema.getShows().get(i).getShowType() + ")");
+				System.out.println("(" + count + ") " + cinema.getShows().get(i).getShowTimeString()+ " (" + cinema.getShows().get(i).getShowType() + ")");
 				count++;
 			} else if(tempShows.size()==0){
 				System.out.println("No Shows Available");
@@ -755,17 +758,28 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE SEAT");
 		System.out.println("========================================");
 		System.out.print(" ");
-		for (int i=1; i<=bookedLayout[1].length; i++) {
-			System.out.print(" " + i);
+		int column = 1;
+		for (int i=0; i<bookedLayout[1].length; i++) {
+			if (bookedLayout[1][i] == '_')
+				System.out.print(" " + (column++));
+			else
+				System.out.print("  ");
 		}
-		for(int i=0; i<bookedLayout.length; i++) {
-			System.out.println(String.valueOf((char)(i+64) + " "));
+		System.out.println();
+		int i = 0;
+		while(i<6) {
+			System.out.print(String.valueOf((char)(i+65) + " "));
 			for (int j=0; j<bookedLayout[1].length; j++) {
 			System.out.print(bookedLayout[i][j]);
 			System.out.print(" ");
 			}
 			System.out.println();
+			i++;
 		}
+		System.out.println("Enter choice of seat:");
+		String temp = sc.nextLine();
+		seatNumber[0] = temp.charAt(0);
+		seatNumber[1] = temp.charAt(1);
 		return seatNumber;
 	}
 	
@@ -795,7 +809,7 @@ public class ConsoleBoundary {
 		System.out.println("Name: " + c.getName());
 		System.out.println("Email: " + c.getName());
 		System.out.println("Movie Title: " + show.getMovieTitle());
-		System.out.println("Show Time: " + show.getShowTime());
+		System.out.println("Show Time: " + show.getShowTimeString());
 		System.out.println("Seat Number : " + seatNumber[0] + seatNumber[1]);
 		System.out.println("Price: " + price);
 	}

@@ -1,12 +1,18 @@
 package moblima;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.ArrayList;
 
 public class MoblimaApp {
 	
 	public static void main(String[] args){
 		initialiseEverything();	//this is to read data from database
+		
+		GregorianCalendar cal = new GregorianCalendar(2017,10,14, 14, 30, 00);
+		System.out.println(cal.get(Calendar.HOUR_OF_DAY) + ":"+ cal.get(Calendar.MINUTE));
+		
+		
 		
 		String[] loginDetails = new String[3];
 		
