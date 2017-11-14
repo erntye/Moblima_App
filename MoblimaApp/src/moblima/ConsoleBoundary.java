@@ -826,7 +826,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("Transaction ID: " + latest.getTid());
 		System.out.println("Name: " + c.getName());
-		System.out.println("Email: " + c.getName());
+		System.out.println("Email: " + c.getEmail());
 		System.out.println("Movie Title: " + show.getMovieTitle());
 		System.out.println("Show Time: " + show.getShowTimeString());
 		System.out.println("Seat Number : " + seatNumber[0] + seatNumber[1]);
