@@ -16,7 +16,7 @@ public class SystemSettingMgr {
 		do {
 			choice = ConsoleBoundary.printSystemSettingMenu();
 			switch(choice) {
-			case 1: 
+			case 1: //h
 				Show.setBasePrice(ConsoleBoundary.askBasePrice()); 
 				break;
 			case 2: 
