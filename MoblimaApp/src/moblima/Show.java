@@ -78,8 +78,12 @@ public class Show implements Serializable{
 		return " ";
 	}
 	
-	public void setBookedLayout(String[] seatNumber) {
+	public Boolean setBookedLayout(String[] seatNumber) {
+		if(bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])-1] == 'X') {
+			return false;
+		};
 		bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])-1] = 'X';
+		return true;
 	}
 	
 	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {

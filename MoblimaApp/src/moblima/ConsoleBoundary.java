@@ -851,6 +851,10 @@ public class ConsoleBoundary {
 		}
 	}
 	
+	public static void printInvalidSeat() {
+		System.out.println("The seat you chose is invalid!");
+	}
+	
 	public static void printTerminate() {
 		System.out.println("Terminating...");
 	}
