@@ -1,5 +1,6 @@
 package moblima;
 import java.io.*;
+import java.util.Calendar;
 import java.util.ArrayList;
 
 
@@ -105,6 +106,31 @@ public class DataBoundary {
 		return cineplexArray;
 	}
 	
+	public static ArrayList<Calendar> getPubHolList() {
+		ArrayList<Calendar> pubHolArray = new ArrayList<Calendar>();
+		try {
+			FileInputStream fis = new FileInputStream("pubHols.tmp");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			pubHolArray = (ArrayList<Calendar>) ois.readObject();
+			ois.close();
+		}
+		catch (EOFException e) {
+			//just to test
+			e.printStackTrace();
+			System.out.println("All Public Holidays Added.");
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return pubHolArray;
+	}
+	
 	public static void saveStaffList(ArrayList<Account> staffArray) {
 		try{
 			FileOutputStream fos = new FileOutputStream("staff.tmp");
@@ -143,6 +169,17 @@ public class DataBoundary {
 			FileOutputStream fos = new FileOutputStream("cineplex.tmp");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(cineplexArray);
+			oos.close();
+		}
+		catch (FileNotFoundException e) {}
+		catch(IOException e) {}
+	}
+	
+	public static void savePubHolList(ArrayList<Calendar> pubHolArray) {
+		try{
+			FileOutputStream fos = new FileOutputStream("pubHols.tmp");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(pubHolArray);
 			oos.close();
 		}
 		catch (FileNotFoundException e) {}

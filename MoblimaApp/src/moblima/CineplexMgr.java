@@ -21,6 +21,7 @@ public class CineplexMgr {
 			case 2: removeCineplex(); break;
 			case 9: loop = false; break;
 			}
+			DataBoundary.saveCineplexList(CineplexList.cineplexList);
 		}
 	}
 	

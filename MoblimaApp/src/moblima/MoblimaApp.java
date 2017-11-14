@@ -58,7 +58,9 @@ public class MoblimaApp {
 		LoginMgr.getInstance().initialiseAccounts(staffArray, custArray);
 		
 		//initialise cineplexlist
+		CineplexList.cineplexList = DataBoundary.getCineplexList();
 		//initialise moviemanager
+		MovieList.movieList = DataBoundary.getMovieList();
 	}
 
 }

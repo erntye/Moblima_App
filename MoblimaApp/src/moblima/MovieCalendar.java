@@ -1,9 +1,14 @@
 package moblima;
 
 import java.util.ArrayList;
+import java.io.*;
 import java.util.Calendar;
 
-public class MovieCalendar {					
+public class MovieCalendar implements Serializable{					
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7989540302679891401L;
 	//Date class has to be created* using gregarion calendar to include pubHolList
 		
 	private static ArrayList<Calendar> pubHolList;

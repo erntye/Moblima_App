@@ -1,5 +1,7 @@
 package moblima;
 
+import java.util.ArrayList;
+
 public class MovieMgr {
 	
 	//implements singleton pattern
@@ -53,4 +55,5 @@ public class MovieMgr {
 		MovieList.sortByRating();
 		ConsoleBoundary.printTopRatings();
 	}
+	
 }
