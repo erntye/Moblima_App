@@ -50,7 +50,7 @@ public class LoginMgr {
 			for (Account account : staffArray) {
 				result = account.verifyLogin(username, password);
 				if(result == 1) {
-					CustAcc temp = (CustAcc)account;
+					StaffAcc temp = (StaffAcc)account;
 					loggedInAccount = temp;
 					return 1;
 				}else if(result == 2) {
