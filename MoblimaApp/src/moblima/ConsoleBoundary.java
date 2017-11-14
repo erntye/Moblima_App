@@ -187,7 +187,6 @@ public class ConsoleBoundary {
 		case 4: status = movieToEdit.getShowingStatus(); break;
 		default: status = Movie.Showing_Status.ComingSoon;
 		}
-		sc.nextLine();
 		System.out.println("Edit Censorship Rating");//G,PG, PG13,NC16,M18,R21
 		System.out.println("Current Censorship Rating: " + movieToEdit.getCensorshipRating());
 		System.out.println("1. G \t 2. PG \t 3. PG13 \t 4. NC16 \t 5. M18 \t 6. R21 \t 7. Skip");
@@ -604,7 +603,7 @@ public class ConsoleBoundary {
 		System.out.println("Showing Status: " + movie.getShowingStatus());
 		System.out.println("Synopsis: " + movie.getSynopsis());
 		System.out.println("Director: " + movie.getDirector());
-		System.out.println("Cast: " + movie.getCast()[0] + movie.getCast()[1]);;
+		System.out.println("Cast: " + movie.getCast()[0] + movie.getCast()[1]);
 		System.out.println("Average Rating: " + movie.getAverageRating());
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
