@@ -105,8 +105,11 @@ public class LoginMgr {
 	public void addStaffAccount() {
 		String[] accountDetails = ConsoleBoundary.printAddStaffAccount();
 		StaffAcc newAcc = new StaffAcc(accountDetails[0],accountDetails[1],accountDetails[2]);
-		if(staffArray.add(newAcc))
+		if(staffArray.add(newAcc)) {
 			System.out.println("staff account added successfully!"); //for testing
+			DataBoundary.saveStaffList(staffArray);
+			System.out.println(staffArray.get(0).getName());
+		}
 	}
 	
 	public void initialiseAccounts(ArrayList<Account> staffArray, ArrayList<Account> custArray) {
