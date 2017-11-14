@@ -767,9 +767,9 @@ public class ConsoleBoundary {
 		return tempShows.get(choice-1);
 	}
 	
-	public static char[] printLayout(char[][] bookedLayout) {
+	public static String[] printLayout (char[][] bookedLayout) {
 		//sc = new Scanner(System.in);
-		char[] seatNumber = new char[2];
+		String[] seatNumber = new String[2];
 		System.out.println("========================================");
 		System.out.println("CHOOSE SEAT");
 		System.out.println("========================================");
@@ -793,10 +793,12 @@ public class ConsoleBoundary {
 			System.out.println();
 			i++;
 		}
-		System.out.println("Enter choice of seat:");
-		String temp = sc.nextLine();
-		seatNumber[0] = temp.charAt(0);
-		seatNumber[1] = temp.charAt(1);
+		
+		System.out.println("Enter choice of row:");
+		seatNumber[0] = sc.nextLine();
+		System.out.println("Enter choice of column:");
+		seatNumber[1] = sc.nextLine();
+
 		return seatNumber;
 	}
 	
