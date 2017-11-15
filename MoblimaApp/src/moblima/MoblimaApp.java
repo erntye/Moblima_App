@@ -10,7 +10,7 @@ public class MoblimaApp {
 		initialiseEverything();	//this is to read data from database
 		
 		GregorianCalendar showTime = new GregorianCalendar(2017,10,14, 14, 30, 00);
-		System.out.println(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH)+1) + " " + 
+		System.out.println(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH) + " " + 
 				showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
 		
 		

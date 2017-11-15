@@ -328,7 +328,7 @@ public class ConsoleBoundary {
 		int hour = sc.nextInt();sc.nextLine();
 		System.out.println("Enter Minutes: ");
 		int minute = sc.nextInt();sc.nextLine();
-		Calendar showTime = new GregorianCalendar(year, month, day, hour, minute, 0);
+		Calendar showTime = new GregorianCalendar(year, (month-1), day, hour, minute, 0);
 		//sc.close();
 		return showTime;
 	}
@@ -783,7 +783,8 @@ public class ConsoleBoundary {
 		}
 		System.out.println();
 		int i = 0;
-	
+		System.out.println(bookedLayout.length);
+		System.out.println(bookedLayout[1].length);
 		while(i < 6) {
 			System.out.print(String.valueOf((char)(i+65) + " "));
 			for (int j=0; j<bookedLayout[1].length; j++) {

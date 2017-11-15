@@ -56,7 +56,7 @@ public class Show implements Serializable{
 	}
 	
 	public String getShowTimeString(){
-		return new String(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH) +1) + " " + 
+		return new String(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH)+1) + " " + 
 				showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
 	}
 	
