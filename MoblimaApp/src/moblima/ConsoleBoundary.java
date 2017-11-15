@@ -773,21 +773,26 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE SEAT");
 		System.out.println("========================================");
-		System.out.print(" ");
 		int column = 1;
+		System.out.print("  ");
 		for (int i=0; i<bookedLayout[1].length; i++) {
-			if (bookedLayout[1][i] == '_')
-				System.out.print(" " + (column++));
+			if (bookedLayout[1][i] != '|')
+				System.out.format("%-3d", (column++));
 			else
-				System.out.print("  ");
+				System.out.print("   ");
 		}
 		System.out.println();
 		int i = 0;
-		while(i < 4) {
-			System.out.print(String.valueOf((char)(i+65) + " "));
-			for (int j=0; j<bookedLayout[1].length; j++) {
-			System.out.print(bookedLayout[i][j]);
-			System.out.print(" ");
+		for (char[] row:bookedLayout) {
+			if (row[0] != '|') break;
+			System.out.print(String.valueOf((char)(i+65)));
+			for (int j=0; j<row.length; j++) {
+				if (row[j] == '_')
+					System.out.print("[ ]");
+				else if (row[j] == 'X')
+					System.out.print("[X]");
+				else if	(row[j] == '|')
+					System.out.print("   ");
 			}
 			System.out.println();
 			i++;

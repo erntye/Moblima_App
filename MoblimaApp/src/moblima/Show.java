@@ -79,10 +79,10 @@ public class Show implements Serializable{
 	}
 	
 	public Boolean setBookedLayout(String[] seatNumber) {
-		if(bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])-1] == 'X') {
+		if(bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] == 'X') {
 			return false;
 		};
-		bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])-1] = 'X';
+		bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] = 'X';
 		return true;
 	}
 	
