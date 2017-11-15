@@ -27,7 +27,7 @@ public class MoblimaApp {
 				LoginMgr.getInstance().login(); break;
 			case 2: //Add Account
 				ConsoleBoundary.printAddAccount(); break;
-			case 3: //quit
+			case 0: //quit
 				ConsoleBoundary.printTerminate();
 				loop = false; break;
 			}
