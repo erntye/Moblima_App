@@ -30,8 +30,10 @@ public class Cinema implements Serializable{
 
 	public float calculatePrice(Show show, CustAcc custAcc) { 
 		float price = show.getBasePrice() + premium;
-		if(PublicHolidayCalendar.isPubHol(show.getShowTime()))
+		if(PublicHolidayCalendar.isPubHol(show.getShowTime())) {
+			System.out.println("CALCULATE PRICE PICLISALNDKS HOLISADHYY");
 			price += PublicHolidayCalendar.getPublicHolidayPremium();
+		}
 		switch(custAcc.getAgeCat()) {
 		case CHILD:
 			price *= 0.25;

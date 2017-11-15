@@ -38,14 +38,18 @@ public class MovieBookingMgr {
 			char[][] bookedLayout = show.getBookedLayout();
 			seatNumber = ConsoleBoundary.printLayout(bookedLayout); if(reset) break;
 			confirm = ConsoleBoundary.printBookingConfirmation(price, cinema); if(reset) break;
-			if(confirm) {
+			if(confirm && show.setBookedLayout(seatNumber)) {
 				CustAcc c = (CustAcc) LoginMgr.getInstance().loggedInAccount;
 				Transaction latest = new Transaction(cineplex, Calendar.getInstance(), movie.getTitle());
 				System.out.println(latest.getTid());
 				movie.setSales(movie.getSales()+price);
-				show.setBookedLayout(seatNumber);
+				DataBoundary.saveMovieList(MovieList.movieList);
 				c.transactionList.add(latest);
+				DataBoundary.saveCineplexList(CineplexList.cineplexList);
+				DataBoundary.saveCustList(LoginMgr.getInstance().getCustList());
 				ConsoleBoundary.printTransaction(c,latest, show, showType, seatNumber, price); if(reset) break;
+			} else if (!show.setBookedLayout(seatNumber)) {
+				ConsoleBoundary.printInvalidSeat();
 			}
 			reset = true;
 		} while (!reset);

@@ -22,7 +22,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("WELCOME TO  MOBLIMA");
 		System.out.println("========================================");
-		System.out.println("(1) Log In\n(2) Create Account\n(3) Quit");
+		System.out.println("(1) Log In\n(2) Create Account\n(0) Quit");
 		int choice = sc.nextInt(); 
 		sc.nextLine();
 		//sc.close();
@@ -665,7 +665,7 @@ public class ConsoleBoundary {
 		
 		System.out.println("Past Reviews: ");
 		for(int i = 0; i<movie.getReviews().size();i++) {
-			System.out.println("\tReviewer: " + movie.getReviews().get(i).getReviewer());
+			System.out.println("Reviewer: " + movie.getReviews().get(i).getReviewer());
 			System.out.println("\tRating: " + movie.getReviews().get(i).getRating());
 			System.out.println("\tReview: " + movie.getReviews().get(i).getContent());
 		}
@@ -783,9 +783,7 @@ public class ConsoleBoundary {
 		}
 		System.out.println();
 		int i = 0;
-		System.out.println(bookedLayout.length);
-		System.out.println(bookedLayout[1].length);
-		while(i < 6) {
+		while(i < 4) {
 			System.out.print(String.valueOf((char)(i+65) + " "));
 			for (int j=0; j<bookedLayout[1].length; j++) {
 			System.out.print(bookedLayout[i][j]);
@@ -850,6 +848,10 @@ public class ConsoleBoundary {
 			}
 			System.out.println();
 		}
+	}
+	
+	public static void printInvalidSeat() {
+		System.out.println("The seat you chose is invalid!");
 	}
 	
 	public static void printTerminate() {

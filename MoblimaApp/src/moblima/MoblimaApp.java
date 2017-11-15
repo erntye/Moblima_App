@@ -10,7 +10,7 @@ public class MoblimaApp {
 		initialiseEverything();	//this is to read data from database
 		
 		GregorianCalendar showTime = new GregorianCalendar(2017,10,14, 14, 30, 00);
-		System.out.println(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH) + " " + 
+		System.out.println(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH)) + " " + 
 				showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
 		
 		
@@ -27,7 +27,7 @@ public class MoblimaApp {
 				LoginMgr.getInstance().login(); break;
 			case 2: //Add Account
 				ConsoleBoundary.printAddAccount(); break;
-			case 3: //quit
+			case 0: //quit
 				ConsoleBoundary.printTerminate();
 				loop = false; break;
 			}
@@ -57,6 +57,7 @@ public class MoblimaApp {
 		CineplexList.cineplexList = DataBoundary.getCineplexList();
 		//initialise moviemanager
 		MovieList.movieList = DataBoundary.getMovieList();
+		PublicHolidayCalendar.pubHolList = DataBoundary.getPubHolList();
 		float[] basePrices = CSVBoundary.retrieveBasePrices();
 		Show.setBasePrice(basePrices[0]);
 		ShowDigital.setBasePrice(basePrices[1]);
