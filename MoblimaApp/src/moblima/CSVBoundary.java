@@ -8,8 +8,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
+/**
+ * Boundary Class that saves and retrieves cinema layouts, and static fields of entities like <code>Show</code>'s <code>basePrices</code> 
+ * and <code>Cinema</code>'s <code>premium</code>.
+ *
+ */
+
 public class CSVBoundary {
 	
+	/**
+	 * Reads the csv file based on the user's choice, and return the seat layout in the form of a 2D Array.
+	 * @param choice <code>int</code> to indicate which layout the staff chose.
+	 * @return seatLayout 2Dchar array which holds the arrangement of seats for the chosen layout.
+	 */
 	public static char[][] getLayout(int choice) {
 		char[][] seatLayout;
 		String fileName = "layout"+choice+".csv";
@@ -66,6 +78,10 @@ public class CSVBoundary {
 		return new char[1][1];
 	}
 	
+	/**
+	 * Calls the <code>ConsoleBoundary</code> to prints out all the available layouts for the staff to chose during Cinema construction.
+	 * Reads through all layout csv files to get all the layouts.
+	 */
 	public static void printAllLayout() {
 		int c = 1;
 		while(true) {
@@ -100,6 +116,10 @@ public class CSVBoundary {
 		
 	}
 	
+	/**
+	 * Reads the csv containing the basePrices of the different types of shows.
+	 * @return basePrices float array containing the different basePrices for the four different types of shows.
+	 */
 	public static float[] retrieveBasePrices() {
 		try{
 			BufferedReader br =  new BufferedReader(new FileReader("basePrices.csv"));
@@ -121,6 +141,10 @@ public class CSVBoundary {
 		return basePrices;
 	}
 	
+	/**
+	 * Reads the csv containing the premiums of the different types of cinemas.
+	 * @return cinemaPremiums float array containing the different premiums for the three different types of cinemas.
+	 */
 	public static float[] retrieveCinemaPremium() {
 		try{
 			BufferedReader br =  new BufferedReader(new FileReader("cinemaPremiums.csv"));
@@ -142,11 +166,19 @@ public class CSVBoundary {
 		return cinemaPremiums;
 	}
 	
-	public static void saveCinemaPremium(float[] cinemaPremiums) {
+	/**
+	 * Updates the Cinema premiums in the csv file.
+	 * Called every time a cinema premium is changed
+	 */
+	public static void saveCinemaPremium() {
 		try {
 			File file = new File("cinemaPremiums.csv");
 			if (!file.exists())
 				file.createNewFile();
+			float[] cinemaPremiums = new float[3];
+			cinemaPremiums[0] = Cinema.getPremium();
+			cinemaPremiums[1] = CinemaGold.getPremium();
+			cinemaPremiums[2] = CinemaPlatinum.getPremium();
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 			String temp = cinemaPremiums[0] + ", " + cinemaPremiums[1] + ", " + cinemaPremiums[2];
 			bw.write(temp);
@@ -154,6 +186,11 @@ public class CSVBoundary {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Updates the Show basePrices in the csv file.
+	 * Called every time a show basePrice is changed
+	 */
 	public static void saveBasePrices() {
 		try {
 			File file = new File("basePrices.csv");
