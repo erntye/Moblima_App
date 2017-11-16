@@ -14,9 +14,9 @@ public class CustAcc extends Account{
 	 */
 	private static final long serialVersionUID = 5983626060596941305L;
 	/**
-	 * Enumerator list containing <code>{CHILD,STUDENT,SENIOR_CITIZEN,ADULT}</code>
+	 * Enumerator list containing <code>{CHILD, STUDENT, SENIOR_CITIZEN, ADULT}</code>
 	 */
-	public enum AgeCat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
+	public enum Age_Cat {CHILD, STUDENT, SENIOR_CITIZEN, ADULT}
 	
 	/**
 	 * List of <code>Transaction</code> objects. Used to keep track of all transactions made by the customer,
@@ -35,7 +35,7 @@ public class CustAcc extends Account{
 	/**
 	 * Age Category of the customer. Used to calculate prices, with CHILD, STUDENT and SENIOR_CITIZEN having different discounts each.
 	 */
-	public AgeCat ageCat; //change UML diagram
+	public Age_Cat ageCat; //change UML diagram
 	
 	/**
 	 * Constructor for the <code>CustAcc</code> class.
@@ -47,7 +47,7 @@ public class CustAcc extends Account{
 	 * @param ageCat Age Category the customer belongs to.
 	 * @see Transaction
 	 */
-	public CustAcc(String username, String password, String name, double mobileNumber, String email, AgeCat ageCat) {
+	public CustAcc(String username, String password, String name, double mobileNumber, String email, Age_Cat ageCat) {
 			super(username, password, name);
 			this.mobileNumber = mobileNumber;
 			this.email = email;
@@ -58,7 +58,7 @@ public class CustAcc extends Account{
 	 * Gets age category of the customer.
 	 * @return Enumerator of AgeCat.
 	 */
-	public AgeCat getAgeCat() {
+	public Age_Cat getAgeCat() {
 			return ageCat;
 		}
 	
