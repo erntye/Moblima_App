@@ -5,6 +5,8 @@ import java.util.ArrayList;
  * The Customer Account class.
  * <br> Contains the Age Category (CHILD, STUDENT, SENIOR_CITIZEN, ADULT), mobile phone number, and email of a customer.
  * <br> List of the <code>Transaction</code> objects, representing movie bookings/ transactions made by a particular customer.
+ * @see Account
+ * @see StaffAcc
  */
 public class CustAcc extends Account{
 	/**
@@ -19,6 +21,7 @@ public class CustAcc extends Account{
 	/**
 	 * List of <code>Transaction</code> objects. Used to keep track of all transactions made by the customer,
 	 * and to check the booking history.
+	 * @see Transaction
 	 */
 	public ArrayList<Transaction> transactionList;
 	/**
@@ -42,6 +45,7 @@ public class CustAcc extends Account{
 	 * @param mobileNumber Mobile phone number of the customer.
 	 * @param email Email of the customer.
 	 * @param ageCat Age Category the customer belongs to.
+	 * @see Transaction
 	 */
 	public CustAcc(String username, String password, String name, double mobileNumber, String email, AgeCat ageCat) {
 			super(username, password, name);
@@ -77,6 +81,7 @@ public class CustAcc extends Account{
 	/**
 	 * Gets a reference to the list of <code>Transaction</code> objects stored in the customer account.
 	 * @return <code>ArrayList&lt;Transaction&gt;</code> reference.
+	 * @see Transaction
 	 */
 	public ArrayList<Transaction> getTransactionList(){
 			return transactionList;
