@@ -17,14 +17,6 @@ public class MoblimaApp {
 		
 		String[] loginDetails = new String[3];
 		
-<<<<<<< HEAD
-		//Log In
-		loginDetails = ConsoleBoundary.printLoginPage();
-		if(loginDetails[0]=="1" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-			StaffCtr.getInstance().staffOperations();
-		} else if (loginDetails[0]=="2" && LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) == 1) {
-			CustCtr.getInstance().custOperations();
-=======
 		//Main Menu: ask log in or create account
 		int mainMenuChoice;
 		boolean loop = true;
@@ -39,7 +31,6 @@ public class MoblimaApp {
 				ConsoleBoundary.printTerminate();
 				loop = false; break;
 			}
->>>>>>> branch 'master' of https://github.com/erntye/Moblima_App.git
 		}
 //		do{
 //			
@@ -62,8 +53,7 @@ public class MoblimaApp {
 		ArrayList<Cineplex> cineplexList = DataBoundary.getCineplexList();
 		//initialise cineplexlist
 		//initialise moviemanager
-<<<<<<< HEAD
-=======
+
 		MovieList.movieList = DataBoundary.getMovieList();
 		PublicHolidayCalendar.pubHolList = DataBoundary.getPubHolList();
 		float[] basePrices = CSVBoundary.retrieveBasePrices();
@@ -77,8 +67,6 @@ public class MoblimaApp {
 		CinemaGold.setPremium(cinemaPremiums[1]);
 		CinemaPlatinum.setPremium(cinemaPremiums[2]);
 		
-		
->>>>>>> branch 'master' of https://github.com/erntye/Moblima_App.git
 	}
 
 }
