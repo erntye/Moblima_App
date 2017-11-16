@@ -13,6 +13,7 @@ public class Transaction implements Serializable{
 	private static final long serialVersionUID = -3688580483418018261L;
 	/**
 	 * Transaction ID in XXXYYYYMMDDhhmm.
+	 * <br> XXX is the Cineplex Code.
 	 */
 	private String tid;
 	/**

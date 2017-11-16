@@ -126,15 +126,15 @@ public class LoginMgr {
 		double mobileNumber = Double.parseDouble(accountDetails[3]);
 		int age = Integer.parseInt(accountDetails[5]);
 		
-		CustAcc.AgeCat ageCategory = CustAcc.AgeCat.ADULT; //defaults to ADULT
+		CustAcc.Age_Cat ageCategory = CustAcc.Age_Cat.ADULT; //defaults to ADULT
 		if(age<11) {
-			ageCategory = CustAcc.AgeCat.CHILD;
+			ageCategory = CustAcc.Age_Cat.CHILD;
 		}else if(age< 21) {
-			ageCategory = CustAcc.AgeCat.STUDENT;
+			ageCategory = CustAcc.Age_Cat.STUDENT;
 		}else if(age< 65) {
-			ageCategory = CustAcc.AgeCat.ADULT;
+			ageCategory = CustAcc.Age_Cat.ADULT;
 		}else {
-			ageCategory = CustAcc.AgeCat.SENIOR_CITIZEN;
+			ageCategory = CustAcc.Age_Cat.SENIOR_CITIZEN;
 		}
 		
 		CustAcc newAcc = new CustAcc(accountDetails[0],accountDetails[1],accountDetails[2],mobileNumber,accountDetails[4],ageCategory);
