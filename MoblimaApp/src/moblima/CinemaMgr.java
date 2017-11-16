@@ -1,5 +1,10 @@
 package moblima;
 
+/**
+ * Controller class which manages <code>Cinema</code> objects, including adding, removing, and editing the premium values.
+ * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ * @see Cinema
+ */
 public class CinemaMgr {
 
 	//implement Singleton structure
@@ -11,6 +16,10 @@ public class CinemaMgr {
 		return instance;
 	}
 	
+	/**
+	 * Calls to <code>ConsoleBoundary</code> to ask for user to choose what to do with <code>Cinema</code> objects. 
+	 * <p> Saves to the database every time a change is made.
+	 */
 	public void CinemaOps() {
 		boolean loop = true;
 		Cineplex cineplex = ConsoleBoundary.printChooseCineplex();
@@ -27,6 +36,10 @@ public class CinemaMgr {
 		}
 	}
 	
+	/**
+	 * Adds a <code>Cinema</code> object to the list of cinemas in a <code>Cineplex</code> object.
+	 * @param cineplex <code>Cineplex</code> object to add the cinema to.
+	 */
 	public void addCinema(Cineplex cineplex) {
 		String[] movieDetails = ConsoleBoundary.printAddCinema(cineplex.getName());
 		int layoutNumber = Integer.parseInt(movieDetails[1]);
@@ -50,12 +63,20 @@ public class CinemaMgr {
 		}
 	}
 	
+	/**
+	 * Removes a <code>Cinema</code> object from the list of cinemas in a <code>Cineplex</code> object.
+	 * @param cineplex <code>Cineplex</code> object to remove the cinema from.
+	 */
 	public void removeCinema(Cineplex cineplex) {
 		Cinema cinemaToRemove = ConsoleBoundary.printRemoveCinema(cineplex);
 		cineplex.removeCinema(cinemaToRemove);
 		System.out.println("Cinema removed");
 	}
-
+	
+	/**
+	 * Change the premium value of the cinema type (Standard, Gold Class, Platinum Class).
+	 * <br>Makes a call to the <code>ConsoleBoundary</code> to get the user input.
+	 */
 	public void changePremium() {
 		float[] changePremiumDetails = ConsoleBoundary.printChangePremium();
 		switch((int)changePremiumDetails[0]) {

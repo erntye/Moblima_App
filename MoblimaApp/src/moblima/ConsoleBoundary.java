@@ -837,6 +837,9 @@ public class ConsoleBoundary {
 		System.out.println("Price: " + price);
 	}
 	
+	/**
+	 * Prints out log out message
+	 */
 	public static void printLogout() {
 		System.out.println("========================================");
 		System.out.println("GOOD BYE! SEE YOU SOON!");

@@ -2,6 +2,11 @@ package moblima;
 
 import java.util.ArrayList;
 
+/**
+ * Controller class for managing <code>Account</code> objects.
+ * <br> Stores the <code>ArrayList&lt;Account&gt; 
+ * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ */
 public class LoginMgr {
 	ArrayList<Account> staffArray;
 	ArrayList<Account> custArray;

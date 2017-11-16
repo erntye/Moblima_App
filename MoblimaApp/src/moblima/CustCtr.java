@@ -2,6 +2,13 @@ package moblima;
 
 import java.io.Console;
 
+/**
+ * Controller class for managing <code>CustAcc</code> operations. The class links up the user inputs from <code>ConsoleBoundary</code>
+ * to the relevant objects.
+ * <br>Customers can choose to book movies, add reviews, and view movies sorted by Ratings and Sales.
+ * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ * @see CustAcc
+ */
 public class CustCtr {
 	int choice;
 	

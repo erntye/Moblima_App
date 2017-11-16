@@ -6,7 +6,7 @@ import java.util.*;
 import java.io.*;
 
 /**
- * <code>Cinema</code> is a subclass of <code>Cineplex</code>. Contains details about the list of <code>Show</code> objects, 
+ * <code>Cinema</code> objects are part of a list in a <code>Cineplex</code> object. Each cinema contains details about the list of <code>Show</code> objects, 
  * its premium, and the seat layout in the form of a <code>char[][]</code> array.
  * <br>
  * Each <code> Cinema </code> contains an <code>ArrayList</code> of <Show> objects, as each <code>Cinema</code> has its unique
