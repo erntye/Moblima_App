@@ -215,6 +215,7 @@ public class Movie implements Serializable{
 	/**
 	 * Gets a reference to the <code>ArrayList&lt;Reviews&gt;</code> for the movie.
 	 * @return <code>ArrayList&lt;Reviews&gt;</code> reference.
+	 * @see Reviews
 	 */
 	public ArrayList<Reviews> getReviews(){
 		return reviews;
@@ -239,6 +240,7 @@ public class Movie implements Serializable{
 	// Sort by Rating
 	/**
 	 * Creates a comparator to compare ratings of <code>Movie</code> objects. Used for the sorting of movies by ratings.
+	 * @see Movie
 	 */
 	public static Comparator<Movie> MovieRatingComparator = new Comparator<Movie>() {
 		
@@ -257,6 +259,7 @@ public class Movie implements Serializable{
 	// Sort by Sales
 	/**
 	 * Creates a comparator to compare sales of <code>Movie</code> objects. Used for the sorting of movies by sales.
+	 * @see Movie
 	 */
 	public static Comparator<Movie> MovieSalesComparator = new Comparator<Movie>() {
 

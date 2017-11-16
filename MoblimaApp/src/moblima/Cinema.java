@@ -72,8 +72,9 @@ public class Cinema implements Serializable{
 	}
 
 	/**
-	 * Calculates the price of the ticket that the customer pays. Takes into account the cinema premium and the base price 
-	 * from <code>Show</code>, as well as other price modifiers derived from customer's age or <code>Movie</code> type.
+	 * Calculates the price of the ticket that the customer pays.
+	 * Takes into account the cinema premium and the base price from <code>Show</code>, as well as other price modifiers
+	 * derived from customer's age or <code>Movie</code> type.
 	 * @param show The show for which the price is being quoted.
 	 * @param custAcc The customer account sending in the booking request.
 	 * @return a <code>float</code> containing the value of the calculated price.

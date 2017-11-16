@@ -12,10 +12,24 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.ArrayList;
 
+/**
+ * <code>ConsoleBoundary</code> is a Boundary class which houses all of the console printing and scanning functionalities
+ * needed in the Moblima App.
+ * <p>This class is called by every method that needs to obtain user input or to print information. Individual methods within 
+ * the Console Boundary class perform specific tasks, mostly to obtain user inputs and
+ * return them as created objects or primitive data types.
+ * <p> Any new method that requires printing or scanning from the console should call a method within
+ * the <code>ConsoleBoundary</code> to perform the task.
+ */
 public class ConsoleBoundary {
 	static Scanner sc = new Scanner(System.in);
 		
 	//called by MoblimaApp
+	/**
+	 * Prints out the Main Menu, asking if user wants to log in or to create an account.
+	 * @return <code>int</code> Response of user where
+	 * <br> 1: Log In. 2: Create Account. 3: Quit.
+	 */
 	public static int printMainMenu() {
 		//sc = new Scanner(System.in);
 		
@@ -30,10 +44,14 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MoblimaApp
+	/**
+	 * Prints out the menu for creating a new account. Depending on user's choice for creating staff or customer accounts,
+	 * this method will call the appropriate method in <code>LoginMgr</code> to add an <code>Account</code> object.
+	 */
 	public static void printAddAccount() {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
-		System.out.println("ADD ACCOUNT");
+		System.out.println("CREATE ACCOUNT");
 		System.out.println("========================================");
 		boolean loop = true;
 		while(loop) {
@@ -51,6 +69,14 @@ public class ConsoleBoundary {
 	}
 	
 	//called by LoginMgr
+	/**
+	 * Prints out the login page which scans the username and password of the user.
+	 * Returns the details as a <code>String</code> array.
+	 * @return <code>String[]</code> where
+	 * <br> index[0]: Account type - 1: Staff. 2: Customer.
+	 * <br> index[1]: Username.
+	 * <br> index[2]: Password.
+	 */
 	public static String[] printLoginPage() {	
 		//sc = new Scanner(System.in);
 		String[] temploginDetails = new String[3];
@@ -69,12 +95,17 @@ public class ConsoleBoundary {
 	}
 	
 	// called by LoginMgr
+	/**
+	 * Prints out the dialogue for the creation of Staff Account.
+	 * The console scans the user inputs into a <code>String</code> array.
+	 * @return <code>String[]</code> containing {Username, Password, Name}
+	 */
 	public static String[] printAddStaffAccount() {
 		String[] accountDetails = new String[3];
 		//sc = new Scanner(System.in);
 		
 		System.out.println("========================================");
-		System.out.println("ADD STAFF ACCOUNT");
+		System.out.println("CREATE STAFF ACCOUNT");
 		System.out.println("========================================");
 		System.out.print("Enter username: ");
 		accountDetails[0] = sc.nextLine();
@@ -88,11 +119,16 @@ public class ConsoleBoundary {
 	}
 	
 	//called by LoginMgr
+	/**
+	 * Prints out the dialogue for the creation of Customer Account.
+	 * The console scans the user inputs into a <code>String</code> array.
+	 * @return <code>String[]</code> containing {Username, Password, Name, Mobile Number, Email Address, Age}
+	 */
 	public static String[] printAddCustAccount() {
 		String[] accountDetails = new String[6];
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
-		System.out.println("ADD CUSTOMER ACCOUNT");
+		System.out.println("CREATE CUSTOMER ACCOUNT");
 		System.out.println("========================================");
 		System.out.print("Enter username: ");
 		accountDetails[0] = sc.nextLine();
@@ -111,6 +147,10 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr 
+	/**
+	 * Prints out dialogue for adding a movie, creates and returns a <code>Movie</code> object.
+	 * @return <code>Movie</code> object created with user inputs.
+	 */
 	public static Movie printAddMovie() {
 		//sc = new Scanner(System.in);
 		
@@ -164,6 +204,11 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr 
+	/**
+	 * Prints out dialogue for editing a movie. Returns the <code>Movie</code> object which the user wants to edit.
+	 * Calls another method to let user choose the movie from a list of all movies to edit.
+	 * @return <code>Movie</code> object to edit.
+	 */
 	public static Movie printEditMovie() {
 		System.out.println("========================================");
 		System.out.println("EDIT MOVIE");
@@ -172,6 +217,12 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr
+	/**
+	 * Prints out dialogue for editing the <code>Movie</code> object passed in as an argument. Returns the updated object.
+	 * Gets user inputs for the details to be updated, creates a new <code>Movie</code> object as returns it.
+	 * @param movieToEdit <code>Movie</code> object to be edited.
+	 * @return Edited <code>Movie</code> object.
+	 */
 	public static Movie printEditMovie2(Movie movieToEdit) {
 		//sc = new Scanner(System.in);
 		Movie movieToReplace;
@@ -222,6 +273,9 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr
+	/**
+	 * Prints out a list of up to 5 movies, sorted by the average ratings left by the customers.
+	 */
 	public static void printTopRatings() {
 		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
@@ -244,6 +298,9 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr
+	/**
+	 * Prints out a list of up to 5 movies, sorted by the sales generated by movie bookings of customers.
+	 */
 	public static void printTopSales() {
 		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
@@ -258,6 +315,11 @@ public class ConsoleBoundary {
 		}
 	
 	//called by MovieMgr
+	/**
+	 * Prints out the dialogue which allows the management of movies.
+	 * Users can choose to add, remove, or edit a move, or to sort and display movies by their sales or ratings.
+	 * @return <code>int</code> choice of operations.
+	 */
 	public static int printMovieOps() {
 		//sc = new Scanner(System.in);
 
@@ -278,6 +340,10 @@ public class ConsoleBoundary {
 	}
 	
 	//called by MovieMgr
+	/**
+	 * Prints out dialogue for user to choose the <code>Movie</code> object to be removed.
+	 * @return <code>Movie</code> object to be removed.
+	 */
 	public static Movie printRemoveMovie() {
 		System.out.println("========================================");
 		System.out.println("REMOVE MOVIE");
@@ -286,6 +352,11 @@ public class ConsoleBoundary {
 	}
 	
 	//called by ShowMgr
+	/**
+	 * Prints out the dialogue which allows for the management of shows.
+	 * Users can choose to add, remove, or edit shows 
+	 * @return <code>int</code> choice of operations.
+	 */
 	public static int printShowOps() {
 		System.out.println("========================================");
 		System.out.println("MANAGE SHOWS");
@@ -303,6 +374,10 @@ public class ConsoleBoundary {
 	}
 	
 	//called by ShowMgr
+	/**
+	 * Prints the dialogue which asks the user to choose the <code>Cinema</code> object to add a <code>Show</code> to.
+	 * @return <code>Cinema</code> object to add <code>Show</code> to.
+	 */
 	public static Cinema printAddShow() {
 		System.out.println("========================================");
 		System.out.println("ADD SHOWS");
@@ -313,6 +388,12 @@ public class ConsoleBoundary {
 	}
 	
 	//called by ShowMgr
+	/**
+	 * Prints the dialogue to get a Show Time from the user.
+	 * Asks for the year, month, day, hour, and minute of the show that the user is creating or editing, and uses these details
+	 * to create a <code>GregorianCalendar</code> object.
+	 * @return <code>Calendar</code> object created with the <code>GregorianCalendar</code> constructor.
+	 */
 	public static Calendar getShowTime() {
 		System.out.println("========================================");
 		System.out.println("SHOW TIME");
