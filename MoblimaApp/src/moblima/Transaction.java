@@ -7,10 +7,25 @@ public class Transaction implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -3688580483418018261L;
+	/**
+	 * Transaction ID in XXXYYYYMMDDhhmm
+	 */
 	private String tid;
+	/**
+	 * Date of transaction
+	 */
 	private String date;
+	/**
+	 * Title of movie booked
+	 */
 	private String movieTitle;
 	
+	/**
+	 * Transaction Constructor
+	 * @param cineplex
+	 * @param date
+	 * @param movieTitle
+	 */
 	public Transaction (Cineplex cineplex, Calendar date, String movieTitle) {
 		String code = cineplex.getCode();
 		String year = Integer.toString(date.get(Calendar.YEAR));
