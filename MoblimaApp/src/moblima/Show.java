@@ -86,7 +86,7 @@ public class Show implements Serializable{
 		return true;
 	}
 	
-	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {
+	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() { // not sure how to represent in class diagram
 
 		public int compare(Show s1, Show s2) {
 		   Calendar showTime1 = s1.getShowTime();
