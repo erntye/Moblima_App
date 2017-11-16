@@ -332,7 +332,10 @@ public class ConsoleBoundary {
 		//sc.close();
 		return showTime;
 	}
-	
+	/**
+	 * Requests for user's choice of <code>Cineplex</code> & <code>Cinema</code>.
+	 * @return <code>Cinema</code> from which the <code>Show</code> is to be removed.
+	 */
 	//called by ShowMgr
 	public static Cinema printRemoveShow() {
 		System.out.println("========================================");
@@ -342,7 +345,10 @@ public class ConsoleBoundary {
 		Cinema cinema = printChooseCinema(printChooseCineplex());
 		return cinema;
 	}
-	
+	/**
+	 * Requests for user's choice of <code>Cineplex</code> & <code>Cinema</code>.
+	 * @return <code>Cinema</code> from which the <code>Show</code> is to be edited.
+	 */
 	//called by ShowMgr
 	public static Cinema printEditShow() {
 		System.out.println("========================================");
@@ -352,7 +358,10 @@ public class ConsoleBoundary {
 		Cinema cinema = printChooseCinema(printChooseCineplex());
 		return cinema;
 	}
-	
+	/**
+	 * Requests user input for the <code>Show</code> details to be edited.
+	 * @param show
+	 */
 	//called by ShowMgr
 	public static void printEditShowDetails(Show show) {
 		System.out.println("========================================");
@@ -380,7 +389,11 @@ public class ConsoleBoundary {
 		
 		//sc.close();
 	}
-	
+	/**
+	 * Displays all available <code>Show</code>s in the particular <code>Cinema</code>.
+	 * @param cinema
+	 * @return customer's chosen <code>Show</code>. 
+	 */
 	//called by ShowMgr
 	public static Show printShowList(Cinema cinema) {
 		System.out.println("========================================");
@@ -403,7 +416,10 @@ public class ConsoleBoundary {
 		//sc.close();
 		return tempShows.get(choice-1);
 	}
-	
+	/**
+	 * Displays all available options under <code>CineplexMgr</code>.
+	 * @return <code>int</code> indicating user's chosen menu choice.
+	 */
 	//called by CineplexMgr
 	public static int printCineplexOps() {
 		//sc = new Scanner(System.in);
@@ -418,7 +434,10 @@ public class ConsoleBoundary {
 		//sc.close();
 		return choice;
 	}
-	
+	/**
+	 * Asks user for the name of the new <code>Cineplex</code> and its code.
+	 * @return <code>String[]</code> containing name of <code>Cineplex</code> and its code.
+	 */
 	//called by CineplexMgr
 	public static String[] printAddCineplex() {
 		//sc = new Scanner(System.in);
@@ -433,7 +452,10 @@ public class ConsoleBoundary {
 		//sc.close();
 		return cineplexDetails;
 	}
-	
+	/**
+	 * Asks user which <code>Cineplex</code> to remove.
+	 * @return <code>Cineplex</code> to remove.
+	 */
 	//called by CineplexMgr
 	public static Cineplex printRemoveCineplex() {
 		System.out.println("========================================");
@@ -443,6 +465,11 @@ public class ConsoleBoundary {
 		return printChooseCineplex();
 	}
 	
+	/**
+	 * Displays all available options under <code>CinemaMgr</code>.
+	 * @param cineplexName
+	 * @return <code>int</code> indicating user's chosen menu choice.
+	 */
 	//called by CinemaMgr
 	public static int printCinemaOps(String cineplexName) {
 		//sc = new Scanner(System.in);
@@ -458,7 +485,11 @@ public class ConsoleBoundary {
 		//sc.close();
 		return choice;
 	}
-	
+	/**
+	 * Requests user to input info for the new <code>Cinema</code> object such as name, layout, and class.
+	 * @param cineplexName
+	 * @return <code>String[]</code> containing information such as <code>Cinema</code> name, layout and class.
+	 */
 	//called by CinemaMgr
 	public static String[] printAddCinema(String cineplexName) {
 		//sc = new Scanner(System.in);
@@ -482,15 +513,23 @@ public class ConsoleBoundary {
 		return cinemaDetails; //index 0: name; index 1: layout number; index 2: cinema class
 	}
 	
+	/**
+	 * Displays all available <code>Cinema</code>s in the particular <code>Cineplex</code>.
+	 * @param cineplex
+	 * @return <code>Cinema</code> to be removed from the particular <code>Cineplex</code>.
+	 */
 	//called by CinemaMgr
 	public static Cinema printRemoveCinema(Cineplex cineplex) {
 		System.out.println("========================================");
-		System.out.println("ADD CINEMA");
+		System.out.println("REMOVE CINEMA");
 		System.out.println("========================================");
 		System.out.println("You are removing a cinema from the cineplex " + cineplex.getName());
 		return printChooseCinema(cineplex);
 	}
-	
+	/**
+	 * Requests user to choose the cinema class, and enter its new price premium value.
+	 * @return <code>float[]</code> containing the chosen cinema class, and its new price premium. 
+	 */
 	//called by CinemaMgr
 	public static float[] printChangePremium() {
 		float[] premiumDetails = new float[2];
@@ -506,6 +545,10 @@ public class ConsoleBoundary {
 		return premiumDetails;
 	}
 	
+	/**
+	 * Shows all available options once the staff logs in the <code>StaffAcc</code>.
+	 * @return <code>int</code> indicating staff's chosen menu choice.
+	 */
 	//called by StaffCtr
 	public static int printStaffPage() {
 		//sc = new Scanner(System.in);
@@ -522,6 +565,10 @@ public class ConsoleBoundary {
 	
 	
 	//unsorted
+	/**
+	 * Shows all available options once the customer logs in the <code>CustAcc</code>.
+	 * @return <code>int</code> indicating customer's chosen menu choice.
+	 */
 	public static int printCustPage() {
 		//sc = new Scanner(System.in);
 		int choice = 0;
@@ -533,7 +580,10 @@ public class ConsoleBoundary {
 		//sc.close();
 		return choice;
 	}
-	
+	/**
+	 * Requests user input for <code> Movie</code> rating and review.
+	 * @return <code>Reviews</code> object from the customer's review.
+	 */
 	public static Reviews printAddReview() {
 		//sc = new Scanner(System.in);
 		int rating = 0;
@@ -558,12 +608,19 @@ public class ConsoleBoundary {
 		return reviews;
 	}
 	
+	/**
+	 * Displays the <code>CustAcc</code>'s booking history. 
+	 * @param c
+	 */
 	public static void printBookingHistory(CustAcc c) {
 		for(int i = c.getTransactionList().size()-1; i>=0;i--) {
 			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n\tDate & Time: " + c.getTransactionList().get(i).getDate() + "\n\tMovie Title:" + c.getTransactionList().get(i).getMovieTitle());
 		}
 	}
-	
+	/**
+	 * Displays the available operations within <code>SystemSettingMgr</code> and requests for user input.
+	 * @return <code>int</code> indicating the chosen menu choice.
+	 */
 	public static int printSystemSettingMenu() {
 		//sc = new Scanner(System.in);
 		int choice = 0;
@@ -576,6 +633,10 @@ public class ConsoleBoundary {
 		return choice;
 	}
 	
+	/**
+	 * Asks user for the new ticket base price.
+	 * @return <code>float</code> indicating the price to set as the <code>Show</code>'s new base price. 
+	 */
 	public static float askBasePrice() {
 		//sc = new Scanner(System.in);
 		float basePrice = 0;
@@ -588,6 +649,10 @@ public class ConsoleBoundary {
 		return basePrice;
 	}
 	
+	/**
+	 * Asks the staff to input the date to set a public holiday.
+	 * @return <code>Calendar</code> object indicating the date to set as a public holiday.
+	 */
 	public static Calendar askPubHol() {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -604,7 +669,10 @@ public class ConsoleBoundary {
 		//sc.close();
 		return date;
 	}
-	
+	/**
+	 * Prints all movies in <code>MovieList</code> that are either <code>PREVIEW</code> or <code>NOWSHOWING</code>.
+	 * @return <code>Movie</code> indicating chosen movie.
+	 */
 	public static Movie printMovieList() {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -626,6 +694,10 @@ public class ConsoleBoundary {
 		return temp.get(choice-1);
 	}
 	
+	/**
+	 * Prints all movies in <code>MovieList</code> regardless of showing status.
+	 * @return <code>Movie</code> indicating chosen movie.
+	 */
 	public static Movie printAllMovieList() {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -643,6 +715,11 @@ public class ConsoleBoundary {
 		return MovieList.movieList.get(choice-1);
 	}
 	
+	/**
+	 * Displays information about the selected <code>Movie</code>.
+	 * @param movie
+	 * @return <code>boolean</code> indicating if customer wishes to proceed with booking a <code>Show</code> for the selected <code>Movie</code>.
+	 */
 	public static boolean printMovieInfo(Movie movie) {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -681,7 +758,10 @@ public class ConsoleBoundary {
 		return false;
 		
 	}
-	
+	/**
+	 * Prints all available <code>Cineplex</code> and requests for user input.
+	 * @return <code>Cineplex</code> indicating chosen cineplex.
+	 */
 	public static Cineplex printChooseCineplex() {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -702,7 +782,11 @@ public class ConsoleBoundary {
 		}
 		
 	}
-	
+	/**
+	 * Displays all available <code>Cinema</code>s in a particular <code>Cineplex</code> and requests for user input.
+	 * @param cineplex
+	 * @return <code>Cinema</code> indicating chosen cinema. 
+	 */
 	public static Cinema printChooseCinema(Cineplex cineplex) {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -722,7 +806,10 @@ public class ConsoleBoundary {
 			return cineplex.getCinemaList().get(choice-1);
 		}
 	}
-	
+	/**
+	 * Prints current available show types and requests for user input.
+	 * @return <code>String</code> indicating chosen show type.
+	 */
 	public static String printChooseShowType() {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -740,7 +827,13 @@ public class ConsoleBoundary {
 		//sc.close();
 		return choiceS;
 	}
-	
+	/**
+	 * Prints all available <code>Show</code>s for the chosen <code>Movie</code> and <code>Cinema</code>.
+	 * @param movie
+	 * @param cinema
+	 * @return The chosen <code>Show</code>.
+	 */
+	// Called by MovieBookingMgr
 	public static Show printShowsByMovie(Movie movie, Cinema cinema) {
 		ArrayList<Show> tempShows = new ArrayList<Show>();
 		//sc = new Scanner(System.in);
@@ -767,6 +860,12 @@ public class ConsoleBoundary {
 		return tempShows.get(choice-1);
 	}
 	
+	/**
+	 * Displays the seats availability for the chosen show and requests for the desired seat number.
+	 * @param bookedLayout
+	 * @return <code>String[]</code> indicating the chosen seat number.
+	 */
+	// Called by MovieBookingMgr
 	public static String[] printLayout (char[][] bookedLayout) {
 		//sc = new Scanner(System.in);
 		String[] seatNumber = new String[2];
@@ -806,6 +905,12 @@ public class ConsoleBoundary {
 		return seatNumber;
 	}
 	
+	/**
+	 * Displays ticket price and asks for booking confirmation.
+	 * @param price
+	 * @param cinema
+	 * @return <code>Boolean</code> indicating if the user confirms the booking.
+	 */
 	public static boolean printBookingConfirmation(Float price, Cinema cinema) {
 		//sc = new Scanner(System.in);
 		System.out.println("========================================");
@@ -823,7 +928,16 @@ public class ConsoleBoundary {
 			return false;
 		}
 	}
-	
+	/**
+	 * Prints <code>Transaction</code> details.
+	 * @param c
+	 * @param latest
+	 * @param show
+	 * @param showType
+	 * @param seatNumber
+	 * @param price
+	 */
+	// Called by MovieBookingMgr & CustCtr
 	public static void printTransaction(CustAcc c,Transaction latest, Show show,String showType,String[] seatNumber, float price) {
 		System.out.println("========================================");
 		System.out.println("BOOKING CONFIRMED!");
@@ -838,7 +952,7 @@ public class ConsoleBoundary {
 	}
 	
 	/**
-	 * Prints out log out message
+	 * Prints out log out message.
 	 */
 	public static void printLogout() {
 		System.out.println("========================================");
@@ -846,6 +960,13 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 	}
 	
+	/**
+	 * Displays the seat arrangements of a chosen layout.
+	 * @param seatLayout
+	 * @param height
+	 * @param width
+	 * @param choice
+	 */
 	//called by CSV Boundary
 	public static void printEmptyLayout(char[][] seatLayout, int height, int width, int choice) {
 		System.out.println(choice + ". Layout "+choice);
@@ -857,11 +978,18 @@ public class ConsoleBoundary {
 			System.out.println();
 		}
 	}
-	
+	/**
+	 * Indicates when a customer choose a seat which is already booked. 
+	 */
+	//Called by MovieBookingMgr
 	public static void printInvalidSeat() {
 		System.out.println("The seat you chose is invalid!");
 	}
 	
+	/**
+	 * Shows "Terminating..." when exiting application.
+	 */
+	//Called by MoblimaApp
 	public static void printTerminate() {
 		System.out.println("Terminating...");
 	}
