@@ -32,8 +32,6 @@ public class Show implements Serializable{
 	 */
 	private static float basePrice;
 	
-//basePrice is not set in constructor, it is set in main before instantialization of show objects
-//the first time Show is created, it takes in the array of the Cinema class to create an empty array of fixed size
 	/**
 	 * <code>Show</code> constructor.
 	 * @param movie
@@ -50,7 +48,7 @@ public class Show implements Serializable{
 	 * Allows <code>StaffAcc</code> to set the date & time of a <code>Show</code>.
 	 * @see StaffCtr
 	 */
-//	change UML for this methods
+
 	public void setTime(Calendar movieTiming){
 		this.showTime = movieTiming;
 	}
@@ -76,33 +74,6 @@ public class Show implements Serializable{
 		Show.basePrice = newBasePrice;
 	}
 	
-//	/**
-//	 * Marks out a seat with a 'X' once it has been booked by a customer in the <code>bookedLayout</code> array.
-//	 * @param row
-//	 * @param column
-//	 */
-////	remove the need for layout class and place the functions in show	
-//	public void bookSeats(char row, int column) {
-//		int tempRow = Character.getNumericValue(row) - 10;
-//		bookedLayout[tempRow][column] = 'X';
-//		
-//	}
-	
-//	/**
-//	 * Checks if the customer's chosen seat has been booked.
-//	 * If it has been booked, then the booking fails.
-//	 * @param row
-//	 * @param column
-//	 * @return boolean indicating whether a chosen seat has previously been booked.
-//	 * @see MovieBookingMgr
-//	 */
-//	public boolean isOccupied(char row, int column) {
-//		int tempRow = Character.getNumericValue(row) - 10;
-//		if (bookedLayout[tempRow][column] == 'X')
-//			return true;
-//		else 
-//			return false;
-//	}
 	
 	/**
 	 * @return <code>Date</code> object containing the <code>Show</code>'s date & time.
@@ -173,11 +144,9 @@ public class Show implements Serializable{
 		   Calendar showTime1 = s1.getShowTime();
 		   Calendar showTime2 = s2.getShowTime();
 
-		   //ascending order
+
 		   return showTime1.compareTo(showTime2);
 		   
-		   //descending order
-		   //return (int) (movieAveRating2 - movieAveRating1);
 
 		   
 	    }

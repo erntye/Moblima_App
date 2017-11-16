@@ -113,7 +113,7 @@ public class Movie implements Serializable{
 	}
 	
 	
-//change class diagram
+
 	/**
 	 * Change the showing status of the movie.
 	 * @param showingStatus
@@ -123,7 +123,7 @@ public class Movie implements Serializable{
 		this.showingStatus = showingStatus;
 	}
 	
-//change class diagram
+
 	/**
 	 * Add a <code>Reviews</code> object to the list of reviews stored in the <code>Movie</code> object.
 	 * Updates the review count variable in the <code>Movie</code> object.
@@ -248,11 +248,10 @@ public class Movie implements Serializable{
 		   float movieAveRating1 = m1.getAverageRating();
 		   float movieAveRating2 = m2.getAverageRating();
 
-		   //descending order
+	
 		   return (int) (movieAveRating2 - movieAveRating1);
 		   
-		   //ascending order
-		   //return StudentName1.compareTo(StudentName2);
+
 	    }
 	};
 	
@@ -267,27 +266,12 @@ public class Movie implements Serializable{
 		   float movieSales1 = m1.getSales();
 		   float movieSales2 = m2.getSales();
 
-		   //descending order
+	
 		   return (int) (movieSales2 - movieSales1);
 		   
-		   //ascending order
-		   //return StudentName1.compareTo(StudentName2); 
+
 	    }
 	};
 
 	
-//	@Override
-//	public int compareTo(Movie compareMovie) {
-//        float compareRating =  ((Movie)compareMovie).getAverageRating();
-//        /* For Descending order do like this */
-//        return (int) (compareRating - this.aveRating);
-//        
-//        /* For Ascending order*/
-//        //return this.studentage-compareage;
-//	}
-	
-//	@Override
-//	public String toString() {
-//        return "[Title =" + title + "Average Rating: " + aveRating + "]";
-//    }
-}
+//	

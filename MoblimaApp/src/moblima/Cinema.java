@@ -53,9 +53,8 @@ public class Cinema implements Serializable{
 	private char[][] seatLayout;
 
 
-//premium is a static which needs to be set by initializer
 
-//maybe constructor may not take in an array list, but construct the arraylist by calling the addshow function
+
 	/**
 	 * Constructor for the <code>Cinema</code> class.
 	 * <br>

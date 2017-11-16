@@ -35,7 +35,7 @@ public class CustAcc extends Account{
 	/**
 	 * Age Category of the customer. Used to calculate prices, with CHILD, STUDENT and SENIOR_CITIZEN having different discounts each.
 	 */
-	public Age_Cat ageCat; //change UML diagram
+	public Age_Cat ageCat; 
 	
 	/**
 	 * Constructor for the <code>CustAcc</code> class.
@@ -93,7 +93,6 @@ public class CustAcc extends Account{
 	 */
 	public void addTransaction(Transaction transactionToAdd){
 		transactionList.add(transactionToAdd);
-		//tell garion to save to database
 		}
 		
 }

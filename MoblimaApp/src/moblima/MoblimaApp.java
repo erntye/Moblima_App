@@ -27,13 +27,7 @@ public class MoblimaApp {
 				loop = false; break;
 			}
 		}
-//		do{
-//			
-////			else if(LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) != 1) {
-////				System.out.println("Login Failed. Try Again.");
-////			}
-//		} while (LoginMgr.getInstance().validate(loginDetails[0], loginDetails[1], loginDetails[2]) != 1);
-		
+
 		
 		ConsoleBoundary.printLogout();
 	}
@@ -41,13 +35,12 @@ public class MoblimaApp {
 	public static void initialiseEverything() {
 		
 		
-		//initialise login manager
+
 		ArrayList<Account> staffArray = DataBoundary.getStaffList();
 		ArrayList<Account> custArray = DataBoundary.getCustList();
 		LoginMgr.getInstance().initialiseAccounts(staffArray, custArray);
 		CineplexList.cineplexList = DataBoundary.getCineplexList();
-		//initialise cineplexlist
-		//initialise moviemanager
+
 
 		MovieList.movieList = DataBoundary.getMovieList();
 		PublicHolidayCalendar.pubHolList = DataBoundary.getPubHolList();

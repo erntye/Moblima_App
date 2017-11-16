@@ -26,7 +26,6 @@ public class CustCtr {
 			choice = ConsoleBoundary.printCustPage();
 			switch(choice) {
 			case 1: ShowBookingMgr.getInstance().bookByMovie(); break;
-//			case 2: MovieBookingMgr.getInstance().bookByCineplex(); break;
 			case 2: ConsoleBoundary.printAllMovieList().addReviews(ConsoleBoundary.printAddReview()); 
 					DataBoundary.saveMovieList(MovieList.movieList);		
 					break;

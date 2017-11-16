@@ -31,7 +31,6 @@ public class ConsoleBoundary {
 	 * <br> 1: Log In. 2: Create Account. 3: Quit.
 	 */
 	public static int printMainMenu() {
-		//sc = new Scanner(System.in);
 		
 		System.out.println("========================================");
 		System.out.println("WELCOME TO  MOBLIMA");
@@ -39,7 +38,7 @@ public class ConsoleBoundary {
 		System.out.println("(1) Log In\n(2) Create Account\n(0) Quit");
 		int choice = sc.nextInt(); 
 		sc.nextLine();
-		//sc.close();
+
 		return choice;
 	}
 	
@@ -49,7 +48,6 @@ public class ConsoleBoundary {
 	 * this method will call the appropriate method in <code>LoginMgr</code> to add an <code>Account</code> object.
 	 */
 	public static void printAddAccount() {
-		//sc = new Scanner(System.in);
 		System.out.println("========================================");
 		System.out.println("CREATE ACCOUNT");
 		System.out.println("========================================");
@@ -65,7 +63,6 @@ public class ConsoleBoundary {
 		
 		System.out.println("Done adding accounts..");
 		
-		//sc.close();
 	}
 	
 	//called by LoginMgr
@@ -78,7 +75,6 @@ public class ConsoleBoundary {
 	 * <br> index[2]: Password.
 	 */
 	public static String[] printLoginPage() {	
-		//sc = new Scanner(System.in);
 		String[] temploginDetails = new String[3];
 		System.out.println("========================================");
 		System.out.println("LOGIN");
@@ -90,7 +86,6 @@ public class ConsoleBoundary {
 		System.out.println("Password: ");
 		temploginDetails[2] = sc.nextLine();
 		System.out.println("Verifying...");
-		//sc.close();
 		return temploginDetails;
 	}
 	
@@ -102,7 +97,6 @@ public class ConsoleBoundary {
 	 */
 	public static String[] printAddStaffAccount() {
 		String[] accountDetails = new String[3];
-		//sc = new Scanner(System.in);
 		
 		System.out.println("========================================");
 		System.out.println("CREATE STAFF ACCOUNT");
@@ -114,7 +108,7 @@ public class ConsoleBoundary {
 		System.out.print("Enter your name: ");
 		accountDetails[2] = sc.nextLine();
 		
-		//sc.close();
+		 
 		return accountDetails;
 	}
 	
@@ -126,7 +120,7 @@ public class ConsoleBoundary {
 	 */
 	public static String[] printAddCustAccount() {
 		String[] accountDetails = new String[6];
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("CREATE CUSTOMER ACCOUNT");
 		System.out.println("========================================");
@@ -142,7 +136,7 @@ public class ConsoleBoundary {
 		accountDetails[4] = sc.nextLine();
 		System.out.print("Enter your age: ");
 		accountDetails[5] = sc.nextLine();
-		//sc.close();
+		 
 		return accountDetails;
 	}
 	
@@ -152,7 +146,7 @@ public class ConsoleBoundary {
 	 * @return <code>Movie</code> object created with user inputs.
 	 */
 	public static Movie printAddMovie() {
-		//sc = new Scanner(System.in);
+		 
 		
 		System.out.println("========================================");
 		System.out.println("ADD MOVIE");
@@ -199,7 +193,7 @@ public class ConsoleBoundary {
 		}
 		Movie movieToAdd = new Movie(title, status, synopsis, director, cast, censorR);
 		
-		//sc.close();
+		 
 		return movieToAdd;
 	}
 	
@@ -224,7 +218,7 @@ public class ConsoleBoundary {
 	 * @return Edited <code>Movie</code> object.
 	 */
 	public static Movie printEditMovie2(Movie movieToEdit) {
-		//sc = new Scanner(System.in);
+		 
 		Movie movieToReplace;
 		System.out.println("Edit Showing Status");
 		System.out.println("Current Showing Status: " + movieToEdit.getShowingStatus());
@@ -256,7 +250,7 @@ public class ConsoleBoundary {
 		default: censorR = Movie.Censorship_Rating.PG;
 		}
 		movieToReplace = new Movie(movieToEdit.getTitle(), status, movieToEdit.getSynopsis(), movieToEdit.getDirector(), movieToEdit.getCast(), censorR);
-		//sc.close();
+		 
 		return movieToReplace;
 //		System.out.println("Edit Synopsis: ");
 //		String synopsis = sc.nextLine();
@@ -321,7 +315,7 @@ public class ConsoleBoundary {
 	 * @return <code>int</code> choice of operations.
 	 */
 	public static int printMovieOps() {
-		//sc = new Scanner(System.in);
+		 
 
 		System.out.println("========================================");
 		System.out.println("MANAGE MOVIES");
@@ -335,7 +329,7 @@ public class ConsoleBoundary {
 		int choice = sc.nextInt();
 		sc.nextLine();
 		
-		//sc.close();
+		 
 		return choice;
 	}
 	
@@ -361,7 +355,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("MANAGE SHOWS");
 		System.out.println("========================================");
-		//sc = new Scanner(System.in);
+		 
 		
 		System.out.println("(1) Add Show");
 		System.out.println("(2) Remove Show");
@@ -369,7 +363,7 @@ public class ConsoleBoundary {
 		System.out.println("(0) Done");
 		int choice = sc.nextInt();
 		sc.nextLine();
-		//sc.close();
+		 
 		return choice;
 	}
 	
@@ -401,7 +395,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("SHOW TIME");
 		System.out.println("========================================");
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("Enter Year: ");
 		int year = sc.nextInt(); sc.nextLine();
 		System.out.println("Enter Month: ");
@@ -413,7 +407,7 @@ public class ConsoleBoundary {
 		System.out.println("Enter Minutes: ");
 		int minute = sc.nextInt();sc.nextLine();
 		Calendar showTime = new GregorianCalendar(year, (month-1), day, hour, minute, 0);
-		//sc.close();
+		 
 		return showTime;
 	}
 	/**
@@ -451,7 +445,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("EDIT SHOW");
 		System.out.println("========================================");
-		//sc = new Scanner(System.in);
+		 
 		
 		System.out.println("Change Movie");
 		System.out.println("Current Movie: " + show.getMovieTitle());
@@ -471,7 +465,7 @@ public class ConsoleBoundary {
 			show.setTime(getShowTime());
 		}
 		
-		//sc.close();
+		 
 	}
 	/**
 	 * Displays all available <code>Show</code>s in the particular <code>Cinema</code>.
@@ -483,7 +477,7 @@ public class ConsoleBoundary {
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW");
 		System.out.println("========================================");
-		//sc = new Scanner(System.in);
+		 
 		ArrayList<Show> tempShows = new ArrayList<Show>();
 		for(int i = 0; i<cinema.getShows().size();i++) {
 			System.out.print("(" + (i+1) + ") ");
@@ -497,7 +491,7 @@ public class ConsoleBoundary {
 		int choice = sc.nextInt();
 		if(choice==0) return null;
 		sc.nextLine();
-		//sc.close();
+		 
 		return tempShows.get(choice-1);
 	}
 	/**
@@ -506,7 +500,7 @@ public class ConsoleBoundary {
 	 */
 	//called by CineplexMgr
 	public static int printCineplexOps() {
-		//sc = new Scanner(System.in);
+		 
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("CINEPLEX OPS");
@@ -515,7 +509,7 @@ public class ConsoleBoundary {
 		System.out.println("(1) Add Cineplex\n(2) Remove Cineplex\n(0) Done");
 		choice = sc.nextInt();
 		sc.nextLine();
-		//sc.close();
+		 
 		return choice;
 	}
 	/**
@@ -524,7 +518,7 @@ public class ConsoleBoundary {
 	 */
 	//called by CineplexMgr
 	public static String[] printAddCineplex() {
-		//sc = new Scanner(System.in);
+		 
 		String[] cineplexDetails = new String[2];
 		System.out.println("========================================");
 		System.out.println("ADD CINEPLEX");
@@ -533,7 +527,7 @@ public class ConsoleBoundary {
 		cineplexDetails[0] = sc.nextLine();
 		System.out.print("Enter 3 letter code of cineplex: ");
 		cineplexDetails[1] = sc.nextLine();
-		//sc.close();
+		 
 		return cineplexDetails;
 	}
 	/**
@@ -556,7 +550,7 @@ public class ConsoleBoundary {
 	 */
 	//called by CinemaMgr
 	public static int printCinemaOps(String cineplexName) {
-		//sc = new Scanner(System.in);
+		 
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("MANAGE CINEMAS");
@@ -566,7 +560,7 @@ public class ConsoleBoundary {
 		System.out.println("(1) Add Cinema\n(2) Remove Cinema\n(0) Done");
 		choice = sc.nextInt();
 		sc.nextLine();
-		//sc.close();
+		 
 		return choice;
 	}
 	/**
@@ -576,7 +570,7 @@ public class ConsoleBoundary {
 	 */
 	//called by CinemaMgr
 	public static String[] printAddCinema(String cineplexName) {
-		//sc = new Scanner(System.in);
+		 
 		String[] cinemaDetails = new String[3];
 		
 		System.out.println("========================================");
@@ -593,7 +587,7 @@ public class ConsoleBoundary {
 		System.out.print("(1) Normal\n(2) Gold Class\n(3) Platinum Class\n");
 		cinemaDetails[2] = sc.nextLine();
 		
-		//sc.close();
+		 
 		return cinemaDetails; //index 0: name; index 1: layout number; index 2: cinema class
 	}
 	
@@ -635,7 +629,7 @@ public class ConsoleBoundary {
 	 */
 	//called by StaffCtr
 	public static int printStaffPage() {
-		//sc = new Scanner(System.in);
+		 
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("STAFF PAGE");
@@ -643,7 +637,7 @@ public class ConsoleBoundary {
 		System.out.println("What would you like to do:");
 		System.out.println("(1) Modify Movies\n(2) Modify Shows\n(3) Modify System Settings\n(4) Modify Cineplexes\n(5) Modify Cinemas\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
-		//sc.close();
+		 
 		return choice;
 	}
 	
@@ -654,14 +648,14 @@ public class ConsoleBoundary {
 	 * @return <code>int</code> indicating customer's chosen menu choice.
 	 */
 	public static int printCustPage() {
-		//sc = new Scanner(System.in);
+		 
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("CUSTOMER PAGE");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:\n(1) Book A Show\n(2) Add a Review\n(3) View Booking History\n(4) List Top 5 Movie By Ratings\n(5) List Top 5 Movie By Sales\n(0) Logout");
 		choice = sc.nextInt(); sc.nextLine();
-		//sc.close();
+		 
 		return choice;
 	}
 	/**
@@ -669,7 +663,7 @@ public class ConsoleBoundary {
 	 * @return <code>Reviews</code> object from the customer's review.
 	 */
 	public static Reviews printAddReview() {
-		//sc = new Scanner(System.in);
+		 
 		int rating = 0;
 		String review, reviewer;
 		System.out.println("========================================");
@@ -688,7 +682,7 @@ public class ConsoleBoundary {
 		System.out.println("Enter Name:\n ");
 		reviewer = sc.nextLine();
 		Reviews reviews = new Reviews(review, rating, reviewer);
-		//sc.close();
+		 
 		return reviews;
 	}
 	
@@ -708,14 +702,14 @@ public class ConsoleBoundary {
 	 * @return <code>int</code> indicating the chosen menu choice.
 	 */
 	public static int printSystemSettingMenu() {
-		//sc = new Scanner(System.in);
+		 
 		int choice = 0;
 		System.out.println("========================================");
 		System.out.println("SYSTEM SETTINGS");
 		System.out.println("========================================");
 		System.out.println("What would you like to do:\n(1) Change Ticket Base Price of: Show \n(2) Change Ticket Base Price of: 3D Show \n(3) Change Ticket Base Price of: Digital Show \n(4) Change Ticket Base Price of: IMAX Show\n(5) Add Public Holiday\n(0) Done");
 		choice = sc.nextInt(); sc.nextLine();
-		//sc.close();
+		 
 		return choice;
 	}
 	
@@ -724,14 +718,14 @@ public class ConsoleBoundary {
 	 * @return <code>float</code> indicating the price to set as the <code>Show</code>'s new base price. 
 	 */
 	public static float askBasePrice() {
-		//sc = new Scanner(System.in);
+		 
 		float basePrice = 0;
 		System.out.println("========================================");
 		System.out.println("CHANGE TICKET BASE PRICE");
 		System.out.println("========================================");
 		System.out.println("Enter New Ticket Base Price: ");
 		basePrice = sc.nextFloat(); sc.nextLine();
-		//sc.close();
+		 
 		return basePrice;
 	}
 	
@@ -740,7 +734,7 @@ public class ConsoleBoundary {
 	 * @return <code>Calendar</code> object indicating the date to set as a public holiday.
 	 */
 	public static Calendar askPubHol() {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("ADD PUBLIC HOLIDAY");
 		System.out.println("========================================");
@@ -752,7 +746,7 @@ public class ConsoleBoundary {
 		System.out.print("Enter Year:");
 		int year = sc.nextInt(); sc.nextLine();
 		Calendar date = new GregorianCalendar(year,month,day);
-		//sc.close();
+		 
 		return date;
 	}
 	/**
@@ -760,7 +754,7 @@ public class ConsoleBoundary {
 	 * @return <code>Movie</code> indicating chosen movie.
 	 */
 	public static Movie printMovieList() {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("MOVIE LIST");
 		System.out.println("========================================");
@@ -776,7 +770,7 @@ public class ConsoleBoundary {
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt(); sc.nextLine();
-		//sc.close();
+		 
 		return temp.get(choice-1);
 	}
 	
@@ -785,7 +779,7 @@ public class ConsoleBoundary {
 	 * @return <code>Movie</code> indicating chosen movie.
 	 */
 	public static Movie printAllMovieList() {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("MOVIE LIST");
 		System.out.println("========================================");
@@ -797,7 +791,7 @@ public class ConsoleBoundary {
 		}
 		System.out.println("Choose a movie: ");
 		choice = sc.nextInt(); sc.nextLine();
-		//sc.close();
+		 
 		return MovieList.movieList.get(choice-1);
 	}
 	
@@ -807,7 +801,7 @@ public class ConsoleBoundary {
 	 * @return <code>boolean</code> indicating if customer wishes to proceed with booking a <code>Show</code> for the selected <code>Movie</code>.
 	 */
 	public static boolean printMovieInfo(Movie movie) {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println(movie.getTitle().toUpperCase() );
 		System.out.println("========================================");
@@ -835,12 +829,12 @@ public class ConsoleBoundary {
 		System.out.println("(1) Proceed to book tickets\n(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		if(choice==1) {
-			//sc.close();
+			 
 			return true;
 		} else if (choice == 0) {
 			ShowBookingMgr.getInstance().setReset(true);
 		} 
-		//sc.close();
+		 
 		return false;
 		
 	}
@@ -849,7 +843,7 @@ public class ConsoleBoundary {
 	 * @return <code>Cineplex</code> indicating chosen cineplex.
 	 */
 	public static Cineplex printChooseCineplex() {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("CHOOSE CINEPLEX");
 		System.out.println("========================================");
@@ -860,10 +854,10 @@ public class ConsoleBoundary {
 		int choice = sc.nextInt(); sc.nextLine();
 		if(choice == 0) {
 			ShowBookingMgr.getInstance().setReset(true);
-			//sc.close();
+			 
 			return null;
 		} else {
-			//sc.close();
+			 
 			return CineplexList.cineplexList.get(choice-1);
 		}
 		
@@ -874,7 +868,7 @@ public class ConsoleBoundary {
 	 * @return <code>Cinema</code> indicating chosen cinema. 
 	 */
 	public static Cinema printChooseCinema(Cineplex cineplex) {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
@@ -885,10 +879,10 @@ public class ConsoleBoundary {
 		int choice = sc.nextInt(); sc.nextLine();
 		if(choice == 0) {
 			ShowBookingMgr.getInstance().setReset(true);
-			//sc.close();
+			 
 			return null;
 		} else {
-			//sc.close();
+			 
 			return cineplex.getCinemaList().get(choice-1);
 		}
 	}
@@ -897,7 +891,7 @@ public class ConsoleBoundary {
 	 * @return <code>String</code> indicating chosen show type.
 	 */
 	public static String printChooseShowType() {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TYPE");
 		System.out.println("========================================");
@@ -910,7 +904,7 @@ public class ConsoleBoundary {
 			case 3: choiceS = "IMAX"; break;
 			case 0: choiceS = null; break;
 		}
-		//sc.close();
+		 
 		return choiceS;
 	}
 	/**
@@ -922,7 +916,7 @@ public class ConsoleBoundary {
 	// Called by MovieBookingMgr
 	public static Show printShowsByMovie(Movie movie, Cinema cinema) {
 		ArrayList<Show> tempShows = new ArrayList<Show>();
-		//sc = new Scanner(System.in);
+		 
 		int count = 1;
 		System.out.println("========================================");
 		System.out.println("CHOOSE SHOW TIME");
@@ -938,11 +932,11 @@ public class ConsoleBoundary {
 		if(tempShows.size()==0){
 			System.out.println("No Shows Available");
 			ShowBookingMgr.getInstance().setReset(true);
-			//sc.close();
+			 
 			return null;
 		}
 		int choice = sc.nextInt(); sc.nextLine();
-		//sc.close();
+		 
 		return tempShows.get(choice-1);
 	}
 	
@@ -953,7 +947,7 @@ public class ConsoleBoundary {
 	 */
 	// Called by MovieBookingMgr
 	public static String[] printLayout (char[][] bookedLayout) {
-		//sc = new Scanner(System.in);
+		 
 		String[] seatNumber = new String[2];
 		System.out.println("========================================");
 		System.out.println("CHOOSE SEAT");
@@ -998,7 +992,7 @@ public class ConsoleBoundary {
 	 * @return <code>Boolean</code> indicating if the user confirms the booking.
 	 */
 	public static boolean printBookingConfirmation(Float price, Cinema cinema) {
-		//sc = new Scanner(System.in);
+		 
 		System.out.println("========================================");
 		System.out.println("CONFIRM BOOKING?");
 		System.out.println("========================================");
@@ -1006,11 +1000,11 @@ public class ConsoleBoundary {
 		System.out.println("(1) Confirm\n(2) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		if(choice==1) {
-			//sc.close();
+			 
 			return true;
 		} else {
 			ShowBookingMgr.getInstance().setReset(true);
-			//sc.close();
+			 
 			return false;
 		}
 	}

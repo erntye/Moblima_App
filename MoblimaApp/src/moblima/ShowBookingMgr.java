@@ -83,7 +83,6 @@ public class ShowBookingMgr {
 			proceed = ConsoleBoundary.printMovieInfo(movie); if(reset) break;
 			if(proceed) cineplex = ConsoleBoundary.printChooseCineplex(); if(reset) break;
 			cinema = ConsoleBoundary.printChooseCinema(cineplex); if(reset) break;
-//			showType = ConsoleBoundary.printChooseShowType(); if(reset) break;
 			cinema.sortShowsByTime();
 			show = ConsoleBoundary.printShowsByMovie(movie, cinema); if(reset) break;
 			price = cinema.calculatePrice(show,(CustAcc)LoginMgr.getInstance().loggedInAccount);
@@ -107,14 +106,4 @@ public class ShowBookingMgr {
 		} while (!reset);
 		
 	}
-	
-//	public void bookByCineplex(){
-//		do {
-//			Cineplex cineplex = ConsoleBoundary.printCineplexList();
-//			Show show = ConsoleBoundary.printShowsByCineplex(cineplex);
-//			String[] seatNumber = ConsoleBoundary.printLayout(show);
-//			int confirm = ConsoleBoundary.printBookingConfirmation(show, seatNumber); if(reset) break;
-//			ConsoleBoundary.printTransaction(confirm); if(reset) break;
-//		} while (!reset);
-//	}
 }
