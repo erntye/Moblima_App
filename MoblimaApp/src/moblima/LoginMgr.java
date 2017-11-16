@@ -170,6 +170,10 @@ public class LoginMgr {
 		this.custArray = custArray;
 	}
 	
+	/**
+	 * Gets a reference to the <code>ArrayList&lt;Account&gt;</code> of customer accounts.
+	 * @return <code>ArrayList&lt;Account&gt;</code> Customer Accounts.
+	 */
 	public ArrayList<Account> getCustList(){
 		return custArray;
 	}
