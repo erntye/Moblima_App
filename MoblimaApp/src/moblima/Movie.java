@@ -238,10 +238,10 @@ public class Movie implements Serializable{
 	
 	// Sort by Rating
 	/**
-	 * Compares the 
+	 * Creates a comparator to compare ratings of <code>Movie</code> objects. Used for the sorting of movies by ratings.
 	 */
 	public static Comparator<Movie> MovieRatingComparator = new Comparator<Movie>() {
-
+		
 		public int compare(Movie m1, Movie m2) {
 		   float movieAveRating1 = m1.getAverageRating();
 		   float movieAveRating2 = m2.getAverageRating();
@@ -251,12 +251,13 @@ public class Movie implements Serializable{
 		   
 		   //ascending order
 		   //return StudentName1.compareTo(StudentName2);
-
-		   
 	    }
 	};
 	
 	// Sort by Sales
+	/**
+	 * Creates a comparator to compare sales of <code>Movie</code> objects. Used for the sorting of movies by sales.
+	 */
 	public static Comparator<Movie> MovieSalesComparator = new Comparator<Movie>() {
 
 		public int compare(Movie m1, Movie m2) {
@@ -267,9 +268,7 @@ public class Movie implements Serializable{
 		   return (int) (movieSales2 - movieSales1);
 		   
 		   //ascending order
-		   //return StudentName1.compareTo(StudentName2);
-
-		   
+		   //return StudentName1.compareTo(StudentName2); 
 	    }
 	};
 
