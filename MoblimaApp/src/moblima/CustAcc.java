@@ -19,6 +19,7 @@ public class CustAcc extends Account{
 			this.mobileNumber = mobileNumber;
 			this.email = email;
 			this.ageCat = ageCat;
+			this.transactionList = new ArrayList<Transaction>();
 		}
 		
 	public AgeCat getAgeCat() {

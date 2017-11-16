@@ -21,7 +21,7 @@ public class CinemaMgr {
 			case 1: addCinema(cineplex); break;
 			case 2: removeCinema(cineplex); break;
 			case 3: changePremium(); break;
-			case 9: loop = false; break;
+			case 0: loop = false; break;
 			}
 			DataBoundary.saveCineplexList(CineplexList.cineplexList);
 		}

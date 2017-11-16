@@ -27,17 +27,26 @@ public class ShowMgr {
 		if(showType == null)
 			return;
 		cinemaToAddTo.createShow(movieToAdd.getTitle(), showTime, showType);
+		cinemaToAddTo.sortShowsByTime();
 	}
 	
 	public void removeShow() {
 		Cinema cinemaToRemoveFrom = ConsoleBoundary.printRemoveShow();
+		if(cinemaToRemoveFrom == null)
+			return;
 		Show showToRemove = ConsoleBoundary.printShowList(cinemaToRemoveFrom);
+		if(showToRemove == null)
+			return;
 		cinemaToRemoveFrom.removeShow(showToRemove);
 	}
 	
 	public void editShow() {
 		Cinema cinemaToEditFrom = ConsoleBoundary.printEditShow();
+		if(cinemaToEditFrom == null)
+			return;
 		Show showToEdit = ConsoleBoundary.printShowList(cinemaToEditFrom);
+		if(showToEdit == null)
+			return;
 		ConsoleBoundary.printEditShowDetails(showToEdit);
 	}
 	
@@ -49,7 +58,7 @@ public class ShowMgr {
 			case 1: addShow();break;
 			case 2: removeShow(); break;
 			case 3: editShow(); break;
-			case 9: loop = false; break;
+			case 0: loop = false; break;
 			}
 			DataBoundary.saveCineplexList(CineplexList.cineplexList);
 		}

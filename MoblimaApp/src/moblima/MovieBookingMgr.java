@@ -10,7 +10,7 @@ public class MovieBookingMgr {
 	private Show show;
 	private Movie movie;
 	private String showType;
-	private char[] seatNumber = new char[2];
+	private String[] seatNumber = new String[2];
 	private boolean proceed, confirm;
 	private float price;
 	
@@ -34,15 +34,24 @@ public class MovieBookingMgr {
 //			showType = ConsoleBoundary.printChooseShowType(); if(reset) break;
 			cinema.sortShowsByTime();
 			show = ConsoleBoundary.printShowsByMovie(movie, cinema); if(reset) break;
-			price = cinema.calculatePrice(show);
-			seatNumber = ConsoleBoundary.printLayout(show); if(reset) break;
+			price = cinema.calculatePrice(show,(CustAcc)LoginMgr.getInstance().loggedInAccount);
+			char[][] bookedLayout = show.getBookedLayout();
+			seatNumber = ConsoleBoundary.printLayout(bookedLayout); if(reset) break;
 			confirm = ConsoleBoundary.printBookingConfirmation(price, cinema); if(reset) break;
-			if(confirm) {
+			if(confirm && show.setBookedLayout(seatNumber)) {
 				CustAcc c = (CustAcc) LoginMgr.getInstance().loggedInAccount;
 				Transaction latest = new Transaction(cineplex, Calendar.getInstance(), movie.getTitle());
+				System.out.println(latest.getTid());
+				movie.setSales(movie.getSales()+price);
+				DataBoundary.saveMovieList(MovieList.movieList);
 				c.transactionList.add(latest);
+				DataBoundary.saveCineplexList(CineplexList.cineplexList);
+				DataBoundary.saveCustList(LoginMgr.getInstance().getCustList());
 				ConsoleBoundary.printTransaction(c,latest, show, showType, seatNumber, price); if(reset) break;
+			} else if (!show.setBookedLayout(seatNumber)) {
+				ConsoleBoundary.printInvalidSeat();
 			}
+			reset = true;
 		} while (!reset);
 		
 	}

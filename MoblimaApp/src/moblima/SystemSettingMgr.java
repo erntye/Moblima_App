@@ -17,21 +17,25 @@ public class SystemSettingMgr {
 			choice = ConsoleBoundary.printSystemSettingMenu();
 			switch(choice) {
 			case 1: 
-				Show.setBasePrice(ConsoleBoundary.askBasePrice()); 
+				Show.setBasePrice(ConsoleBoundary.askBasePrice());
+				CSVBoundary.saveBasePrices();
 				break;
 			case 2: 
-				Show3D.setBasePrice(ConsoleBoundary.askBasePrice()); 
+				Show3D.setBasePrice(ConsoleBoundary.askBasePrice());
+				CSVBoundary.saveBasePrices();
 				break;
 			case 3:
-				ShowDigital.setBasePrice(ConsoleBoundary.askBasePrice()); 
+				ShowDigital.setBasePrice(ConsoleBoundary.askBasePrice());
+				CSVBoundary.saveBasePrices();
 				break;
 			case 4:
-				ShowIMAX.setBasePrice(ConsoleBoundary.askBasePrice()); 
+				ShowIMAX.setBasePrice(ConsoleBoundary.askBasePrice());
+				CSVBoundary.saveBasePrices();
 				break;
 			case 5: 
-				MovieCalendar.addPubHol(ConsoleBoundary.askPubHol()); 
+				PublicHolidayCalendar.addPubHol(ConsoleBoundary.askPubHol()); 
 				break;
 			}
-		} while (choice != 9);
+		} while (choice != 0);
 	}
 }

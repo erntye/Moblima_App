@@ -28,8 +28,27 @@ public class Cinema implements Serializable{
 		
 	}
 
-	public float calculatePrice(Show show) { 
-		return show.getBasePrice() + premium;
+	public float calculatePrice(Show show, CustAcc custAcc) { 
+		float price = show.getBasePrice() + premium;
+		if(PublicHolidayCalendar.isPubHol(show.getShowTime())) {
+			System.out.println("CALCULATE PRICE PICLISALNDKS HOLISADHYY");
+			price += PublicHolidayCalendar.getPublicHolidayPremium();
+		}
+		switch(custAcc.getAgeCat()) {
+		case CHILD:
+			price *= 0.25;
+			break;
+		case STUDENT:
+			price *= 0.50;
+			break;
+		case ADULT:
+			break;
+		case SENIOR_CITIZEN:
+			price *= 0.50;
+			break;
+		}
+		
+		return price;
 	}
 	
 	public static void setPremium(float newPremium){
@@ -39,11 +58,11 @@ public class Cinema implements Serializable{
 	public void createShow(String movie, Calendar showTime, String showType){
 		switch(showType) {
 		case "Digital":
-			shows.add(new ShowDigital(movie,showTime, seatLayout.clone()));
+			shows.add(new ShowDigital(movie,showTime, seatLayout.clone())); break;
 		case "3D":
-			shows.add(new Show3D(movie,showTime, seatLayout.clone()));
+			shows.add(new Show3D(movie,showTime, seatLayout.clone())); break;
 		case "IMAX":
-			shows.add(new ShowIMAX(movie,showTime, seatLayout.clone()));
+			shows.add(new ShowIMAX(movie,showTime, seatLayout.clone())); break;
 		}
 	}
 	

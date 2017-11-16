@@ -116,4 +116,8 @@ public class LoginMgr {
 		this.staffArray = staffArray;
 		this.custArray = custArray;
 	}
+	
+	public ArrayList<Account> getCustList(){
+		return custArray;
+	}
 }

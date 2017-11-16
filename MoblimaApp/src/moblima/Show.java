@@ -28,7 +28,7 @@ public class Show implements Serializable{
 		this.showTime = movieTiming;
 	}
 	
-	public float getBasePrice() {
+	public static float getBasePrice() {
 		return basePrice;
 	}
 	
@@ -55,6 +55,11 @@ public class Show implements Serializable{
 		return showTime;
 	}
 	
+	public String getShowTimeString(){
+		return new String(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH)+1) + " " + 
+				showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
+	}
+	
 	public String getMovieTitle() {
 		return movie;
 	}
@@ -71,6 +76,14 @@ public class Show implements Serializable{
 	
 	public String getShowType() {
 		return " ";
+	}
+	
+	public Boolean setBookedLayout(String[] seatNumber) {
+		if(bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] == 'X') {
+			return false;
+		};
+		bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] = 'X';
+		return true;
 	}
 	
 	public static Comparator<Show> ShowTimeComparator = new Comparator<Show>() {
