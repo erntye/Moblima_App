@@ -854,7 +854,7 @@ public class ConsoleBoundary {
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		if(choice == 0) {
-			MovieBookingMgr.reset = true;
+			MovieBookingMgr.setReset(true);
 			//sc.close();
 			return null;
 		} else {
@@ -879,7 +879,7 @@ public class ConsoleBoundary {
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		if(choice == 0) {
-			MovieBookingMgr.reset = true;
+			MovieBookingMgr.setReset(true);
 			//sc.close();
 			return null;
 		} else {
@@ -932,7 +932,7 @@ public class ConsoleBoundary {
 		}
 		if(tempShows.size()==0){
 			System.out.println("No Shows Available");
-			MovieBookingMgr.reset = true;
+			MovieBookingMgr.setReset(true);
 			//sc.close();
 			return null;
 		}
@@ -1004,7 +1004,7 @@ public class ConsoleBoundary {
 			//sc.close();
 			return true;
 		} else {
-			MovieBookingMgr.reset = true;
+			MovieBookingMgr.setReset(true);
 			//sc.close();
 			return false;
 		}
