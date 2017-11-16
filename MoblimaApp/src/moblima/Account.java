@@ -32,6 +32,8 @@ public abstract class Account implements Serializable{
 	 * @param username User's chosen username.
 	 * @param password User's chosen password.
 	 * @param name User's name.
+	 * @see StaffAcc
+	 * @see CustAcc
 	 */
 	public Account(String username, String password, String name) {
 		this.username = username;
@@ -48,7 +50,7 @@ public abstract class Account implements Serializable{
 	 * @param username Username captured by the system at log in.
 	 * @param password Password captured by the system at log in.
 	 * @return Integer value representing results of the method:
-	 * <p> Returns 1 if login is successful, 2 if password is wrong, 3 if username not found.
+	 * <br>1 if login is successful, 2 if password is wrong, 3 if username not found.
 	 */
 	public int verifyLogin(String username, String password) {
 		if (this.username.equals(username)) {
