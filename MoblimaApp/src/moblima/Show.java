@@ -57,9 +57,17 @@ public class Show implements Serializable{
 	/**
 	 * @return <code>float</code> value of <code>Show</code>'s base price.
 	 */
-	public static float getBasePrice() {
+	public float getBasePrice() {
 		return basePrice;
 	}
+	
+	/**
+	 * @return <code>float</code> value of <code>Show</code>'s base price. Method is static for saving in the database.
+	 */
+	public static float getBasePriceForSaving(){
+		return basePrice;
+	}
+	
 	/**
 	 * Allows <code>StaffAcc</code> to set the base price of a <code>Show</code>.
 	 * @see StaffCtr
@@ -107,8 +115,8 @@ public class Show implements Serializable{
 	 * @return <code>String</code> object containing the <code>Show</code>'s date & time.
 	 */
 	public String getShowTimeString(){
-		return new String(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH)+1) + " " + 
-				showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
+		return String.format("%02d",showTime.get(Calendar.DAY_OF_MONTH)) + "/" + String.format("%02d",(showTime.get(Calendar.MONTH)+1)) + " " + 
+				String.format("%02d",showTime.get(Calendar.HOUR_OF_DAY)) + ":"+ String.format("%02d",showTime.get(Calendar.MINUTE));
 	}
 	
 	/**

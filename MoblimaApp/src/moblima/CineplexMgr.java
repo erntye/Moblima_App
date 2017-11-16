@@ -38,7 +38,7 @@ public class CineplexMgr {
 	 * Adds a <code>Cineplex</code> object to the static list of cineplexes in the <code>CineplexList</code> class.
 	 * Calls to the <code>ConsoleBoundary</code> to interact with the user for the cineplex details.
 	 */
-	public void addCineplex() {
+	private void addCineplex() {
 		String[] cineplexDetails = ConsoleBoundary.printAddCineplex();
 		CineplexList.addCineplex(cineplexDetails[0], cineplexDetails[1]);
 	}
@@ -47,7 +47,7 @@ public class CineplexMgr {
 	 * Removes a <code>Cineplex</code> object from the static list of cineplexes in the <code>CineplexList</code> class.
 	 * Calls to the <code>ConsoleBoundary</code> to interact with the user for the cineplex details.
 	 */
-	public void removeCineplex() {
+	private void removeCineplex() {
 		CineplexList.removeCineplex(ConsoleBoundary.printRemoveCineplex());
 	}
 }

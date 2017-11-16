@@ -383,7 +383,10 @@ public class ConsoleBoundary {
 		System.out.println("ADD SHOWS");
 		System.out.println("========================================");
 		System.out.println("Choose the Cineplex and Cinema you want to add the show to, then choose the movie and enter the show time.");
-		Cinema cinema = printChooseCinema(printChooseCineplex());
+		Cineplex cineplex = printChooseCineplex();
+		if(cineplex == null)
+			return null;
+		Cinema cinema = printChooseCinema(cineplex);
 		return cinema;
 	}
 	
@@ -587,7 +590,7 @@ public class ConsoleBoundary {
 		System.out.print("Enter your layout choice: ");
 		cinemaDetails[1] = sc.nextLine();
 		System.out.println("Choose the Cinema Class");
-		System.out.print("(1) Normal\n(2) Gold Class\n(3) Platinum Class");
+		System.out.print("(1) Normal\n(2) Gold Class\n(3) Platinum Class\n");
 		cinemaDetails[2] = sc.nextLine();
 		
 		//sc.close();
@@ -694,6 +697,8 @@ public class ConsoleBoundary {
 	 * @param c
 	 */
 	public static void printBookingHistory(CustAcc c) {
+		if (c.getTransactionList().size() == 0)
+			System.out.println("No Bookings Found");
 		for(int i = c.getTransactionList().size()-1; i>=0;i--) {
 			System.out.println("Transaction ID: " + c.getTransactionList().get(i).getTid() + "\n\tDate & Time: " + c.getTransactionList().get(i).getDate() + "\n\tMovie Title:" + c.getTransactionList().get(i).getMovieTitle());
 		}
@@ -743,7 +748,7 @@ public class ConsoleBoundary {
 		System.out.print("Enter Day:");
 		int day = sc.nextInt(); sc.nextLine();
 		System.out.print("Enter Month:");
-		int month = sc.nextInt(); sc.nextLine();
+		int month = sc.nextInt() - 1 ; sc.nextLine();
 		System.out.print("Enter Year:");
 		int year = sc.nextInt(); sc.nextLine();
 		Calendar date = new GregorianCalendar(year,month,day);

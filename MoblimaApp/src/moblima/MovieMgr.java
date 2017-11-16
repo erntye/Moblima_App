@@ -21,7 +21,7 @@ public class MovieMgr {
 	 * Adds new <code> Movie</code> object into <code>Movie List</code>.
 	 * @see MovieList
 	 */
-	public void addMovie() {
+	private void addMovie() {
 		MovieList.addMovie(ConsoleBoundary.printAddMovie());
 	}
 	
@@ -29,7 +29,7 @@ public class MovieMgr {
 	 * Removes selected <code> Movie</code> object from <code>Movie List</code>.
 	 * @see MovieList
 	 */
-	public void removeMovie() {
+	private void removeMovie() {
 		MovieList.removeMovie(ConsoleBoundary.printRemoveMovie());
 	}
 	
@@ -37,7 +37,7 @@ public class MovieMgr {
 	 * Edits details of selected <code> Movie</code> object in <code>Movie List</code>.
 	 * @see MovieList
 	 */
-	public void editMovie() {
+	private void editMovie() {
 		Movie movieToEdit = ConsoleBoundary.printEditMovie();
 		Movie movietoReplace = ConsoleBoundary.printEditMovie2(movieToEdit);
 		int index = MovieList.movieList.indexOf(movieToEdit);

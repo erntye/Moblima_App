@@ -197,10 +197,10 @@ public class CSVBoundary {
 			if (!file.exists())
 				file.createNewFile();
 			float[] basePrices = new float[4];
-			basePrices[0] = Show.getBasePrice();
-			basePrices[1] = ShowDigital.getBasePrice();
-			basePrices[2] = Show3D.getBasePrice();
-			basePrices[3] = ShowIMAX.getBasePrice();
+			basePrices[0] = Show.getBasePriceForSaving();
+			basePrices[1] = ShowDigital.getBasePriceForSaving();
+			basePrices[2] = Show3D.getBasePriceForSaving();
+			basePrices[3] = ShowIMAX.getBasePriceForSaving();
  				
 			BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 			String temp = basePrices[0] + ", " + basePrices[1] + ", " + basePrices[2] + ", " + basePrices[3];

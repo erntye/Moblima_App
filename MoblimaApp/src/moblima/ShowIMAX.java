@@ -24,11 +24,19 @@ public class ShowIMAX extends Show {
 		super(movie, showTime, cinemaLayout);
 	}
 	/**
-	 * @return <code>float</code> value of <code>ShowIMAX</code>'s base price.
+	 * @return <code>float</code> value of <code>Show</code>'s base price. Method is static for saving in the database.
 	 */
-	public static float getBasePrice() {
+	public static float getBasePriceForSaving() {
 		return basePrice;
 	}
+	
+	/**
+	 * @return <code>float</code> value of <code>ShowDigital</code>'s base price.
+	 */
+	public float getBasePrice(){
+		return basePrice;
+	}
+	
 	/**
 	 * Allows <code>StaffAcc</code> to set the <code>Base Price</code> of an <code>IMAX Show</code>.
 	 * @see StaffCtr

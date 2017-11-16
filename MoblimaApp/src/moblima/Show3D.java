@@ -25,9 +25,17 @@ public class Show3D extends Show {
 	/**
 	 * @return <code>float</code> value of <code>Show3D</code>'s base price.
 	 */
-	public static float getBasePrice() {
+	public float getBasePrice() {
 		return basePrice;
 	}
+	
+	/**
+	 * @return <code>float</code> value of <code>Show</code>'s base price. Method is static for saving in the database.
+	 */
+	public static float getBasePriceForSaving(){
+		return basePrice;
+	}
+	
 	/**
 	 * Allows <code>StaffAcc</code> to set the <code>Base Price</code> of an <code>IMAX Show</code>.
 	 * @see StaffCtr

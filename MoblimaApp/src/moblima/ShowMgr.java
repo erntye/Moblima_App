@@ -22,7 +22,7 @@ public class ShowMgr {
 	 * Add a <code>Show</code> object to a chosen <code>Cinema</code> and <code> Cineplex</code>.
 	 * Asks user to input <code>Movie Title</code>, <code>Cinema</code>, <code>Show Time</code> and <code>Show Type</code>.
 	 */
-	public void addShow() {
+	private void addShow() {
 		Cinema cinemaToAddTo = ConsoleBoundary.printAddShow();
 		if(cinemaToAddTo == null)
 			return;
@@ -43,7 +43,7 @@ public class ShowMgr {
 	 * Removes a particular <code> Show</code> object from a <code> Cinema</code>'s <code>Show List</code>.
 	 * @see Cinema
 	 */
-	public void removeShow() {
+	private void removeShow() {
 		Cinema cinemaToRemoveFrom = ConsoleBoundary.printRemoveShow();
 		if(cinemaToRemoveFrom == null)
 			return;
@@ -56,7 +56,7 @@ public class ShowMgr {
 	 * Edits a particular <code> Show</code> object from a <code> Cinema</code>'s <code>Show List</code>.
 	 * @see Cinema
 	 */
-	public void editShow() {
+	private void editShow() {
 		Cinema cinemaToEditFrom = ConsoleBoundary.printEditShow();
 		if(cinemaToEditFrom == null)
 			return;

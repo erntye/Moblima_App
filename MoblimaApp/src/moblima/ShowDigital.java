@@ -20,10 +20,18 @@ public class ShowDigital extends Show {
 	public ShowDigital(String movie, Calendar showTime, char[][] cinemaLayout) {
 		super(movie, showTime, cinemaLayout);
 	}
+	
+	/**
+	 * @return <code>float</code> value of <code>Show</code>'s base price. Method is static for saving in the database.
+	 */
+	public static float getBasePriceForSaving() {
+		return basePrice;
+	}
+	
 	/**
 	 * @return <code>float</code> value of <code>ShowDigital</code>'s base price.
 	 */
-	public static float getBasePrice() {
+	public float getBasePrice(){
 		return basePrice;
 	}
 	/**

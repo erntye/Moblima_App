@@ -13,7 +13,7 @@ public class CineplexList {
 	/**
 	 * <code>ArrayList&lt;Cineplex&gt;</code> of <code>Cineplex</code> objects.
 	 */
-	public static ArrayList<Cineplex> cineplexList = new ArrayList<Cineplex>();
+	public static ArrayList<Cineplex> cineplexList;
 
 	/**
 	 * Creates a <code>Cineplex</code> and adds it to the list.

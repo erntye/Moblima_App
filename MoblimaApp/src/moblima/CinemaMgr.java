@@ -40,7 +40,7 @@ public class CinemaMgr {
 	 * Adds a <code>Cinema</code> object to the list of cinemas in a <code>Cineplex</code> object.
 	 * @param cineplex <code>Cineplex</code> object to add the cinema to.
 	 */
-	public void addCinema(Cineplex cineplex) {
+	private void addCinema(Cineplex cineplex) {
 		String[] movieDetails = ConsoleBoundary.printAddCinema(cineplex.getName());
 		int layoutNumber = Integer.parseInt(movieDetails[1]);
 		switch(Integer.parseInt(movieDetails[2])) {
@@ -67,7 +67,7 @@ public class CinemaMgr {
 	 * Removes a <code>Cinema</code> object from the list of cinemas in a <code>Cineplex</code> object.
 	 * @param cineplex <code>Cineplex</code> object to remove the cinema from.
 	 */
-	public void removeCinema(Cineplex cineplex) {
+	private void removeCinema(Cineplex cineplex) {
 		Cinema cinemaToRemove = ConsoleBoundary.printRemoveCinema(cineplex);
 		cineplex.removeCinema(cinemaToRemove);
 		System.out.println("Cinema removed");
@@ -77,7 +77,7 @@ public class CinemaMgr {
 	 * Change the premium value of the cinema type (Standard, Gold Class, Platinum Class).
 	 * <br>Makes a call to the <code>ConsoleBoundary</code> to get the user input.
 	 */
-	public void changePremium() {
+	private void changePremium() {
 		float[] changePremiumDetails = ConsoleBoundary.printChangePremium();
 		switch((int)changePremiumDetails[0]) {
 		case 1: //normal
