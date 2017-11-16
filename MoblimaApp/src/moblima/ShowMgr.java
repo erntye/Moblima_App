@@ -3,6 +3,7 @@ package moblima;
 import java.util.Calendar;
 /**
  * Manage <code> Shows</code> by adding, editing or removing.
+ * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
  * @author DanSeb
  *
  */

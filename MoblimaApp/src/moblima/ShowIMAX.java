@@ -3,7 +3,7 @@ import java.util.Calendar;
 /**
  * Inherits from <code> Account</code> class.
  * @author DanSeb
- * @see Account
+ * @see Show
  *
  */
 public class ShowIMAX extends Show {
@@ -19,7 +19,9 @@ public class ShowIMAX extends Show {
 	public ShowIMAX(String movie, Calendar showTime, char[][] cinemaLayout) {
 		super(movie, showTime, cinemaLayout);
 	}
-
+	/**
+	 * @return <code>float</code> value of <code>ShowIMAX</code>'s base price.
+	 */
 	public static float getBasePrice() {
 		return basePrice;
 	}
@@ -30,6 +32,9 @@ public class ShowIMAX extends Show {
 		ShowIMAX.basePrice = newBasePrice; 
 	}
 	
+	/**
+	 * @return <code>String</code> containing show type.
+	 */
 	public String getShowType() {
 		return "IMAX";
 	}

@@ -45,14 +45,24 @@ public class Transaction implements Serializable{
 		this.movieTitle = movieTitle;
 	}
 	
+	/**
+	 * 
+	 * @return String containing <code>Transaction</code> ID.
+	 */
 	public String getTid() {
 		return tid;
 	}
 	
+	/**
+	 * 
+	 * @return <code>String</code> containing movie title booked.
+	 */
 	public String getMovieTitle() {
 		return movieTitle;
 	}
-	
+	/**
+	 * @return <code>String</code> containing <code> Transaction</code> date.
+	 */
 	public String getDate() {
 		return date;
 	}
