@@ -11,7 +11,7 @@ public class MovieBookingMgr {
 	 * Reset flag which causes the console to exit the booking screen and return to the main customer menu page.
 	 * @see CustCtr
 	 */
-	static boolean reset = false;
+	private boolean reset = false;
 	/**
 	 * Stores the <code>Cineplex</code> that the customer has chosen. 
 	 */
@@ -59,8 +59,8 @@ public class MovieBookingMgr {
 		return instance;
 	}
 	
-	public static void setReset(boolean b) {
-		reset = b;
+	public void setReset(boolean b) {
+		this.reset = b;
 	}
 	
 	/**
