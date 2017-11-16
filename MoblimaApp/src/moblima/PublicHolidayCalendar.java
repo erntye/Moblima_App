@@ -8,6 +8,7 @@ import java.util.GregorianCalendar;
  * Entity class storing all the public holiday dates.
  * <code>Show</code> dates are checked against this list to add a public holiday premium to its ticket prices.
  * @see Cinema
+ * @see SystemSettingMgr
  */
 public class PublicHolidayCalendar implements Serializable{					
 	/**

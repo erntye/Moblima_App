@@ -34,6 +34,12 @@ public class Show implements Serializable{
 	
 //basePrice is not set in constructor, it is set in main before instantialization of show objects
 //the first time Show is created, it takes in the array of the Cinema class to create an empty array of fixed size
+	/**
+	 * <code>Show</code> constructor.
+	 * @param movie
+	 * @param showTime
+	 * @param cinemaLayout
+	 */
 	public Show(String movie,Calendar showTime,char[][] cinemaLayout){
 		this.movie = movie;
 		this.showTime = showTime;
@@ -42,6 +48,7 @@ public class Show implements Serializable{
 
 	/**
 	 * Allows <code>StaffAcc</code> to set the date & time of a <code>Show</code>.
+	 * @see StaffCtr
 	 */
 //	change UML for this methods
 	public void setTime(Calendar movieTiming){
@@ -55,6 +62,7 @@ public class Show implements Serializable{
 	}
 	/**
 	 * Allows <code>StaffAcc</code> to set the base price of a <code>Show</code>.
+	 * @see StaffCtr
 	 */
 	public static void setBasePrice(float newBasePrice){
 		Show.basePrice = newBasePrice;
@@ -111,6 +119,7 @@ public class Show implements Serializable{
 	}
 	/**
 	 * Allows <code>StaffAcc</code> to set the movie Title of a <code>Show</code>.
+	 * @see StaffCtr
 	 */
 	public void setMovieTitle(String movieTitle) {
 		movie = movieTitle;

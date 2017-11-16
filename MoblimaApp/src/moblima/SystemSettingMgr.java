@@ -3,6 +3,7 @@ package moblima;
  * Allows <code> StaffAcc </code> to edit System Settings.
  * Called by the <code> StaffCtr</code>.
  * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ * @see StaffCtr
  *
  */
 public class SystemSettingMgr {

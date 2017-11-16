@@ -11,7 +11,12 @@ public class ShowDigital extends Show {
 	 */
 	private static final long serialVersionUID = -6262724137447971700L;
 	private static float basePrice;
-	
+	/**
+	 * <code>ShowDigital</code> constructor.
+	 * @param movie
+	 * @param showTime
+	 * @param cinemaLayout
+	 */
 	public ShowDigital(String movie, Calendar showTime, char[][] cinemaLayout) {
 		super(movie, showTime, cinemaLayout);
 	}
@@ -23,6 +28,7 @@ public class ShowDigital extends Show {
 	}
 	/**
 	 * Allows <code>StaffAcc</code> to set the <code>Base Price</code> of an <code>Digital Show</code>.
+	 * @see StaffCtr
 	 */
 	public static void setBasePrice(float newBasePrice){
 		ShowDigital.basePrice = newBasePrice; 

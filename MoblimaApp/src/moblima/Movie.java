@@ -90,7 +90,6 @@ public class Movie implements Serializable{
 	 * The censorship rating for the movie, containing {G, PG, PG13, NC16, M18, R21}.
 	 */
 	private Censorship_Rating censorshipRating;
-	
 	/**
 	 * Constructor for the <code>Movie</code> class.
 	 * @param title Movie title.

@@ -2,9 +2,10 @@ package moblima;
 
 import java.util.Calendar;
 /**
- * Manage <code> Shows</code> by adding, editing or removing.
+ * Manage <code> Shows</code> by adding to, editing or removing from <code>Cinema</code>'s <code>showList</code>.
  * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
- *
+ * @see Show
+ * @see Cinema
  */
 public class ShowMgr {
 	
@@ -40,6 +41,7 @@ public class ShowMgr {
 	
 	/**
 	 * Removes a particular <code> Show</code> object from a <code> Cinema</code>'s <code>Show List</code>.
+	 * @see Cinema
 	 */
 	public void removeShow() {
 		Cinema cinemaToRemoveFrom = ConsoleBoundary.printRemoveShow();
@@ -52,6 +54,7 @@ public class ShowMgr {
 	}
 	/**
 	 * Edits a particular <code> Show</code> object from a <code> Cinema</code>'s <code>Show List</code>.
+	 * @see Cinema
 	 */
 	public void editShow() {
 		Cinema cinemaToEditFrom = ConsoleBoundary.printEditShow();
