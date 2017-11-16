@@ -1,7 +1,10 @@
 package moblima;
 
 import java.util.ArrayList;
-
+/** Manages all the Movie-related operations.
+ * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ *
+ */
 public class MovieMgr {
 	
 	//implements singleton pattern
@@ -13,15 +16,26 @@ public class MovieMgr {
 		return instance;
 	}
 	
-	
+	/**
+	 * Adds new <code> Movie</code> object into <code>Movie List</code>.
+	 * @see MovieList
+	 */
 	public void addMovie() {
 		MovieList.addMovie(ConsoleBoundary.printAddMovie());
 	}
 	
+	/**
+	 * Removes selected <code> Movie</code> object from <code>Movie List</code>.
+	 * @see MovieList
+	 */
 	public void removeMovie() {
 		MovieList.removeMovie(ConsoleBoundary.printRemoveMovie());
 	}
 	
+	/**
+	 * Edits details of selected <code> Movie</code> object in <code>Movie List</code>.
+	 * @see MovieList
+	 */
 	public void editMovie() {
 		Movie movieToEdit = ConsoleBoundary.printEditMovie();
 		Movie movietoReplace = ConsoleBoundary.printEditMovie2(movieToEdit);
@@ -29,7 +43,15 @@ public class MovieMgr {
 		MovieList.movieList.add(index, movietoReplace);
 		MovieList.removeMovie(movieToEdit);
 	}
-	
+
+	/**
+	 * Controls the <code>MovieMgr</code> logic.
+	 * <p> 1. Adds <code>Movie</code>.
+	 * <br> 2. Remove <code>Movie</code>.
+	 * <br> 3. Edit <code>Movie</code>.
+	 * <br> 4. Show Top 5 <code>Movie</code>s by sales.
+	 * <br> 5. Show Top 5 <code>Movie</code>s by ratings.
+	 */
 	public void movieOps() {
 		boolean loop = true;
 		while(loop) {
@@ -45,12 +67,17 @@ public class MovieMgr {
 			DataBoundary.saveMovieList(MovieList.movieList);
 		}
 	}
-	
+	/**
+	 * Displays the top 5 <code>Movie</code>s in descending order of total sales.
+	 */
 	public void top5Sales() {
 		MovieList.sortBySales();
 		ConsoleBoundary.printTopSales();
 	}
 	
+	/**
+	 * Displays the top 5 <code>Movie</code>s in descending order of average ratings.
+	 */
 	public void top5Ratings() {
 		MovieList.sortByRating();
 		ConsoleBoundary.printTopRatings();

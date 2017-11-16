@@ -2,7 +2,6 @@ package moblima;
 import java.util.Calendar;
 /**
  * Inherits from <code> Account</code> class.
- * @author DanSeb
  * @see Show
  *
  */

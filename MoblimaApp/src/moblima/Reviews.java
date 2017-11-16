@@ -3,7 +3,6 @@ import java.io.*;
 /**
  * Allows <code>CustAcc</code> to add <code>Reviews</code> for a <code>Movie</code> object.
  * @see Movie
- * @author DanSeb
  */
 public class Reviews implements Serializable{
 	/**
