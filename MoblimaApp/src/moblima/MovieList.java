@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.ArrayList;
 /**
  * <code>MovieList</code> class which stores all the available <code>Movie</code>s.
+ * @see Movie
  */
 public class MovieList {
 	/**
@@ -26,6 +27,7 @@ public class MovieList {
 	/**
 	 * Sorts all the <code>Movie</code> objects in <code>movieList</code> in descending order of average ratings.
 	 * @param movieToAdd
+	 * @see Movie
 	 */
 	public static void sortByRating() {
 		Collections.sort(movieList, Movie.MovieRatingComparator);
@@ -34,6 +36,7 @@ public class MovieList {
 	/**
 	 * Sorts all the <code>Movie</code> objects in <code>movieList</code> in descending order of total sales.
 	 * @param movieToAdd
+	 * @see Movie
 	 */
 	public static void sortBySales() {
 		Collections.sort(movieList, Movie.MovieSalesComparator);

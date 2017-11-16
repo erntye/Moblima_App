@@ -3,6 +3,7 @@ import java.io.*;
 /**
  * Allows <code>CustAcc</code> to add <code>Reviews</code> for a <code>Movie</code> object.
  * @see Movie
+ * @see CustCtr
  */
 public class Reviews implements Serializable{
 	/**
@@ -21,7 +22,12 @@ public class Reviews implements Serializable{
 	 * stores name of reviewer <code>String</code> of <code>Reviews</code> object.
 	 */
 	private String reviewer;
-	
+	/**
+	 * <code>Reviews</code> constructor.
+	 * @param content
+	 * @param rating
+	 * @param reviewer
+	 */
 	public Reviews(String content, int rating, String reviewer){
 		this.content = content;
 		this.rating = rating;

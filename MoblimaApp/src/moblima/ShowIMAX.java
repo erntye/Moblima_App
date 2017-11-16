@@ -14,7 +14,12 @@ public class ShowIMAX extends Show {
 	 * Stores the <code>Base Price</code> of an <code> IMAX Show </code>.
 	 */
 	private static float basePrice;
-	
+	/**
+	 * <code>ShowIMAX</code> constructor.
+	 * @param movie
+	 * @param showTime
+	 * @param cinemaLayout
+	 */
 	public ShowIMAX(String movie, Calendar showTime, char[][] cinemaLayout) {
 		super(movie, showTime, cinemaLayout);
 	}
@@ -26,6 +31,7 @@ public class ShowIMAX extends Show {
 	}
 	/**
 	 * Allows <code>StaffAcc</code> to set the <code>Base Price</code> of an <code>IMAX Show</code>.
+	 * @see StaffCtr
 	 */
 	public static void setBasePrice(float newBasePrice){
 		ShowIMAX.basePrice = newBasePrice; 

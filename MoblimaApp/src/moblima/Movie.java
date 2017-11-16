@@ -46,6 +46,16 @@ public class Movie implements Serializable{
 //		this.sales = sales;
 //		this.censorshipRating = censorshipRating;	
 //	}
+	
+	/**
+	 * <code>Movie</code> constructor.
+	 * @param title
+	 * @param showingStatus
+	 * @param synopsis
+	 * @param director
+	 * @param cast
+	 * @param censorshipRating
+	 */
 	public Movie(String title, Showing_Status showingStatus, String synopsis,
 			String director, String[] cast, Censorship_Rating censorshipRating){
 		this.title = title; 

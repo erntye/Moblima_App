@@ -3,6 +3,11 @@ package moblima;
  * Main logic for <code> StaffAcc</code>.
  * Controls <code> staffOperations()</code>.
  * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ * @see MovieMgr
+ * @see ShowMgr
+ * @see SystemSettingMgr
+ * @see CineplexMgr
+ * @see CinemaMgr
  */
 public class StaffCtr {
 	

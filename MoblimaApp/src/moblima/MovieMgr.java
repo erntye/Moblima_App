@@ -3,7 +3,8 @@ package moblima;
 import java.util.ArrayList;
 /** Manages all the Movie-related operations.
  * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
- *
+ * @see MovieList
+ * @see Movie
  */
 public class MovieMgr {
 	

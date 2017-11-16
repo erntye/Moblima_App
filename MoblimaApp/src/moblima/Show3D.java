@@ -13,7 +13,12 @@ public class Show3D extends Show {
 	 * Stores the <code>Base Price</code> of a <code> Digital Show </code>.
 	 */
 	private static float basePrice;
-	
+	/**
+	 * <code>Show3D</code> constructor.
+	 * @param movie
+	 * @param showTime
+	 * @param cinemaLayout
+	 */
 	public Show3D(String movie, Calendar showTime, char[][] cinemaLayout) {
 		super(movie, showTime, cinemaLayout);
 	}
@@ -25,6 +30,7 @@ public class Show3D extends Show {
 	}
 	/**
 	 * Allows <code>StaffAcc</code> to set the <code>Base Price</code> of an <code>IMAX Show</code>.
+	 * @see StaffCtr
 	 */
 	public static void setBasePrice(float newBasePrice){
 		Show3D.basePrice = newBasePrice; 

@@ -3,6 +3,7 @@ import java.util.Calendar;
 import java.io.*;
 /**
  * Transactions for Customer's booking history
+ * @see CustAcc
  *
  */
 public class Transaction implements Serializable{
@@ -24,7 +25,7 @@ public class Transaction implements Serializable{
 	private String movieTitle;
 	
 	/**
-	 * Transaction Constructor.
+	 * <code>Transaction</code> constructor.
 	 * @param cineplex
 	 * @param date
 	 * @param movieTitle
