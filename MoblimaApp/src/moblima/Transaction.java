@@ -39,7 +39,13 @@ public class Transaction implements Serializable{
 			day = "0" + day;
 		}
 		String hour = Integer.toString(date.get(Calendar.HOUR_OF_DAY));
+		if(date.get(Calendar.HOUR_OF_DAY)<10) {
+			day = "0" + hour;
+		}
 		String minute = Integer.toString(date.get(Calendar.MINUTE));
+		if(date.get(Calendar.MINUTE)<10) {
+			day = "0" + minute;
+		}
 		this.date = year+month+day+hour+minute;
 		this.tid = code + this.date;
 		this.movieTitle = movieTitle;
