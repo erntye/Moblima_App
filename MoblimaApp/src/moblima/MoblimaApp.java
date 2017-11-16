@@ -9,12 +9,7 @@ public class MoblimaApp {
 	public static void main(String[] args){
 		initialiseEverything();
 		
-		GregorianCalendar showTime = new GregorianCalendar(2017,10,14, 14, 30, 00);
-		System.out.println(showTime.get(Calendar.DAY_OF_MONTH) + "/" + (showTime.get(Calendar.MONTH)) + " " + 
-				showTime.get(Calendar.HOUR_OF_DAY) + ":"+ showTime.get(Calendar.MINUTE));
-		
-		
-		
+
 		String[] loginDetails = new String[3];
 		
 		//Main Menu: ask log in or create account
