@@ -57,5 +57,13 @@ public class CinemaGold extends Cinema{
 		
 		return price;
 	}
+	
+	/**
+	 * Gets the premium for the <code>Cinema</code> instance.
+	 * @return float <code>premium</code>
+	 */
+	public static float getPremium() {
+		return premium;
+	}
 }
 

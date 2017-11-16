@@ -93,5 +93,6 @@ public class CinemaMgr {
 			System.out.println("Platinum Class Cinema premium updated!");
 			break;
 		}
+		CSVBoundary.saveCinemaPremium();
 	}
 }
