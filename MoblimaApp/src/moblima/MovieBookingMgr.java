@@ -58,6 +58,11 @@ public class MovieBookingMgr {
 		}
 		return instance;
 	}
+	
+	public static void setReset(boolean b) {
+		reset = b;
+	}
+	
 	/**
 	 * Manages the movie booking process and displays ticket prices.
 	 * Generates <code>Transaction</code> object and adds it into the <code>CustAcc</code>'s booking history.

@@ -819,21 +819,21 @@ public class ConsoleBoundary {
 			System.out.println("Average Rating: N/A");
 		} else {
 			System.out.println("Average Rating: " + movie.getAverageRating());
+			System.out.println("Past Reviews: ");
+			for(int i = 0; i<movie.getReviews().size();i++) {
+				System.out.println("Reviewer: " + movie.getReviews().get(i).getReviewer());
+				System.out.println("\tRating: " + movie.getReviews().get(i).getRating());
+				System.out.println("\tReview: " + movie.getReviews().get(i).getContent());
+			}
 		}
 		
-		System.out.println("Past Reviews: ");
-		for(int i = 0; i<movie.getReviews().size();i++) {
-			System.out.println("Reviewer: " + movie.getReviews().get(i).getReviewer());
-			System.out.println("\tRating: " + movie.getReviews().get(i).getRating());
-			System.out.println("\tReview: " + movie.getReviews().get(i).getContent());
-		}
 		System.out.println("(1) Proceed to book tickets\n(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
 		if(choice==1) {
 			//sc.close();
 			return true;
 		} else if (choice == 0) {
-			MovieBookingMgr.reset = true;
+			MovieBookingMgr.setReset(true);
 		} 
 		//sc.close();
 		return false;
