@@ -3,7 +3,6 @@ import java.util.Calendar;
 import java.io.*;
 /**
  * Transactions for Customer's booking history
- * @author DanSeb
  *
  */
 public class Transaction implements Serializable{

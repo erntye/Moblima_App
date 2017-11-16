@@ -5,7 +5,6 @@ package moblima;
  * To allow extension for future <code>staffOperations</code>.
  * @see Account
  * @see StaffCtr
- * @author DanSeb
  *
  */
 

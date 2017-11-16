@@ -4,12 +4,31 @@ import java.util.ArrayList;
 
 /**
  * Controller class for managing <code>Account</code> objects.
- * <br> Stores the <code>ArrayList&lt;Account&gt; 
+ * <br> Stores the <code>ArrayList&lt;Account&gt;</code> of staff accounts and customer accounts. Manages the operations
+ * related to the accounts, including adding, removing, and validating logins.
  * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ * @see CustAcc
+ * @see StaffAcc
  */
 public class LoginMgr {
+	/**
+	 * <code>ArrayList&lt;Account&gt;</code> of Staff Accounts.
+	 * <br><code>StaffAcc</code> objects are created, then upcasted to <code>Account</code> types and stored in the array list.
+	 * @see StaffAcc
+	 */
 	ArrayList<Account> staffArray;
+	
+	/**
+	 * <code>ArrayList&lt;Account&gt;</code> of Customer Accounts.
+	 * <br><code>CustAcc</code> objects are created, then upcasted to <code>Account</code> types and stored in the array list.
+	 * @see CustAcc
+	 */
 	ArrayList<Account> custArray;
+	
+	/**
+	 * A reference of the account that is logged into. After the username and passwords are validated, and the user 
+	 * is logged into the account, the reference to the <code>CustAcc</code> or <code>StaffAcc</code> is saved in this variable.
+	 */
 	Account loggedInAccount;
 	
 	
@@ -22,6 +41,10 @@ public class LoginMgr {
 		return instance;
 	}
 	
+	/**
+	 * Manages the log in process by obtaining the user's username and password from <code>ConsoleBoundary</code> and
+	 * calling the <code>validate</code> function.
+	 */
 	public void login() {
 		String[] loginDetails = ConsoleBoundary.printLoginPage();
 		int validateReturn = validate(loginDetails[0], loginDetails[1], loginDetails[2]);
@@ -46,7 +69,17 @@ public class LoginMgr {
 	//return 1: login success
 	//return 2: wrong password
 	//return 3: user name not found in array
-	//return 4: account type invalid 
+	//return 4: account type invalid
+	/**
+	 * Validates the username and password from the user by calling the <code>verifyLogin</code> function in each <code>Account</code>
+	 * object in Staff Account and Customer Account lists respectively.
+	 * @param accType The type of account that is being logged in. (Customer or Staff)
+	 * @param username Username entered by the user.
+	 * @param password Password entered by the user.
+	 * @return Integer value of the results of the validation.
+	 * <br> 1: Log In successful. 2: Password incorrect. 3: Account not found.
+	 * @see Account
+	 */
 	public int validate(String accType, String username, String password) {
 		int result = 0;
 		int accountType = Integer.parseInt(accType);
@@ -84,6 +117,10 @@ public class LoginMgr {
 		}
 	}
 	
+	/**
+	 * Creates a <code>CustAcc</code> object, upcast it to an <code>Account</code> object and store it in the
+	 * customer accounts list.
+	 */
 	public void addCustAccount() {
 		String[] accountDetails = ConsoleBoundary.printAddCustAccount();
 		double mobileNumber = Double.parseDouble(accountDetails[3]);
@@ -107,6 +144,10 @@ public class LoginMgr {
 		}
 	}
 	
+	/**
+	 * Creates a <code>StaffAcc</code> object, upcast it to an <code>Account</code> object and store it in the
+	 * staff accounts list.
+	 */
 	public void addStaffAccount() {
 		String[] accountDetails = ConsoleBoundary.printAddStaffAccount();
 		StaffAcc newAcc = new StaffAcc(accountDetails[0],accountDetails[1],accountDetails[2]);
@@ -117,6 +158,13 @@ public class LoginMgr {
 		}
 	}
 	
+	/**
+	 * Initialises the <code>LoginMgr</code> singleton object with the staff and customer lists from the database.
+	 * @param staffArray List of staff accounts.
+	 * @param custArray List of customer accounts.
+	 * @see CustAcc
+	 * @see StaffAcc
+	 */
 	public void initialiseAccounts(ArrayList<Account> staffArray, ArrayList<Account> custArray) {
 		this.staffArray = staffArray;
 		this.custArray = custArray;

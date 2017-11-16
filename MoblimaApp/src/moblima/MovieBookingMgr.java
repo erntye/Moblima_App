@@ -1,17 +1,52 @@
 package moblima;
 import java.util.Scanner;
 import java.util.Calendar;
-
+/**
+ * The <code> Controller</code> class which manages the entire booking process for <code>CustAcc</code>.
+ * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
+ */
 public class MovieBookingMgr {
 	Scanner sc;
+	/**
+	 * Reset flag which causes the console to exit the booking screen and return to the main customer menu page.
+	 * @see CustCtr
+	 */
 	static boolean reset = false;
+	/**
+	 * Stores the <code>Cineplex</code> that the customer has chosen. 
+	 */
 	private Cineplex cineplex;
+	/**
+	 * Stores the <code>Cinema</code> that the customer has chosen. 
+	 */
 	private Cinema cinema;
+	/**
+	 * Stores the <code>Show</code> that the customer has chosen. 
+	 */
 	private Show show;
+	/**
+	 * Stores the <code>Movie</code> that the customer has chosen. 
+	 */
 	private Movie movie;
+	/**
+	 * Stores the show type that the customer has chosen. 
+	 */
 	private String showType;
+	/**
+	 * Stores the seat number that the customer has chosen. 
+	 */
 	private String[] seatNumber = new String[2];
-	private boolean proceed, confirm;
+	/**
+	 * Conditional flag to check if user wants to proceed to choose a <code>Show</code> for the selected <code>Movie</code>. 
+	 */
+	private boolean proceed;
+	/**
+	 * Conditional flag to check if user wants to confirm the booking for the chosen <code>Show</code> for the selected <code>Movie</code>. 
+	 */
+	private boolean confirm;
+	/**
+	 * Stores the ticket price for the selected <code>Show</code>. 
+	 */
 	private float price;
 	
 	
@@ -23,7 +58,19 @@ public class MovieBookingMgr {
 		}
 		return instance;
 	}
-	
+	/**
+	 * Manages the movie booking process and displays ticket prices.
+	 * Generates <code>Transaction</code> object and adds it into the <code>CustAcc</code>'s booking history.
+	 * Adds ticket price onto the <code> Movie</code>'s total sales.
+	 * <p> 1. Choose movie.
+	 * <br> 2. View movie info.
+	 * <br> 3. Choose cineplex.
+	 * <br> 4. Choose cinema.
+	 * <br> 5. Choose show date & time.
+	 * <br> 6. Choose seat number.
+	 * <br> 7. Confirm booking.
+	 * <br> 8. Displays completed transaction.
+	 */
 	public void bookByMovie(){ //need to save seat booking into layout files
 		do {reset = false;
 			proceed = false; confirm = false;

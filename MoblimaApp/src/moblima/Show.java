@@ -5,7 +5,6 @@ import java.io.*;
 /**
  * <code>Show</code> objects represents the different shows available for a particular <code>Movie</code>.
  * <code> Show</code> objects are stored under a particular <code> Cinema</code>'s <code>Show List</code>.
- * @author DanSeb
  * @see Cinema
  */
 //change UML to include Date class and baseprice as static
