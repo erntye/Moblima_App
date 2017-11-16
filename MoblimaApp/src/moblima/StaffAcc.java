@@ -1,5 +1,14 @@
 package moblima;
 
+/**
+ * Inherits from <code>Account</code> class.
+ * To allow extension for future <code>staffOperations</code>.
+ * @see Account
+ * @see StaffCtr
+ * @author DanSeb
+ *
+ */
+
 public class StaffAcc extends Account{
 	
 	/**

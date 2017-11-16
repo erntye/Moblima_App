@@ -1,5 +1,10 @@
 package moblima;
-
+/**
+ * Allows <code> StaffAcc </code> to edit System Settings.
+ * Called by the <code> StaffCtr</code>.
+ * @author DanSeb
+ *
+ */
 public class SystemSettingMgr {
 	int choice;
 	
@@ -12,6 +17,16 @@ public class SystemSettingMgr {
 		return instance;
 	}
 	
+	/**
+	 * Controls the Systems Setting logic.
+	 * Calls the appropriate methods according to user input.
+	 * <p>1. Sets base price of <code> Show </code> object.
+	 * <br>2. Sets base price of <code> Show3D </code> object.
+	 * <br>3. Sets base price of <code> ShowDigital </code> object.
+	 * <br>4. Sets base price of <code> ShowIMAX </code> object.
+	 * <br>5. Adds a new public holiday <code> date</code>.
+	 * @see PublicHolidayCalendar
+	 */
 	public void sysSetOps() {
 		do {
 			choice = ConsoleBoundary.printSystemSettingMenu();

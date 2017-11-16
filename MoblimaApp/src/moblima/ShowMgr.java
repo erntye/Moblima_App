@@ -1,7 +1,11 @@
 package moblima;
 
 import java.util.Calendar;
-
+/**
+ * Manage <code> Shows</code> by adding, editing or removing.
+ * @author DanSeb
+ *
+ */
 public class ShowMgr {
 	
 	//implement Singleton structure
@@ -13,6 +17,10 @@ public class ShowMgr {
 		return instance;
 	}
 	
+	/**
+	 * Add a <code>Show</code> object to a chosen <code>Cinema</code> and <code> Cineplex</code>.
+	 * Asks user to input <code>Movie Title</code>, <code>Cinema</code>, <code>Show Time</code> and <code>Show Type</code>.
+	 */
 	public void addShow() {
 		Cinema cinemaToAddTo = ConsoleBoundary.printAddShow();
 		if(cinemaToAddTo == null)
@@ -30,6 +38,9 @@ public class ShowMgr {
 		cinemaToAddTo.sortShowsByTime();
 	}
 	
+	/**
+	 * Removes a particular <code> Show</code> object from a <code> Cinema</code>'s <code>Show List</code>.
+	 */
 	public void removeShow() {
 		Cinema cinemaToRemoveFrom = ConsoleBoundary.printRemoveShow();
 		if(cinemaToRemoveFrom == null)
@@ -39,7 +50,9 @@ public class ShowMgr {
 			return;
 		cinemaToRemoveFrom.removeShow(showToRemove);
 	}
-	
+	/**
+	 * Edits a particular <code> Show</code> object from a <code> Cinema</code>'s <code>Show List</code>.
+	 */
 	public void editShow() {
 		Cinema cinemaToEditFrom = ConsoleBoundary.printEditShow();
 		if(cinemaToEditFrom == null)
@@ -49,7 +62,13 @@ public class ShowMgr {
 			return;
 		ConsoleBoundary.printEditShowDetails(showToEdit);
 	}
-	
+	/**
+	 * Controls the <code>ShowMgr</code> logic.
+	 * Calls the appropriate methods according to user input.
+	 * <p>1. Adds a <code> Show </code> object.
+	 * <br>2. Removes a <code> Show </code> object.
+	 * <br>3. Edits a <code> Show </code> object.
+	 */
 	public void showOps() {
 		boolean loop = true;
 		while(loop) {

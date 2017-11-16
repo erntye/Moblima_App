@@ -1,5 +1,8 @@
 package moblima;
-
+/**
+ * Main logic for <code> StaffAcc</code>.
+ * Controls <code> staffOperations()</code>.
+ */
 public class StaffCtr {
 	
 	//implement Singleton structure
@@ -11,6 +14,19 @@ public class StaffCtr {
 		return instance;
 	}
 	
+	/**
+	 * Redirects the <code> StaffAcc</code> to the appropriate page.
+	 * <p> 1. Manage <code>Movies</code>.
+	 * <br> 2. Manage <code>Shows</code>.
+	 * <br> 3. Manage <code>System Settings</code>.
+	 * <br> 4. Manage <code>Cineplexes</code>.
+	 * <br> 5. Manage <code>Cinemas</code>.
+	 * @see MovieMgr
+	 * @see ShowMgr
+	 * @see SystemSettingMgr
+	 * @see CineplexMgr
+	 * @see CinemaMgr
+	 */
 	public void staffOperations(){
 		int choice;
 		do {
