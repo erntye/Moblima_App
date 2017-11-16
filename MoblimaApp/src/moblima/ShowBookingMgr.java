@@ -5,7 +5,7 @@ import java.util.Calendar;
  * The <code> Controller</code> class which manages the entire booking process for <code>CustAcc</code>.
  * <p>Implements a Singleton structure. The instance can be called with <code>getInstance()</code>.
  */
-public class MovieBookingMgr {
+public class ShowBookingMgr {
 	Scanner sc;
 	/**
 	 * Reset flag which causes the console to exit the booking screen and return to the main customer menu page.
@@ -51,10 +51,10 @@ public class MovieBookingMgr {
 	
 	
 	//implement Singleton structure
-	private static MovieBookingMgr instance;
-	public static MovieBookingMgr getInstance() {
+	private static ShowBookingMgr instance;
+	public static ShowBookingMgr getInstance() {
 		if(instance == null) {
-			instance = new MovieBookingMgr();
+			instance = new ShowBookingMgr();
 		}
 		return instance;
 	}

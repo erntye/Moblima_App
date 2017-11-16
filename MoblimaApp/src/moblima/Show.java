@@ -145,7 +145,7 @@ public class Show implements Serializable{
 	 * Otherwise, the chosen seat will be marked with 'X' in the <code>bookedLayout</code> array.
 	 * @param seatNumber
 	 * @return <code> Boolean</code> value indicating success of seat booking.
-	 * @see MovieBookingMgr
+	 * @see ShowBookingMgr
 	 */
 	public Boolean setBookedLayout(String[] seatNumber) {
 		if(bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] == 'X') {

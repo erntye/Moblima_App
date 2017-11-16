@@ -25,14 +25,14 @@ public class CustCtr {
 		do {
 			choice = ConsoleBoundary.printCustPage();
 			switch(choice) {
-			case 1: MovieBookingMgr.getInstance().bookByMovie(); break;
+			case 1: ShowBookingMgr.getInstance().bookByMovie(); break;
 //			case 2: MovieBookingMgr.getInstance().bookByCineplex(); break;
 			case 2: ConsoleBoundary.printAllMovieList().addReviews(ConsoleBoundary.printAddReview()); 
 					DataBoundary.saveMovieList(MovieList.movieList);		
 					break;
 			case 3: ConsoleBoundary.printBookingHistory((CustAcc) LoginMgr.getInstance().loggedInAccount); break;
-			case 4: MovieList.sortByRating(); ConsoleBoundary.printTopRatings(); break;
-			case 5: MovieList.sortBySales(); ConsoleBoundary.printTopSales();break;
+			case 4: MovieMgr.getInstance().top5Ratings(); break;
+			case 5: MovieMgr.getInstance().top5Sales();break;
 			}
 		} while (choice != 0);
 		ConsoleBoundary.printLogout();
