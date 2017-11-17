@@ -127,10 +127,16 @@ public class Show implements Serializable{
 	 * @see ShowBookingMgr
 	 */
 	public Boolean setBookedLayout(String[] seatNumber) {
-		if(bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] == 'X') {
+		int tempCol = Integer.parseInt(seatNumber[1]) - 1;
+		int tempRow = Character.getNumericValue(seatNumber[0].charAt(0))-10;
+		for (int i = 0; i< tempCol; i++ ){
+			if (bookedLayout[tempRow][i] == '|')
+				tempCol++;
+		}
+		if(bookedLayout[tempRow][tempCol] == 'X') {
 			return false;
 		};
-		bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] = 'X';
+		bookedLayout[tempRow][tempCol] = 'X';
 		return true;
 	}
 	
