@@ -65,5 +65,9 @@ public class CinemaGold extends Cinema{
 	public static float getPremium() {
 		return premium;
 	}
+	
+	public String printCinemaClass() {
+		return "Gold Class";
+	}
 }
 
