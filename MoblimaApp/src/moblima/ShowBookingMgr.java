@@ -92,7 +92,6 @@ public class ShowBookingMgr {
 			if(confirm && show.setBookedLayout(seatNumber)) {
 				CustAcc c = (CustAcc) LoginMgr.getInstance().loggedInAccount;
 				Transaction latest = new Transaction(cineplex, Calendar.getInstance(), movie.getTitle());
-				System.out.println(latest.getTid());
 				movie.setSales(movie.getSales()+price);
 				DataBoundary.saveMovieList(MovieList.movieList);
 				c.transactionList.add(latest);

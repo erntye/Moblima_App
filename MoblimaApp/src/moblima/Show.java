@@ -123,14 +123,20 @@ public class Show implements Serializable{
 	 * If it has been booked, then the booking fails.
 	 * Otherwise, the chosen seat will be marked with 'X' in the <code>bookedLayout</code> array.
 	 * @param seatNumber
-	 * @return <code> Boolean</code> value indicating success of seat booking.
+	 * @return <code> boolean</code> value indicating success of seat booking.
 	 * @see ShowBookingMgr
 	 */
-	public Boolean setBookedLayout(String[] seatNumber) {
-		if(bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] == 'X') {
+	public boolean setBookedLayout(String[] seatNumber) {
+		int tempCol = Integer.parseInt(seatNumber[1]) - 1;
+		int tempRow = Character.getNumericValue(seatNumber[0].charAt(0))-10;
+		for (int i = 0; i< tempCol; i++ ){
+			if (bookedLayout[tempRow][i] == '|')
+				tempCol++;
+		}
+		if(bookedLayout[tempRow][tempCol] == 'X') {
 			return false;
 		};
-		bookedLayout[Character.getNumericValue(seatNumber[0].charAt(0))-10][Integer.parseInt(seatNumber[1])] = 'X';
+		bookedLayout[tempRow][tempCol] = 'X';
 		return true;
 	}
 	
@@ -150,6 +156,14 @@ public class Show implements Serializable{
 
 		   
 	    }
+		
+	
 	};
 
+	public boolean isWeekend() {
+		if(showTime.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || showTime.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+			return true;
+		}else
+			return false;
+	}
 }

@@ -274,17 +274,17 @@ public class ConsoleBoundary {
 		if(MovieList.movieList.size()>=5) {
 			for(int i = 0; i<5; i++) {
 				if(MovieList.movieList.get(i).getReviewCount()==0) {
-					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t\t Average Rating: N/A");
 				} else {
-					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
 				}
 			}
 		} else {
 			for(int i = 0; i<MovieList.movieList.size(); i++) {
 				if(MovieList.movieList.get(i).getReviewCount()==0) {
-					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: N/A");
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t\t Average Rating: N/A");
 				} else {
-					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
+					System.out.println("Title: " + MovieList.movieList.get(i).getTitle() + "\t\t Average Rating: " + MovieList.movieList.get(i).getAverageRating());
 				}
 			}
 		}
@@ -675,11 +675,11 @@ public class ConsoleBoundary {
 //		}
 //		choice = sc.nextInt();
 //		Movie movie = MovieList.movieList.get(choice-1);
-		System.out.println("Enter Rating:\n ");
+		System.out.println("Enter Rating (1-5): ");
 		rating = sc.nextInt(); sc.nextLine();
-		System.out.println("Enter Review:\n ");
+		System.out.println("Enter Review: ");
 		review = sc.nextLine();
-		System.out.println("Enter Name:\n ");
+		System.out.println("Enter Name: ");
 		reviewer = sc.nextLine();
 		Reviews reviews = new Reviews(review, rating, reviewer);
 		 
@@ -773,7 +773,7 @@ public class ConsoleBoundary {
 			System.out.println("Choose a movie: ");
 			choice = sc.nextInt(); sc.nextLine();
 			if(temp.get(choice-1).getShowingStatus() == Movie.Showing_Status.ComingSoon) {
-				System.out.print("The Movie is coming soon but not yet available at this point in time. Sorry!");
+				System.out.println("The Movie is coming soon but not yet available at this point in time. Sorry!");
 				loop = true;
 			}else
 				loop = false;
@@ -881,7 +881,7 @@ public class ConsoleBoundary {
 		System.out.println("CHOOSE CINEMA");
 		System.out.println("========================================");
 		for(int i = 0 ; i < cineplex.getCinemaList().size();i++) {
-			System.out.println("("+ (i+1) + ") " +  cineplex.getCinemaList().get(i).getName());
+			System.out.println("("+ (i+1) + ") Cinema " +  cineplex.getCinemaList().get(i).getName()+ "\t\tClass: " + cineplex.getCinemaList().get(i).printCinemaClass());
 		}
 		System.out.println("(0) Cancel");
 		int choice = sc.nextInt(); sc.nextLine();
