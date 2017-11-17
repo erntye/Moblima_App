@@ -754,7 +754,7 @@ public class ConsoleBoundary {
 	 * @return <code>Movie</code> indicating chosen movie.
 	 */
 	public static Movie printMovieList() {
-		 
+
 		System.out.println("========================================");
 		System.out.println("MOVIE LIST");
 		System.out.println("========================================");
@@ -762,15 +762,23 @@ public class ConsoleBoundary {
 		int count = 1;
 		ArrayList<Movie> temp = new ArrayList<Movie>();
 		for(int i = 0; i < MovieList.movieList.size(); i++) {
-			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended && MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.ComingSoon) {
+			if(MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.Ended) {// && MovieList.movieList.get(i).getShowingStatus() != Movie.Showing_Status.ComingSoon) {
 				temp.add(MovieList.movieList.get(i));
-				System.out.println("("+count + ") " + MovieList.movieList.get(i).getTitle() + "\n");
+				System.out.println("("+count + ") " + MovieList.movieList.get(i).getTitle() + " Status: " + MovieList.movieList.get(i).getShowingStatus() +"\n");
 				count++;
 			}
 		}
-		System.out.println("Choose a movie: ");
-		choice = sc.nextInt(); sc.nextLine();
-		 
+		boolean loop = false;
+		do {
+			System.out.println("Choose a movie: ");
+			choice = sc.nextInt(); sc.nextLine();
+			if(temp.get(choice-1).getShowingStatus() == Movie.Showing_Status.ComingSoon) {
+				System.out.print("The Movie is coming soon but not yet available at this point in time. Sorry!");
+				loop = true;
+			}else
+				loop = false;
+		}while(loop);
+
 		return temp.get(choice-1);
 	}
 	

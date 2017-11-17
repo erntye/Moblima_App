@@ -247,8 +247,6 @@ public class Movie implements Serializable{
 		public int compare(Movie m1, Movie m2) {
 		   float movieAveRating1 = m1.getAverageRating();
 		   float movieAveRating2 = m2.getAverageRating();
-
-	
 		   return (int) (movieAveRating2 - movieAveRating1);
 		   
 
@@ -264,14 +262,12 @@ public class Movie implements Serializable{
 
 		public int compare(Movie m1, Movie m2) {
 		   float movieSales1 = m1.getSales();
-		   float movieSales2 = m2.getSales();
-
-	
-		   return (int) (movieSales2 - movieSales1);
-		   
+		   float movieSales2 = m2.getSales();	
+		   return (int) (movieSales2 - movieSales1);	   
 
 	    }
 	};
 
+}	
 	
 //	
