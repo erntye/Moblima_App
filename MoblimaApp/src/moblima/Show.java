@@ -1,6 +1,10 @@
 package moblima;
 import java.util.Calendar;
 import java.util.Comparator;
+
+import javax.swing.plaf.basic.BasicComboPopup.InvocationKeyHandler;
+import javax.xml.crypto.dsig.CanonicalizationMethod;
+
 import java.io.*;
 /**
  * <code>Show</code> objects represents the different shows available for a particular <code>Movie</code>.
@@ -41,7 +45,29 @@ public class Show implements Serializable{
 	public Show(String movie,Calendar showTime,char[][] cinemaLayout){
 		this.movie = movie;
 		this.showTime = showTime;
-		this.bookedLayout = cinemaLayout;
+		int columns = 0;
+		int rows = 0;
+		for (char[] row:cinemaLayout) {
+			if (row[0] != '|') break;
+			rows++;
+		}
+		this.bookedLayout = new char[rows][cinemaLayout.length];
+		for(int i =0; i<rows;i++) {
+			for(int j = 0; j<cinemaLayout.length;j++) {
+				this.bookedLayout[i][j] = cinemaLayout[i][j];
+			}
+		}
+//		for (char[] row:cinemaLayout) {
+//			columns++;
+//		}
+//		System.out.println(columns);
+//		System.out.println(cinemaLayout.length);
+//		this.bookedLayout = new char[cinemaLayout.length][columns];
+//		for(int i=0; i<cinemaLayout.length;i++) {
+//			for(int j=0;j<columns;j++) {
+//				this.bookedLayout[i][j] = cinemaLayout[i][j];
+//			}
+//		}
 	}
 
 	/**
@@ -129,14 +155,14 @@ public class Show implements Serializable{
 	public boolean setBookedLayout(String[] seatNumber) {
 		int tempCol = Integer.parseInt(seatNumber[1]) - 1;
 		int tempRow = Character.getNumericValue(seatNumber[0].charAt(0))-10;
-		for (int i = 0; i< tempCol; i++ ){
+		for (int i = 0; i<= tempCol; i++ ){
 			if (bookedLayout[tempRow][i] == '|')
 				tempCol++;
 		}
 		if(bookedLayout[tempRow][tempCol] == 'X') {
 			return false;
 		};
-		bookedLayout[tempRow][tempCol] = 'X';
+		this.bookedLayout[tempRow][tempCol] = 'X';
 		return true;
 	}
 	
